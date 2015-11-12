@@ -49,7 +49,12 @@ public class TbAplicativoDAO {
 		}
 	}
 	
-	//Falta clase por IF
+	public TbAplicativo daTbAplicativoById(String cAplicativo){
+		sesion = sessionFactory.openSession();
+		TbAplicativo id = (TbAplicativo) sesion.get(TbAplicativo.class, new String(cAplicativo));
+		sesion.close();
+		return id;
+	}
 	
 	public List<TbAplicativo> datbAplicativo(){
 		sesion = sessionFactory.openSession();
@@ -62,7 +67,7 @@ public class TbAplicativoDAO {
 	public TbAplicativo daTbAplicativoByFIngreso(Date fIngreso){
 		sesion = sessionFactory.openSession();
 		Query query = sesion.getNamedQuery("TbAplicativo.findByFIngreso");
-		query.setParameter("f_ingreso", fIngreso);
+		query.setParameter("fIngreso", fIngreso);
 		TbAplicativo tbaplicativo = (TbAplicativo) query.uniqueResult();
 		sesion.close();
 		return tbaplicativo;

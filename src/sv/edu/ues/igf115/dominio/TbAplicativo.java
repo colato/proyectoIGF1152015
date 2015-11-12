@@ -7,11 +7,11 @@ import java.util.*; //Para la fecha
 @Entity
 @Table(name="Tb_aplicativo", catalog="modelo_proyecto",schema = "")
 @NamedQueries({
-	@NamedQuery(name = "TbAplicativo.findAll", query = "SELECT t FROM Tb_aplicativo t"),
+	@NamedQuery(name = "TbAplicativo.findAll", query = "SELECT t FROM TbAplicativo t"),
 	@NamedQuery(name = "TbAplicativo.findByKey", query = "SELECT t FROM " +
-			"Tb_aplicativo t WHERE t.c_aplicativo = :cAplicativo"),
+			"TbAplicativo t WHERE t.cAplicativo = :cAplicativo"),
 	@NamedQuery(name = "TbAplicativo.findByFIngreso", query = "SELECT t FROM" +
-			"Tb_aplicativo t WHERE t.f_ingreso = :fIngreso")})
+			"TbAplicativo t WHERE t.fIngreso = :fIngreso")})
 public class TbAplicativo implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String cAplicativo;
@@ -23,10 +23,11 @@ public class TbAplicativo implements Serializable{
 		//Usado por hibernate
 	}
 	
-	public TbAplicativo(String cAplicativo, String dAplicativo, Date fIngreso){
+	public TbAplicativo(String cAplicativo, String dAplicativo, Date fIngreso, List<AsClase> asClase){
 		this.cAplicativo = cAplicativo;
 		this.dAplicativo = dAplicativo;
 		this.fIngreso = fIngreso;
+		this.asClaseList = asClase;
 	}
 	
 	@Id //Indica la llave primaria de la tabla
