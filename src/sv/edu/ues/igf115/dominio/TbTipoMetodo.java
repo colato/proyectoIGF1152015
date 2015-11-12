@@ -10,8 +10,11 @@ import javax.persistence.*; //Para @Entity, @Table,etc
 
 @NamedQueries({
 	@NamedQuery(name="daTipoMetodoPorLlave",
-			query="from TbTipoMetodo as tipoMetodo where tipoMetodo.cTipoMetodo=:cTipoMetodo")
+			query="from TbTipoMetodo as tipoMetodo where tipoMetodo.cTipoMetodo=:cTipoMetodo"),
+	@NamedQuery(name="daListaTipoMetodo",
+	query="from TbTipoMetodo as tipoMetodo")
 })
+
 
 public class TbTipoMetodo implements Serializable{
 	private static final long serialVersionUID = 1L;

@@ -1,6 +1,7 @@
 package sv.edu.ues.igf115.negocio;
 
 import java.util.Date;
+import java.util.List;
 
 import sv.edu.ues.igf115.dao.TbTipoMetodoDAO;
 import sv.edu.ues.igf115.dominio.TbTipoMetodo;
@@ -42,5 +43,9 @@ public class CtrlTbTipoMetodo {
 			//Se retorna el objeto
 			return tbTipoMetodo;
 		}
+	}
+	
+	public List<TbTipoMetodo> daListaTbTipoMetodo(){
+		return tbTipoMetodoDAO.daListTipoMetodo();
 	}
 }
