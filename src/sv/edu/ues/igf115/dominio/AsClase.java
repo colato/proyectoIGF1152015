@@ -1,12 +1,6 @@
 package sv.edu.ues.igf115.dominio;
 import java.io.Serializable;
-<<<<<<< HEAD
 import java.util.*;
-=======
-import java.util.Date;
-import java.util.List;
-
->>>>>>> 15a3dc9f9fe2b0f02fd6728d852765fcde797554
 import javax.persistence.*;
 
 

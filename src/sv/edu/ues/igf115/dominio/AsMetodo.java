@@ -2,7 +2,7 @@ package sv.edu.ues.igf115.dominio;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.persintence.*;
+import javax.persistence.*;
 
 @Entity
 @Table(name="AS_metodo", catalog="modelo_proyecto", schema="")
