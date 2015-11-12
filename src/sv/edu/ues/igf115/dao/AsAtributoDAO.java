@@ -67,7 +67,7 @@ public class AsAtributoDAO {
 	public AsAtributo daAsAtributoByFIngreso(Date fIngreso){
 		sesion = sessionFactory.openSession();
 		Query query = sesion.getNamedQuery("AsAtributo.findByFIngreso");
-		query.setParameter("f_ingreso", fIngreso);
+		query.setParameter("fIngreso", fIngreso);
 		AsAtributo asatributo = (AsAtributo) query.uniqueResult();
 		sesion.close();
 		return asatributo;

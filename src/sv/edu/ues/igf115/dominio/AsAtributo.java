@@ -9,11 +9,11 @@ import java.util.*;
 //Indica la clase que se a usar como llave compuesta
 @IdClass(AsAtributoPk.class)
 @NamedQueries({
-	@NamedQuery(name="AsAtributo.findAll", query="SELECT a FROM AS_atributo a"),
-	@NamedQuery(name="AsAtributo.findByKeys", query ="SELECT a FROM AS_atributo " +
-			"a WHERE a.c_clase = :cClase and a.c_atributo = :cAtributo"),
-	@NamedQuery(name="AsAtributo.findByFIngreso", query ="SELECT a FROM AS_atributo" +
-			"a WHERE a.f_ingreso = :fIngreso")})
+	@NamedQuery(name="AsAtributo.findAll", query="SELECT a FROM AsAtributo a"),
+	@NamedQuery(name="AsAtributo.findByKeys", query ="SELECT a FROM AsAtributo " +
+			"a WHERE a.cClase = :cClase and a.cAtributo = :cAtributo"),
+	@NamedQuery(name="AsAtributo.findByFIngreso", query ="SELECT a FROM AsAtributo" +
+			"a WHERE a.fIngreso = :fIngreso")})
 
 public class AsAtributo implements Serializable {
 	private static final long serialVersionUID = 1L;
