@@ -12,10 +12,10 @@ public class CtrlAsAtributo {
 			String cUsuario, Date fIngreso, String cTipoAtributo, AsClase asClase, TbTipoAtributo tbTipoAtributo,
 			AsMetodo asMetodo){
 		if (daoAsAtributo.daAsAtributoById(cClase)== null){
-			AsAtributo asatributo = new AsAtributo(cClase, cAtributo, cMetodo, dAtributo, dTipoDatoAtributo,
+			AsAtributo asAtributo = new AsAtributo(cClase, cAtributo, cMetodo, dAtributo, dTipoDatoAtributo,
 					cUsuario, fIngreso, cTipoAtributo, asClase, tbTipoAtributo, asMetodo);
 			
-			daoAsAtributo.guardaActualiza(asatributo);
+			daoAsAtributo.guardaActualiza(asAtributo);
 			return true;
 		}
 		else
@@ -24,8 +24,8 @@ public class CtrlAsAtributo {
 	
 	public boolean eliminarAsAtributo(int cClase){
 		if (daoAsAtributo.daAsAtributoById(cClase) != null){
-			AsAtributo asatributo = daoAsAtributo.daAsAtributoById(cClase);
-			daoAsAtributo.eliminar(asatributo);
+			AsAtributo asAtributo = daoAsAtributo.daAsAtributoById(cClase);
+			daoAsAtributo.eliminar(asAtributo);
 			return true;
 		}
 		else
@@ -36,25 +36,25 @@ public class CtrlAsAtributo {
 			String cUsuario, Date fIngreso, String cTipoAtributo, AsClase asClase, TbTipoAtributo tbTipoAtributo,
 			AsMetodo asMetodo){
 		if(daoAsAtributo.daAsAtributoById(cClase)!= null){
-			AsAtributo asatributo = daoAsAtributo.daAsAtributoById(cClase);
-			asatributo.setAsClase(asClase);
-			asatributo.setAsMetodo(asMetodo);
-			asatributo.setcAtributo(cAtributo);
-			asatributo.setcMetodo(cMetodo);
-			asatributo.setcTipoAtributo(cTipoAtributo);
-			asatributo.setcUsuario(cUsuario);
-			asatributo.setdAtributo(dAtributo);
-			asatributo.setdTipoDatoAtributo(dTipoDatoAtributo);
-			asatributo.setfIngreso(fIngreso);
-			asatributo.setTbTipoAtributo(tbTipoAtributo);
-			daoAsAtributo.guardaActualiza(asatributo);
+			AsAtributo asAtributo = daoAsAtributo.daAsAtributoById(cClase);
+			asAtributo.setAsClase(asClase);
+			asAtributo.setAsMetodo(asMetodo);
+			asAtributo.setcAtributo(cAtributo);
+			asAtributo.setcMetodo(cMetodo);
+			asAtributo.setcTipoAtributo(cTipoAtributo);
+			asAtributo.setcUsuario(cUsuario);
+			asAtributo.setdAtributo(dAtributo);
+			asAtributo.setdTipoDatoAtributo(dTipoDatoAtributo);
+			asAtributo.setfIngreso(fIngreso);
+			asAtributo.setTbTipoAtributo(tbTipoAtributo);
+			daoAsAtributo.guardaActualiza(asAtributo);
 			return true;
 		}else
 			return false;
 	}
 	
-	public List<AsAtributo> daAsAtributo(){
-		return daoAsAtributo.daAsAtributo();
+	public List<AsAtributo> daAsAtributos(){
+		return daoAsAtributo.daAsAtributos();
 	}
 	
 	public AsAtributo daAsAtributoById(int cClase){

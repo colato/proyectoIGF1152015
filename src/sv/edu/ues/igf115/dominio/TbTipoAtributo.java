@@ -7,11 +7,11 @@ import java.util.*;
 @Entity
 @Table(name = "TB_tipo_atributo", catalog = "modelo_proyecto", schema = "")
 @NamedQueries({
-	@NamedQuery(name = "TbTipoAtributo.findAll", query = "SELECT t FROM TB_tipo_atributo t"),
+	@NamedQuery(name = "TbTipoAtributo.findAll", query = "SELECT t FROM TbTipoAtributo t"),
 	@NamedQuery(name = "TbTipoAtributo.findByKey", query = "SELECT t FROM " +
-			"TB_tipo_atributo t WHERE t.c_tipo_atributo = :cTipoAtributo"),
+			"TbTipoAtributo t WHERE t.cTipoAtributo = :cTipoAtributo"),
 	@NamedQuery(name = "TbTipoAtributo.findByFIngreso", query = "SELECT t FROM" +
-			"TB_tipo_atributo t WHERE t.f_ingreso = :fIngreso")})
+			"TbTipoAtributo t WHERE t.fIngreso = :fIngreso")})
 public class TbTipoAtributo implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String cTipoAtributo;
@@ -23,10 +23,11 @@ public class TbTipoAtributo implements Serializable{
 		
 	}
 	
-	public TbTipoAtributo(String cTipoAtributo, String dTipoAtributo, Date fIngreso){
+	public TbTipoAtributo(String cTipoAtributo, String dTipoAtributo, Date fIngreso, List<AsAtributo> asAtributo){
 		this.cTipoAtributo = cTipoAtributo;
 		this.dTipoAtributo = dTipoAtributo;
 		this.fIngreso = fIngreso;
+		this.asAtributoList = asAtributo;
 	}
 	
 	@Id

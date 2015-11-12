@@ -21,10 +21,10 @@ public class TbTipoAtributoDAO {
 		throw new HibernateException("Ocurrio un error en la capa DAO", he);
 	}
 	
-	public void guardaActualiza(TbTipoAtributo tbtipoatributo){
+	public void guardaActualiza(TbTipoAtributo tbTipoAtributo){
 		try{
 			iniciaOperacion();
-			sesion.saveOrUpdate(tbtipoatributo);
+			sesion.saveOrUpdate(tbTipoAtributo);
 			tx.commit();
 			sesion.flush();
 		}catch (HibernateException he){
@@ -35,10 +35,10 @@ public class TbTipoAtributoDAO {
 		}
 	}
 	
-	public void eliminar(TbTipoAtributo tbtipoatributo){
+	public void eliminar(TbTipoAtributo tbTipoAtributo){
 		try{
 			iniciaOperacion();
-			sesion.delete(tbtipoatributo);
+			sesion.delete(tbTipoAtributo);
 			tx.commit();
 			sesion.flush();
 		}catch (HibernateException he){
@@ -50,9 +50,14 @@ public class TbTipoAtributoDAO {
 	}
 	
 	
-	//Falta la clase por ID
+	public TbTipoAtributo daTbTipoAtributoById(String cTipoAtributo){
+		sesion = sessionFactory.openSession();
+		TbTipoAtributo id = (TbTipoAtributo) sesion.get(TbTipoAtributo.class, new String(cTipoAtributo));
+		sesion.close();
+		return id;
+	}
 	
-	public List<TbTipoAtributo> daTbTipoAtributo(){
+	public List<TbTipoAtributo> daTbTipoAtributos(){
 		sesion = sessionFactory.openSession();
 		Query query = sesion.getNamedQuery("TbTipoAtributo.findAll");
 		List<TbTipoAtributo> tbtipoatributo = query.list();
@@ -63,7 +68,7 @@ public class TbTipoAtributoDAO {
 	public TbTipoAtributo daTbTipoAtributoByFIngreso(Date fIngreso){
 		sesion = sessionFactory.openSession();
 		Query query = sesion.getNamedQuery("TbTipoAtributo.findByFIngreso");
-		query.setParameter("f_ingreso", fIngreso);
+		query.setParameter("fIngreso", fIngreso);
 		TbTipoAtributo tbtipoatributo = (TbTipoAtributo) query.uniqueResult();
 		sesion.close();
 		return tbtipoatributo;

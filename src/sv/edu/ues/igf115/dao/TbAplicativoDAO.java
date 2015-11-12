@@ -21,10 +21,10 @@ public class TbAplicativoDAO {
 		throw new HibernateException("Ocurrio un error en la capa DAO",he);
 	}
 	
-	public void guardaActualiza(TbAplicativo tbaplicativo){
+	public void guardaActualiza(TbAplicativo tbAplicativo){
 		try{
 			iniciaOperacion();
-			sesion.saveOrUpdate(tbaplicativo);
+			sesion.saveOrUpdate(tbAplicativo);
 			tx.commit();
 			sesion.flush();
 		}catch (HibernateException he){
@@ -35,10 +35,10 @@ public class TbAplicativoDAO {
 		}
 	}
 	
-	public void eliminar(TbAplicativo tbaplicativo){
+	public void eliminar(TbAplicativo tbAplicativo){
 		try{
 			iniciaOperacion();
-			sesion.delete(tbaplicativo);
+			sesion.delete(tbAplicativo);
 			tx.commit();
 			sesion.flush();
 		}catch (HibernateException he){
@@ -56,21 +56,21 @@ public class TbAplicativoDAO {
 		return id;
 	}
 	
-	public List<TbAplicativo> datbAplicativo(){
+	public List<TbAplicativo> datbAplicativos(){
 		sesion = sessionFactory.openSession();
 		Query query = sesion.getNamedQuery("TbAplicativo.findAll");
-		List<TbAplicativo> tbaplicativo = query.list();
+		List<TbAplicativo> tbAplicativo = query.list();
 		sesion.close();
-		return tbaplicativo;
+		return tbAplicativo;
 	}
 	
 	public TbAplicativo daTbAplicativoByFIngreso(Date fIngreso){
 		sesion = sessionFactory.openSession();
 		Query query = sesion.getNamedQuery("TbAplicativo.findByFIngreso");
 		query.setParameter("fIngreso", fIngreso);
-		TbAplicativo tbaplicativo = (TbAplicativo) query.uniqueResult();
+		TbAplicativo tbAplicativo = (TbAplicativo) query.uniqueResult();
 		sesion.close();
-		return tbaplicativo;
+		return tbAplicativo;
 	}
 	
 }

@@ -12,8 +12,8 @@ public class CtrlTbAplicativo {
 	public boolean crearTbAplicativo(String cAplicativo, String dAplicativo, Date fIngreso, List<AsClase> asClase){
 		if(daoTbAplicativo.daTbAplicativoById(cAplicativo) == null){
 			if(asClase != null){
-				TbAplicativo tbaplicativo = new TbAplicativo(cAplicativo, dAplicativo, fIngreso, asClase);
-				daoTbAplicativo.guardaActualiza(tbaplicativo);
+				TbAplicativo tbAplicativo = new TbAplicativo(cAplicativo, dAplicativo, fIngreso, asClase);
+				daoTbAplicativo.guardaActualiza(tbAplicativo);
 				return true;
 			}
 			else
@@ -25,8 +25,8 @@ public class CtrlTbAplicativo {
 	
 	public boolean eliminarTbAplicativo(String cAplicativo){
 		if(daoTbAplicativo.daTbAplicativoById(cAplicativo)!=null){
-			TbAplicativo tbaplicativo = daoTbAplicativo.daTbAplicativoById(cAplicativo);
-			daoTbAplicativo.eliminar(tbaplicativo);
+			TbAplicativo tbAplicativo = daoTbAplicativo.daTbAplicativoById(cAplicativo);
+			daoTbAplicativo.eliminar(tbAplicativo);
 			return true;
 		}
 		else
@@ -35,21 +35,21 @@ public class CtrlTbAplicativo {
 	
 	public boolean modificarTbAplicativo(String cAplicativo, String dAplicativo, Date fIngreso, List<AsClase> asClase){
 		if(daoTbAplicativo.daTbAplicativoById(cAplicativo)!= null){
-			TbAplicativo tbaplicativo = daoTbAplicativo.daTbAplicativoById(cAplicativo);
+			TbAplicativo tbAplicativo = daoTbAplicativo.daTbAplicativoById(cAplicativo);
 			
-			tbaplicativo.setAsClaseList(asClase);
-			tbaplicativo.setcAplicativo(dAplicativo);
-			tbaplicativo.setfIngreso(fIngreso);
+			tbAplicativo.setAsClaseList(asClase);
+			tbAplicativo.setcAplicativo(dAplicativo);
+			tbAplicativo.setfIngreso(fIngreso);
 			
-			daoTbAplicativo.guardaActualiza(tbaplicativo);
+			daoTbAplicativo.guardaActualiza(tbAplicativo);
 			return true;
 		}
 		else
 			return false;
 	}
 	
-	public List<TbAplicativo> daTbAplicativo(){
-		return daoTbAplicativo.datbAplicativo();
+	public List<TbAplicativo> daTbAplicativos(){
+		return daoTbAplicativo.datbAplicativos();
 	}
 	
 	public TbAplicativo daTbAplicativoById(String cAplicativo){

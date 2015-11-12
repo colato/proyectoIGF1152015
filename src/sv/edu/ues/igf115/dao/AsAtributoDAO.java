@@ -21,10 +21,10 @@ public class AsAtributoDAO {
 		throw new HibernateException("Ocurrio un error en la capa DAO",he);
 	}
 	
-	public void guardaActualiza(AsAtributo asatributo){
+	public void guardaActualiza(AsAtributo asAtributo){
 		try{
 			iniciaOperacion();
-			sesion.saveOrUpdate(asatributo);
+			sesion.saveOrUpdate(asAtributo);
 			tx.commit();
 			sesion.flush();
 		}catch (HibernateException he){
@@ -35,10 +35,10 @@ public class AsAtributoDAO {
 		}
 	}
 	
-	public void eliminar(AsAtributo asatributo){
+	public void eliminar(AsAtributo asAtributo){
 		try{
 			iniciaOperacion();
-			sesion.delete(asatributo);
+			sesion.delete(asAtributo);
 			tx.commit();
 			sesion.flush();
 		}catch (HibernateException he){
@@ -56,20 +56,20 @@ public class AsAtributoDAO {
 		return id;
 	}
 	
-	public List<AsAtributo> daAsAtributo(){
+	public List<AsAtributo> daAsAtributos(){
 		sesion = sessionFactory.openSession();
 		Query query = sesion.getNamedQuery("AsAtributo.findAll");
-		List<AsAtributo> asatributo = query.list();
+		List<AsAtributo> asAtributo = query.list();
 		sesion.close();
-		return asatributo;
+		return asAtributo;
 	}
 	
 	public AsAtributo daAsAtributoByFIngreso(Date fIngreso){
 		sesion = sessionFactory.openSession();
 		Query query = sesion.getNamedQuery("AsAtributo.findByFIngreso");
 		query.setParameter("fIngreso", fIngreso);
-		AsAtributo asatributo = (AsAtributo) query.uniqueResult();
+		AsAtributo asAtributo = (AsAtributo) query.uniqueResult();
 		sesion.close();
-		return asatributo;
+		return asAtributo;
 	}
 }
