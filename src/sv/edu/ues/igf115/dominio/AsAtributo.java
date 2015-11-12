@@ -30,7 +30,7 @@ public class AsAtributo implements Serializable {
 	private AsMetodo asMetodo;
 	
 	private AsAtributo(){
-		
+		//Prueba, usado por hibernate
 	}
 	
 	public AsAtributo(int cClase, int cAtributo, int cMetodo, String dAtributo, String dTipoDatoAtributo, 
