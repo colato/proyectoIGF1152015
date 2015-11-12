@@ -1,0 +1,66 @@
+ package sv.edu.ues.igf115.dominio;
+
+import java.io.Serializable;
+import java.util.*;
+import javax.persistence.*;
+
+@Entity
+@Table (name="AS_interface_implementa", catalog="modelo_proyecto", schema="") 
+@NamedQueries({
+	@NamedQuery(name="as_interface_implementa.findInterfaceImplementa", 
+			    query="from AsInterfaceImplementa as interImp where interImp.c_interface_implementa =:c_interface_implementa"
+			    ),
+			    
+	@NamedQuery(name="as_interface_implementa.findAllInterfaceImplementa", 
+               query="from AsInterfaceImplementa"
+               )
+})
+
+
+public class AsInterfaceImplementa implements Serializable {
+ private static final long serialVersionUID = 1L;	
+  private int c_interface_implementa;
+  private int c_interface_hijo;
+  private int c_interface_padre;
+  
+ private AsInterfaceImplementa(){ //Lo usa Hibernate
+	 
+ }
+ 
+ public AsInterfaceImplementa (int c_interface_implementa, int c_interface_hijo, int c_interface_padre){
+	 this.c_interface_implementa=c_interface_implementa;
+	 this.c_interface_hijo=c_interface_hijo;
+	 this.c_interface_padre=c_interface_padre;
+ }
+  
+@Id
+@Basic (optional=false)
+@Column(name="c_interface_implementa")
+public int getC_interface_implementa() {
+	return c_interface_implementa;
+}
+public void setC_interface_implementa(int c_interface_implementa) {
+	this.c_interface_implementa = c_interface_implementa;
+}
+@JoinColumn(name="c_interface_hijo", referencedColumnName="c_interface_hijo")
+@ManyToOne(optional= false)
+public int getC_interface_hijo() {
+	return c_interface_hijo;
+}
+public void setC_interface_hijo(int c_interface_hijo) {
+	this.c_interface_hijo = c_interface_hijo;
+}
+@JoinColumn(name="c_interface_padre", referencedColumnName="c_interface_padre")
+@ManyToOne(optional= false)
+public int getC_interface_padre() {
+	return c_interface_padre;
+}
+public void setC_interface_padre(int  c_interface_padre) {
+	this.c_interface_padre = c_interface_padre;
+}
+  
+  
+  
+  
+	
+}

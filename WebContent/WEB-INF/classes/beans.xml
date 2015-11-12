@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+<!-- Definition for hibernateUtil bean -->
+<bean id="hibernateUtil" class="sv.edu.ues.igf115.utilidades.datos.HibernateUtil"/>
+
+<!-- Definicion de bean para DAO y Servicio utilizados por la Clase AsAtributo -->
+<bean id="daoAsAtributo" class="sv.edu.ues.igf115.proyectoIGF1152015.dao.AsAtributoDAO" >
+<constructor-arg ref="hibernateUtil"/>
+</bean>
+
+<bean id="ctrlAsAtributo" class="sv.edu.ues.igf115.proyectoIGF1152015.negocio.CtrlAsAtributo">
+<constructor-arg ref="daoAsAtributo"/>
+</bean>
+
+<!-- Definicion de bean para DAO y Servicio utilizados por la Clase AsClase -->
+<bean id="daoAsClase" class="sv.edu.ues.igf115.proyectoIGF1152015.dao.AsClaseDAO" >
+<constructor-arg ref="hibernateUtil"/>
+</bean>
+
+<bean id="ctrlAsClase" class="sv.edu.ues.igf115.proyectoIGF1152015.negocio.CtrlAsClase">
+<constructor-arg ref="daoAsClase"/>
+</bean>
+
+<!-- Definicion de bean para DAO y Servicio utilizados por la Clase AsClaseInterface -->
+<bean id="daoAsClaseInterface" class="sv.edu.ues.igf115.proyectoIGF1152015.dao.AsClaseInterfaceDAO" >
+<constructor-arg ref="hibernateUtil"/>
+</bean>
+
+<bean id="ctrlAsClaseInterface" class="sv.edu.ues.igf115.proyectoIGF1152015.negocio.CtrlAsClaseInterface">
+<constructor-arg ref="daoAsClaseInterface"/>
+</bean>
+
+<!-- Definicion de bean para DAO y Servicio utilizados por la Clase AsInterface -->
+<bean id="daoAsInterface" class="sv.edu.ues.igf115.proyectoIGF1152015.dao.AsInterfaceDAO" >
+<constructor-arg ref="hibernateUtil"/>
+</bean>
+
+<bean id="ctrlAsInterface" class="sv.edu.ues.igf115.proyectoIGF1152015.negocio.CtrlAsInterface">
+<constructor-arg ref="daoAsInterface"/>
+</bean>
+
+<!-- Definicion de bean para DAO y Servicio utilizados por la Clase AsInterfaceImplementa -->
+<bean id="daoAsInterfaceImplementa" class="sv.edu.ues.igf115.proyectoIGF1152015.dao.AsInterfaceImplementaDAO" >
+<constructor-arg ref="hibernateUtil"/>
+</bean>
+
+<bean id="ctrlAsInterfaceImplementa" class="sv.edu.ues.igf115.proyectoIGF1152015.negocio.CtrlAsInterfaceImplementa">
+<constructor-arg ref="daoAsInterfaceImplementa"/>
+</bean>
+
+<!-- Definicion de bean para DAO y Servicio utilizados por la Clase AsMetodo -->
+<bean id="daoAsMetodo" class="sv.edu.ues.igf115.proyectoIGF1152015.dao.AsMetodoDAO" >
+<constructor-arg ref="hibernateUtil"/>
+</bean>
+
+<bean id="ctrlAsMetodo" class="sv.edu.ues.igf115.proyectoIGF1152015.negocio.CtrlAsMetodo">
+<constructor-arg ref="daoAsMetodo"/>
+</bean>
+
+<!-- Definicion de bean para DAO y Servicio utilizados por la Clase AsObservacion -->
+<bean id="daoAsObservacion" class="sv.edu.ues.igf115.proyectoIGF1152015.dao.AsObservacionDAO" >
+<constructor-arg ref="hibernateUtil"/>
+</bean>
+
+<bean id="ctrlAsObservacion" class="sv.edu.ues.igf115.proyectoIGF1152015.negocio.CtrlAsObservacion">
+<constructor-arg ref="daoAsObservacion"/>
+</bean>
+
+<!-- Definicion de bean para DAO y Servicio utilizados por la Clase AsParametro -->
+<bean id="daoAsParametro" class="sv.edu.ues.igf115.proyectoIGF1152015.dao.AsParametroDAO" >
+<constructor-arg ref="hibernateUtil"/>
+</bean>
+
+<bean id="ctrlAsParametro" class="sv.edu.ues.igf115.proyectoIGF1152015.negocio.CtrlAsParametro">
+<constructor-arg ref="daoAsParametro"/>
+</bean>
+
+<!-- Definicion de bean para DAO y Servicio utilizados por la Clase TbAplicativo -->
+<bean id="daoTbAplicativo" class="sv.edu.ues.igf115.proyectoIGF1152015.dao.TbAplicativoDAO" >
+<constructor-arg ref="hibernateUtil"/>
+</bean>
+
+<bean id="ctrlTbAplicativo" class="sv.edu.ues.igf115.proyectoIGF1152015.negocio.CtrlTbAplicativo">
+<constructor-arg ref="daoTbAplicativo"/>
+</bean>
+
+<!-- Definicion de bean para DAO y Servicio utilizados por la Clase TbTipoAtributo -->
+<bean id="daoTbTipoAtributo" class="sv.edu.ues.igf115.proyectoIGF1152015.dao.TbTipoAtributoDAO" >
+<constructor-arg ref="hibernateUtil"/>
+</bean>
+
+<bean id="ctrlTbTipoAtributo" class="sv.edu.ues.igf115.proyectoIGF1152015.negocio.CtrlTbTipoAtributo">
+<constructor-arg ref="daoTbTipoAtributo"/>
+</bean>
+
+<!-- Definicion de bean para DAO y Servicio utilizados por la Clase TbTipoClase -->
+<bean id="daoTbTipoClase" class="sv.edu.ues.igf115.proyectoIGF1152015.dao.TbTipoClaseDAO" >
+<constructor-arg ref="hibernateUtil"/>
+</bean>
+
+<bean id="ctrlTbTipoClase" class="sv.edu.ues.igf115.proyectoIGF1152015.negocio.CtrlTbTipoClase">
+<constructor-arg ref="daoTbTipoClase"/>
+</bean>
+
+<!-- Definicion de bean para DAO y Servicio utilizados por la Clase TbTipoMetodo -->
+<bean id="daoTbTipoMetodo" class="sv.edu.ues.igf115.proyectoIGF1152015.dao.TbTipoMetodoDAO" >
+<constructor-arg ref="hibernateUtil"/>
+</bean>
+
+<bean id="ctrlTbTipoMetodo" class="sv.edu.ues.igf115.proyectoIGF1152015.negocio.CtrlTipoMetodo">
+<constructor-arg ref="daoTbTipoMetodo"/>
+</bean>
+
+
+</beans>
