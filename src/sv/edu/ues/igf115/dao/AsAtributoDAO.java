@@ -49,7 +49,12 @@ public class AsAtributoDAO {
 		}
 	}
 	
-	//Falta la clase por ID
+	public AsAtributo daAsAtributoById(int cClase){
+		sesion = sessionFactory.openSession();
+		AsAtributo id = (AsAtributo) sesion.get(AsAtributo.class, cClase);
+		sesion.close();
+		return id;
+	}
 	
 	public List<AsAtributo> daAsAtributo(){
 		sesion = sessionFactory.openSession();
