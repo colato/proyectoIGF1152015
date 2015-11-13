@@ -16,7 +16,7 @@
     
      String mensaje;
      if(resultado)
-    	 mensaje="Registro creado";
+    	 mensaje="Registro creado con exito";
      else
     	 mensaje="Error al crear el registro";
      
