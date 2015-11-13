@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
    
 <%@ page import="sv.edu.ues.igf115.negocio.*" %>
-<%@ page import="java.util.*" %>
+<%@ page import="java.util.*, java.io.*" %>
 <%@ page import="java.text.SimpleDateFormat"%>
 <%
 	String dTipoClase=request.getParameter("d_tipoclase");

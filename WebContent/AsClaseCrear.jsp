@@ -13,17 +13,17 @@
 	SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
     Date fIngreso = formato.parse(fIngresoString);
     String cTipoClase= request.getParameter("cTipoClase");
-    String cTipoAplicativo = request.getParameter("cTipoAplicativo");
+    String cAplicativo = request.getParameter("cTipoAplicativo");
     int asClasep = Integer.parseInt(request.getParameter("asClasep"));
     CtrlTbTipoClase ctrlTbTipoClase = new CtrlTbTipoClase();
     TbTipoClase tbTipoClase = ctrlTbTipoClase.daAsTipoClaseById(cTipoClase);
-    TbAplicativoDAO daoTbAplicativo = new TbAplicativoDAO();
+    CtrlTbAplicativo ctrlTbAplicativo = new CtrlTbAplicativo();
     //ESPERANDO EL METODO FINDBYID DE APLICATIVO
-    //TbAplicativo tbAplicativo= daoTbAplicativo
+    TbAplicativo tbAplicativo= ctrlTbAplicativo.daTbAplicativoById(cAplicativo);
     		
     CtrlAsClase ctrlAsClase = new CtrlAsClase();
     AsClase asClasePadre= ctrlAsClase.daAsClaseById(asClasep);
-   /* boolean resultado = ctrlAsClase.crearOactualiza(cClase, dClase, cUsuario, fIngreso, tbTipoClase, tbAplicativo, asClasePadre);
+    boolean resultado = ctrlAsClase.crearOactualiza(cClase, dClase, cUsuario, fIngreso, tbTipoClase, tbAplicativo, asClasePadre);
     
     
    
@@ -34,7 +34,7 @@
     	mensaje="Registro creado con éxito";
     }
     else
-    	mensaje="Falló la creación del registro, por duplicación de llaves.";*/
+    	mensaje="Falló la creación del registro, por duplicación de llaves.";
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

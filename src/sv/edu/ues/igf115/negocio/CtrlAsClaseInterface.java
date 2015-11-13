@@ -8,7 +8,7 @@ import java.util.*;
 
 public class CtrlAsClaseInterface {
 	AsClaseInterfaceDAO claseDao= new AsClaseInterfaceDAO();
-	public boolean crearAsClaseInterface(int c_clase_interface, int asclase, int asinterface){
+	public boolean crearAsClaseInterface(int c_clase_interface, AsClase asclase, AsInterface asinterface){
 	if(claseDao.obtener(c_clase_interface)==null){
 		//se agrega el nuevo registro
 		AsClaseInterface nuevo= new AsClaseInterface(c_clase_interface, asclase, asinterface);

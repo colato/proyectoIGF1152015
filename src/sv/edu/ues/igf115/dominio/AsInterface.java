@@ -19,12 +19,25 @@ import javax.persistence.*;
 
 public class AsInterface implements Serializable {
 	private static final long serialVersionUID = 1L;
-    private int c_interface;
-    private String d_interface;
+	@Id
+    @Basic(optional=false)
+	@Column(name="c_interface") // PK de la tabla AS_interface
+	private int c_interface;
+	@Basic(optional=false)
+	@Column(name="d_interface")
+	private String d_interface;
+	@Basic(optional=false)
+	@Column(name="c_usuario")
     private String c_usuario;
-    private Date f_ingreso;
+	@Basic(optional=false)
+	@Temporal(TemporalType.DATE)
+	@Column(name="f_ingreso")
+	private Date f_ingreso;
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="asInterface")
     private List<AsClaseInterface> ListaAsClaseInterface;
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="asInterfaceByCInterfaceHijo")
     private List<AsInterfaceImplementa> ListaAsInterfaceHijo;
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="asInterfaceByCInterfacePadre")
     private List<AsInterfaceImplementa> ListaAsInterfacePadre;
     
 	private AsInterface(){ // Lo usa Hibernate
@@ -37,10 +50,7 @@ public class AsInterface implements Serializable {
     this.f_ingreso=f_ingreso;
     
     }
-    @Id
-    @Basic(optional=false)
-	@Column(name="c_interface") // PK de la tabla AS_interface
-	public int getC_interface() {
+    public int getC_interface() {
 		return c_interface;
 	}
     
@@ -48,16 +58,12 @@ public class AsInterface implements Serializable {
 		this.c_interface = c_interface;
 	}
 	
-	@Basic(optional=false)
-	@Column(name="d_interface")
 	public String getD_interface() {
 		return d_interface;
 	}
 	public void setD_interface(String d_interface) {
 		this.d_interface = d_interface;
 	}
-	@Basic(optional=false)
-	@Column(name="c_usuario")
 	public String getC_usuario() {
 		return c_usuario;
 	}
@@ -65,8 +71,6 @@ public class AsInterface implements Serializable {
 		this.c_usuario = c_usuario;
 	}
 	
-	@Basic(optional=false)
-	@Column(name="f_ingreso")
 	
 	public Date getF_ingreso() {
 		return f_ingreso;
@@ -74,7 +78,7 @@ public class AsInterface implements Serializable {
 	public void setF_ingreso(Date f_ingreso) {
 		this.f_ingreso = f_ingreso;
 	} 
-	@OneToMany (cascade= CascadeType.ALL, mappedBy="AsInterface")
+	
 	public List<AsClaseInterface> getListaAsClaseInterface() {
 		return ListaAsClaseInterface;
 	}
@@ -83,7 +87,7 @@ public class AsInterface implements Serializable {
 		ListaAsClaseInterface = listaAsClaseInterface;
 	}
 	
-	@OneToMany (cascade= CascadeType.ALL, mappedBy="AsInterface")
+	
 	public List<AsInterfaceImplementa> getListaAsInterfaceHijo() {
 		return ListaAsInterfaceHijo;
 	}
@@ -91,7 +95,7 @@ public class AsInterface implements Serializable {
 			List<AsInterfaceImplementa> listaAsInterfaceHijo) {
 		ListaAsInterfaceHijo = listaAsInterfaceHijo;
 	}
-	@OneToMany (cascade= CascadeType.ALL, mappedBy="AsInterface")
+	
 	public List<AsInterfaceImplementa> getListaAsInterfacePadre() {
 		return ListaAsInterfacePadre;
 	}

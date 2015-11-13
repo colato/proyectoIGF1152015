@@ -3,13 +3,14 @@
 import java.util.List;
 
 import org.hibernate.*;
+
 import sv.edu.ues.igf115.dominio.TbTipoClase;
 import sv.edu.ues.igf115.utilidades.datos.HibernateUtil;
 
 public class TbTipoClaseDAO {
 	
 	private HibernateUtil hibernateUtil = new HibernateUtil() ; 
-	@SuppressWarnings("static-access")
+	
 	 private SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
 	 private Session sesion; 
 	 private Transaction tx; 

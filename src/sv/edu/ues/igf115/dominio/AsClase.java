@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="AS_clase",catalog="modelo_proyecto",schema="")
 @NamedQueries({
+	@NamedQuery(name = "AsClase.findAll", query = "from AsClase"),
 	@NamedQuery(name="daClaseById",
 			query="from AsClase as clase where clase.cClase=:cClase"),
 	@NamedQuery(name="daClaseNombre",
@@ -16,17 +17,38 @@ import javax.persistence.*;
 
 public class AsClase implements Serializable{
 	private static final long serialVersionUID = 1L;
+	@Id
+	@Basic(optional = false)
+	@Column(name = "c_clase")
 	private int cClase;
+	@Basic(optional = false)
+	@Column(name = "d_clase")
     private String dClase;
+	@Column(name="c_usuario")
     private String cUsuario;
+	@Basic(optional = false)
+	@Column(name = "f_ingreso")
+	@Temporal(TemporalType.DATE)
     private Date fIngreso;
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="asClase")
     private List<AsClaseInterface> listaAsClaseInterface;
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="asClase")
 	private List<AsMetodo> listaAsMetodo;
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="asClase")
     private List<AsAtributo> listaAsAtributo;
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="asClase")
     private List<AsObservacion> listaAsObservacion;
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY,mappedBy = "asClase")
     private List<AsClase> listaAsClase;
+    @JoinColumn(name="c_tipo_clase", nullable=false)
+    @ManyToOne(fetch=FetchType.LAZY)
     private TbTipoClase tbTipoClase;
+    @JoinColumn(name="c_aplicativo", nullable=false)
+    @ManyToOne(fetch=FetchType.LAZY)
     private TbAplicativo tbAplicativo;
+    
+    @JoinColumn(name="c_clase_padre",referencedColumnName="c_clase")
+    @ManyToOne(fetch=FetchType.LAZY)
     private AsClase asClasep;
 
     
@@ -45,10 +67,10 @@ public class AsClase implements Serializable{
        this.asClasep = asClasep;
        this.cUsuario = cUsuario;
    }
-   
+   //List<AsAtributo> listaAsAtributo,
    public AsClase(int cClase, String dClase, String cUsuario, Date fIngreso,
 		List<AsClaseInterface> listaAsClaseInterface,
-		List<AsMetodo> listaAsMetodo, List<AsAtributo> listaAsAtributo,
+		List<AsMetodo> listaAsMetodo, 
 		List<AsObservacion> listaAsObservacion, List<AsClase> listaAsClase,
 		TbTipoClase tbTipoClase, TbAplicativo tbAplicativo, AsClase asClasep) {
 	super();
@@ -67,10 +89,7 @@ public class AsClase implements Serializable{
 }
 
 
-@Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   @Basic(optional = false)
-   @Column(name = "c_clase")
+   
    public int getCClase() {
        return this.cClase;
    }
@@ -78,8 +97,7 @@ public class AsClase implements Serializable{
    public void setCClase(int cClase) {
        this.cClase = cClase;
    }
-   @ManyToOne(fetch=FetchType.LAZY)
-   @JoinColumn(name="c_tipo_clase", nullable=false)
+   
    public TbTipoClase getTbTipoClase() {
        return this.tbTipoClase;
    }
@@ -87,8 +105,7 @@ public class AsClase implements Serializable{
    public void setTbTipoClase(TbTipoClase tbTipoClase) {
        this.tbTipoClase = tbTipoClase;
    }
-   @ManyToOne(fetch=FetchType.LAZY)
-   @JoinColumn(name="c_aplicativo", nullable=false)
+   
    public TbAplicativo getTbAplicativo() {
        return this.tbAplicativo;
    }
@@ -96,17 +113,15 @@ public class AsClase implements Serializable{
    public void setTbAplicativo(TbAplicativo tbAplicativo) {
        this.tbAplicativo = tbAplicativo;
    }
-   @ManyToOne(fetch=FetchType.LAZY)
-   @JoinColumn(name="c_clase_padre")
-   public AsClase getAsClase() {
+   
+   public AsClase getAsClasep() {
        return this.asClasep;
    }
    
-   public void setAsClase(AsClase asClasep) {
+   public void setAsClasep(AsClase asClasep) {
        this.asClasep = asClasep;
    }
-   @Basic(optional = false)
-   @Column(name = "d_clase")
+   
    public String getDClase() {
        return this.dClase;
    }
@@ -114,7 +129,7 @@ public class AsClase implements Serializable{
    public void setDClase(String dClase) {
        this.dClase = dClase;
    }
-   @Column(name="c_usuario")
+   
    public String getCUsuario() {
        return this.cUsuario;
    }
@@ -122,9 +137,7 @@ public class AsClase implements Serializable{
    public void setCUsuario(String cUsuario) {
        this.cUsuario = cUsuario;
    }
-   @Basic(optional = false)
-   @Column(name = "f_ingreso")
-   @Temporal(TemporalType.DATE)
+   
    public Date getFIngreso() {
        return this.fIngreso;
    }
@@ -132,17 +145,17 @@ public class AsClase implements Serializable{
    public void setFIngreso(Date fIngreso) {
        this.fIngreso = fIngreso;
    }
-   @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="asClase")
+ 
    public List<AsMetodo> getListaAsMetodo() {
 		return listaAsMetodo;
 	}
 
-   @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="asClase")
+  
 	public List<AsAtributo> getListaAsAtributo() {
 		return listaAsAtributo;
 	}
 
-   @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="asClase")
+   
 	public List<AsObservacion> getListaAsObservacion() {
 		return listaAsObservacion;
 	}
@@ -173,7 +186,7 @@ public class AsClase implements Serializable{
 	}
 
    
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="asClase")
+	
 	public List<AsClaseInterface> getListaAsClaseInterface() {
 		return listaAsClaseInterface;
 	}
@@ -181,7 +194,7 @@ public class AsClase implements Serializable{
 	
 	public void setListaAsClaseInterface(
 			List<AsClaseInterface> listaAsClaseInterface) {
-		listaAsClaseInterface = listaAsClaseInterface;
+		this.listaAsClaseInterface = listaAsClaseInterface;
 	}
 	
 

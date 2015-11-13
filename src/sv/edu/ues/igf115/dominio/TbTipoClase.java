@@ -1,5 +1,6 @@
 package sv.edu.ues.igf115.dominio;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
@@ -7,19 +8,30 @@ import javax.persistence.*;
 @Entity
 @Table(name="TB_tipo_clase",catalog="modelo_proyecto",schema="")
 @NamedQueries({
+	@NamedQuery(name = "TbTipoClase.findAll", query = "from TbTipoClase"),
 	@NamedQuery(name="daTipoClaseById",
 			query="from TbTipoClase as tipoClase where tipoClase.cTipoClase=:cTipoClase"),
 	@NamedQuery(name="daTipoClaseNombre",
 			query="from TbTipoClase as tipoClase where tipoClase.dTipoClase=:dTipoClase")
 })
-/*@NamedQuery(name = "TbTipoClase.findAll", query = "FROM TbTipoClase"),
-@NamedQuery(name = "TbTipoClase.findByCTipoClase", query = "FROM TbTipoClase as tc WHERE tc.cTipoClase = :cTipoClase"),*/
+
 public class TbTipoClase implements Serializable{
 	 private static final long serialVersionUID = 1L;
+	 @Id
+	 @Basic(optional = false)
+	 @Column(name = "c_tipo_clase")
 	 private String cTipoClase;
-     private String dTipoClase;
+	 @Basic(optional=false)
+	 @Column(name = "d_tipo_clase")
+     private String dTipoClase;	
+	 @Basic(optional = false)
+	 @Temporal(TemporalType.DATE)
+	 @Column(name = "f_ingreso")
      private Date fIngreso;
-     private List<AsClase> asClaseList;
+	//@OneToMany: (1:N) Asocia varios campos con uno 
+	    //Multiplicidad 1:N Una Tipo Clase tiene muchas clases
+	 @OneToMany(cascade = CascadeType.ALL,fetch=FetchType.LAZY, mappedBy = "tbTipoClase" )
+     private List<AsClase> asClaseList = new ArrayList<AsClase> ();
      
 
     @SuppressWarnings("unused")
@@ -36,10 +48,7 @@ public class TbTipoClase implements Serializable{
        
     }
     
-    @Id
     
-    @Basic(optional = false)
-    @Column(name = "c_tipo_clase")
     public String getcTipoClase() {
         return cTipoClase;
     }
@@ -47,8 +56,7 @@ public class TbTipoClase implements Serializable{
     public void setcTipoClase(String cTipoClase) {
         this.cTipoClase = cTipoClase;
     }
-    @Basic(optional=false)
-    @Column(name = "d_tipo_clase")
+   
     public String getdTipoClase() {
         return dTipoClase;
     }
@@ -56,8 +64,7 @@ public class TbTipoClase implements Serializable{
     public void setdTipoClase(String dTipoClase) {
         this.dTipoClase = dTipoClase;
     }
-    @Basic(optional = false)
-    @Column(name = "f_ingreso")
+    
     
     public Date getfIngreso() {
         return fIngreso;
@@ -68,9 +75,8 @@ public class TbTipoClase implements Serializable{
     }
 
   
- // @OneToMany: (1:N) Asocia varios campos con uno 
-    // Multiplicidad 1:N Una Tipo Clase tiene muchas clases
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tbTipoClase" )
+    
+    
     public List<AsClase> getAsClaseList() {
         return asClaseList;
     }

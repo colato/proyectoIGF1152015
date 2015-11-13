@@ -8,7 +8,7 @@ import java.util.*;
 public class CtrlAsInterfaceImplementa {
 	
    AsInterfaceImplementaDAO implementaDao= new AsInterfaceImplementaDAO();
-   public boolean crearAsInterfaceImplementa(int c_interface_implementa, int c_interface_hijo, int c_interface_padre){
+   public boolean crearAsInterfaceImplementa(int c_interface_implementa, AsInterface c_interface_hijo, AsInterface c_interface_padre){
 		if(implementaDao.obtener(c_interface_implementa)==null){
 			//se agrega el nuevo registro
 			AsInterfaceImplementa nuevo= new AsInterfaceImplementa(c_interface_implementa, c_interface_hijo, c_interface_padre);

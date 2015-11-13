@@ -6,11 +6,10 @@
 <%@ page import="java.util.*" %>
 <% CtrlAsClase ctrlAsClase = new CtrlAsClase();
 	List<AsClase> listAsClase = ctrlAsClase.daClases(); %>
-<% AsAtributoDAO asAtributoDAO = new AsAtributoDAO();
-	List<AsAtributo> listAsAtributo = asAtributoDAO.daAsAtributo(); %>
-<% TbAplicativoDAO daoAplicativo = new TbAplicativoDAO();
-	
-   List<TbAplicativo> listaTbAplicativo= daoAplicativo.datbAplicativo(); %>
+<% CtrlAsAtributo ctrlAsAtributo = new CtrlAsAtributo();
+	List<AsAtributo> listAsAtributo = ctrlAsAtributo.daAsAtributos();  %>
+<% CtrlTbAplicativo ctrlTbAplicativo = new CtrlTbAplicativo();
+   List<TbAplicativo> listaTbAplicativo= ctrlTbAplicativo.daTbAplicativos(); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>

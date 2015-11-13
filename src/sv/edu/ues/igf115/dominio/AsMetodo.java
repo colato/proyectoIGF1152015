@@ -14,7 +14,7 @@ public class AsMetodo implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	/**Llave primaria compuesta definida en AsMetodoPKDetalle*/
-	AsMetodoPKDetalle llaveCompuesta;
+	protected AsMetodoPKDetalle llaveCompuesta;
 	
 	/**Es un atributo AsClase, un metodo pertenece a una clase*/
 	private AsClase cClaseRelacion;
@@ -50,6 +50,7 @@ public class AsMetodo implements Serializable{
 
 	//--------------------------------------------------
 	@EmbeddedId
+	
 	public AsMetodoPKDetalle getLlaveCompuesta() {
 		return llaveCompuesta;
 	}

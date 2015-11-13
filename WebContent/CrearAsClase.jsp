@@ -8,9 +8,9 @@
 	List<AsClase> listAsClase = ctrlAsClase.daClases(); %>
 <% CtrlTbTipoClase ctrlTbTipoClase = new CtrlTbTipoClase();
 	List<TbTipoClase> listaTbTipoClase = ctrlTbTipoClase.daTbTipoClases(); %>
-<% TbAplicativoDAO daoAplicativo = new TbAplicativoDAO();
+<% CtrlTbAplicativo ctrlTbAplicativo = new CtrlTbAplicativo();
 	
-   List<TbAplicativo> listaTbAplicativo= daoAplicativo.datbAplicativo(); %>
+   List<TbAplicativo> listaTbAplicativo= ctrlTbAplicativo.daTbAplicativos();  %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
