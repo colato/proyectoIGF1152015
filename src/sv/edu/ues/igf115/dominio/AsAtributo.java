@@ -17,7 +17,7 @@ public class AsAtributo implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	protected AsAtributoPKDetalle llaveCompuesta;
-	private int cMetodo;
+	private Integer cMetodo;
 	private String dAtributo;
 	private String dTipoDatoAtributo;
 	private String cUsuario;
@@ -56,12 +56,12 @@ public class AsAtributo implements Serializable {
 	}
 
 	
-	@Basic
+	@Basic(blank=false)
 	@Column(name="c_metodo")
-	public int getcMetodo() {
+	public Integer getcMetodo(){
 		return cMetodo;
 	}
-	public void setcMetodo(int cMetodo) {
+	public void setcMetodo(Integer cMetodo) {
 		this.cMetodo = cMetodo;
 	}
 	
