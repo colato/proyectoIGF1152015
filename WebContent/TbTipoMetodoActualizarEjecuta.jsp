@@ -1,17 +1,28 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="sv.edu.ues.igf115.negocio.CtrlTbTipoMetodo" %>
 <%@ page import="sv.edu.ues.igf115.dominio.TbTipoMetodo" %>
-<%@ page import="java.util.List" %>
+<%@ page import="java.util.*" %>
 <%@ page import="java.text.SimpleDateFormat"%>
-<%@ page import="java.text.DateFormat"%>
 <%
-	CtrlTbTipoMetodo ctrlTbTipoMetodo=new CtrlTbTipoMetodo();
-	List<TbTipoMetodo> listaTbTipoMetodo=ctrlTbTipoMetodo.daListaTbTipoMetodo();
-	DateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
-	
+	String cTipoMetodo=request.getParameter("cTipoMetodo");
+	String dTipoMetodo=request.getParameter("dTipoMetodo");
+	String fIngresoString=request.getParameter("fIngreso");
+	SimpleDateFormat formato = new SimpleDateFormat("yyyy-mm-dd");
+    Date fIngreso = formato.parse(fIngresoString);
+	CtrlTbTipoMetodo ctrlTipoMetodo=new CtrlTbTipoMetodo();
+	boolean resultado=ctrlTipoMetodo.actualizarTbTipoMetodo(cTipoMetodo, dTipoMetodo, fIngreso);
+	String mensaje;
+	String clase;
+	if(resultado){
+	    	mensaje="Registro actualizado con éxito";
+	    	clase="alert alert-success";
+	    }
+	    else{
+	    	mensaje="Falló la actualización del registro.";
+	    	clase="alert alert-danger";
+	    }
 %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -22,7 +33,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>TbTipoMétodo | Proyecto IGF115 2015</title>
+    <title>TbTipoMétodo Crear Resultado| Proyecto IGF115 2015</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -323,39 +334,14 @@
         <!-- /#page-content-wrapper -->
 		<ol class="breadcrumb">
 		  <li><a href="index.html">Inicio</a></li>
-		  <li class="active">Tipos de Métodos</li>
+		  <li><a href="TbTipoMetodoIndex.jsp">Tipos de Método</a></li>
+		  <li><a href="TbTipoMetodoActualizar.jsp">Actualizar Tipo Metodo</a></li>
+		  <li class="active">Resultado</li>
 		</ol>
-		<div class="page-header"><h3>Tipos de Métodos</h3>
-		<a class="btn btn-primary" href="TbTipoMetodoCrear.html" role="submit">Crear nuevo tipo</a>
-		</div>
-		<div>
-				<table class="table table-striped">
-					<thead>
-				      <tr>
-				        <th>cTipoMetodo</th>
-				        <th>DTipoMetodo</th>
-				        <th>FIngreso</th>
-				        <th>Ver</th>
-				        <th>Editar</th>
-				        <th>Eliminar</th>
-				      </tr>
-				    </thead>
-				    <tbody>
-				<% 
-					for (TbTipoMetodo temp : listaTbTipoMetodo) {
-						out.print("<tr>");
-						out.print("<td>"+temp.getcTipoMetodo()+"</td>");
-						out.print("<td>"+temp.getDTipoMetodo()+"</td>");
-						out.print("<td>"+formato.format(temp.getFIngreso())+"</td>");
-						out.print("<td><a href=/proyectoIGF1152015/TbTipoMetodoConsultar.jsp?cTipoMetodo="+temp.getcTipoMetodo()+">Ver</a></td>");
-						out.print("<td><a href=/proyectoIGF1152015/TbTipoMetodoActualizar.jsp?cTipoMetodo="+temp.getcTipoMetodo()+">Editar</a></td>");
-						out.print("<td><a href=/proyectoIGF1152015/TbTipoMetodoEliminar.jsp?cTipoMetodo="+temp.getcTipoMetodo()+">Eliminar</a></td>");
-						out.print("</tr>");
-					}
-				%>
-				</tbody>
-				</table>
-			</div>
+		<h3 class="page-header">Resultado:</h3>
+		<div class="<%=clase %> alert-dismissible" role="alert"><%=mensaje %>
+		
+		
     </div>
     <!-- /#wrapper -->
 
