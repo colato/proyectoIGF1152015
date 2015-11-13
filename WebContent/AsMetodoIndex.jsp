@@ -324,7 +324,7 @@
 		  <li class="active">Métodos</li>
 		</ol>
 		<div class="page-header"><h3>Métodos</h3>
-		<a class="btn btn-primary" href="AsMetodoCrear.html" role="submit">Crear nuevo tipo</a>
+		<a class="btn btn-primary" href="AsMetodoCrear.jsp" role="submit">Crear nuevo tipo</a>
 		</div>
 		<div>
 				<table class="table table-striped">
