@@ -8,13 +8,12 @@ import sv.edu.ues.igf115.dominio.*;
 public class CtrlAsAtributo {
 	private AsAtributoDAO daoAsAtributo = new AsAtributoDAO();
 	
-	public boolean crearAsAtributo(int cClase, int cAtributo, int cMetodo, String dAtributo, String dTipoDatoAtributo, 
+	public boolean crearAsAtributo(AsAtributoPKDetalle llaveCompuesta, int cMetodo, String dAtributo, String dTipoDatoAtributo, 
 			String cUsuario, Date fIngreso, String cTipoAtributo, AsClase asClase, TbTipoAtributo tbTipoAtributo,
 			AsMetodo asMetodo){
-		if (daoAsAtributo.daAsAtributoById(cClase)== null){
-			AsAtributo asAtributo = new AsAtributo(cClase, cAtributo, cMetodo, dAtributo, dTipoDatoAtributo,
+		if (daoAsAtributo.daAsAtributoById(llaveCompuesta)== null){
+			AsAtributo asAtributo = new AsAtributo(llaveCompuesta, cMetodo, dAtributo, dTipoDatoAtributo,
 					cUsuario, fIngreso, cTipoAtributo, asClase, tbTipoAtributo, asMetodo);
-			
 			daoAsAtributo.guardaActualiza(asAtributo);
 			return true;
 		}
@@ -22,9 +21,9 @@ public class CtrlAsAtributo {
 			return false;
 	}
 	
-	public boolean eliminarAsAtributo(int cClase){
-		if (daoAsAtributo.daAsAtributoById(cClase) != null){
-			AsAtributo asAtributo = daoAsAtributo.daAsAtributoById(cClase);
+	public boolean eliminarAsAtributo(AsAtributoPKDetalle llaveCompuesta){
+		if (daoAsAtributo.daAsAtributoById(llaveCompuesta) != null){
+			AsAtributo asAtributo = daoAsAtributo.daAsAtributoById(llaveCompuesta);
 			daoAsAtributo.eliminar(asAtributo);
 			return true;
 		}
@@ -32,14 +31,13 @@ public class CtrlAsAtributo {
 			return false;
 	}
 	
-	public boolean modificarAsAtributo(int cClase, int cAtributo, int cMetodo, String dAtributo, String dTipoDatoAtributo, 
+	public boolean modificarAsAtributo(AsAtributoPKDetalle llaveCompuesta, int cMetodo, String dAtributo, String dTipoDatoAtributo, 
 			String cUsuario, Date fIngreso, String cTipoAtributo, AsClase asClase, TbTipoAtributo tbTipoAtributo,
 			AsMetodo asMetodo){
-		if(daoAsAtributo.daAsAtributoById(cClase)!= null){
-			AsAtributo asAtributo = daoAsAtributo.daAsAtributoById(cClase);
-			asAtributo.setAsClase(asClase);
+		if(daoAsAtributo.daAsAtributoById(llaveCompuesta)!= null){
+			AsAtributo asAtributo = daoAsAtributo.daAsAtributoById(llaveCompuesta);
+			asAtributo.setLlaveCompuesta(llaveCompuesta);
 			asAtributo.setAsMetodo(asMetodo);
-			asAtributo.setcAtributo(cAtributo);
 			asAtributo.setcMetodo(cMetodo);
 			asAtributo.setcTipoAtributo(cTipoAtributo);
 			asAtributo.setcUsuario(cUsuario);
@@ -57,8 +55,8 @@ public class CtrlAsAtributo {
 		return daoAsAtributo.daAsAtributos();
 	}
 	
-	public AsAtributo daAsAtributoById(int cClase){
-		return daoAsAtributo.daAsAtributoById(cClase);
+	public AsAtributo daAsAtributoById(AsAtributoPKDetalle llaveCompuesta){
+		return daoAsAtributo.daAsAtributoById(llaveCompuesta);
 	}
 	
 	public AsAtributo daAsAtributoByFIngreso(Date fIngreso){

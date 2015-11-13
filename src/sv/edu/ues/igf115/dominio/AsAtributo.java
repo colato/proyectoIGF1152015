@@ -6,19 +6,17 @@ import java.util.*;
 
 @Entity
 @Table(name="AS_atributo", catalog="modelo_proyecto", schema="")
-//Indica la clase que se a usar como llave compuesta
-//@IdClass(AsAtributoPk.class)
 @NamedQueries({
 	@NamedQuery(name="AsAtributo.findAll", query="SELECT a FROM AsAtributo a"),
-	@NamedQuery(name="AsAtributo.findByKeys", query ="SELECT a FROM AsAtributo " +
-			"a WHERE a.cClase = :cClase and a.cAtributo = :cAtributo"),
+	@NamedQuery(name="AsAtributo.findById", query ="SELECT a FROM AsAtributo " +
+			"a WHERE a.AsAtributoPKDetalle.cClase = :cClase and a.asAtributoPKDetalle.cAtributo = :cAtributo"),
 	@NamedQuery(name="AsAtributo.findByFIngreso", query ="SELECT a FROM AsAtributo" +
 			"a WHERE a.fIngreso = :fIngreso")})
 
 public class AsAtributo implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private int cClase;
-	private int cAtributo;
+	
+	protected AsAtributoPKDetalle llaveCompuesta;
 	private int cMetodo;
 	private String dAtributo;
 	private String dTipoDatoAtributo;
@@ -30,14 +28,13 @@ public class AsAtributo implements Serializable {
 	private AsMetodo asMetodo;
 	
 	private AsAtributo(){
-		//Prueba, usado por hibernate
+		
 	}
 	
-	public AsAtributo(int cClase, int cAtributo, int cMetodo, String dAtributo, String dTipoDatoAtributo, 
+	public AsAtributo(AsAtributoPKDetalle llaveCompuesta, int cMetodo, String dAtributo, String dTipoDatoAtributo, 
 			String cUsuario, Date fIngreso, String cTipoAtributo, AsClase asClase, TbTipoAtributo tbTipoAtributo,
 			AsMetodo asMetodo){
-		this.cClase = cClase;
-		this.cAtributo = cAtributo;
+		this.llaveCompuesta = llaveCompuesta; 
 		this.cMetodo = cMetodo;
 		this.dAtributo = dAtributo;
 		this.dTipoDatoAtributo = dTipoDatoAtributo;
@@ -49,25 +46,15 @@ public class AsAtributo implements Serializable {
 		this.asMetodo = asMetodo;
 	}
 	
-	@Id
-	@Basic(optional=false)
-	@Column(name="c_clase")
-	public int getcClase() {
-		return cClase;
-	}
-	public void setcClase(int cClase) {
-		this.cClase = cClase;
+	@EmbeddedId
+	public AsAtributoPKDetalle getLlaveCompuesta(){
+		return llaveCompuesta;
 	}
 	
-	@Id
-	@Basic(optional=false)
-	@Column(name="c_atributo")
-	public int getcAtributo() {
-		return cAtributo;
+	public void setLlaveCompuesta(AsAtributoPKDetalle llaveCompuesta){
+		this.llaveCompuesta = llaveCompuesta;
 	}
-	public void setcAtributo(int cAtributo) {
-		this.cAtributo = cAtributo;
-	}
+
 	
 	@Basic
 	@Column(name="c_metodo")

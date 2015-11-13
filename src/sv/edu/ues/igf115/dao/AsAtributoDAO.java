@@ -49,11 +49,20 @@ public class AsAtributoDAO {
 		}
 	}
 	
-	public AsAtributo daAsAtributoById(int cClase){
+	public AsAtributo daAsAtributoById(AsAtributoPKDetalle asAtributoPKDetalle){
 		sesion = sessionFactory.openSession();
-		AsAtributo id = (AsAtributo) sesion.get(AsAtributo.class, cClase);
-		sesion.close();
-		return id;
+		Query query = sesion.getNamedQuery("daAsAtributoByID");
+		
+		query.setInteger("cClase", asAtributoPKDetalle.getcClase());
+		query.setInteger("cAtributo", asAtributoPKDetalle.getcAtributo());
+		
+		AsAtributo resultado = (AsAtributo) query.uniqueResult();
+		
+		if(resultado!=null){
+			return resultado;
+		}
+		else
+			return null;
 	}
 	
 	public List<AsAtributo> daAsAtributos(){
