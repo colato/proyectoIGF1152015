@@ -58,8 +58,8 @@ public class AsObservacion implements Serializable{
    
    @ManyToOne(fetch=FetchType.LAZY)
    @JoinColumns( { 
-       @JoinColumn(name="c_clase", referencedColumnName="c_clase"), 
-       @JoinColumn(name="c_metodo", referencedColumnName="c_metodo") } )
+       @JoinColumn(name="c_clase", referencedColumnName="c_clase",insertable=false,updatable=false), 
+       @JoinColumn(name="c_metodo", referencedColumnName="c_metodo",insertable=false,updatable=false) } )
    public AsMetodo getAsMetodo() {
        return this.asMetodo;
    }
@@ -71,8 +71,8 @@ public class AsObservacion implements Serializable{
    
    @ManyToOne(fetch=FetchType.LAZY)
    @JoinColumns( { 
-       @JoinColumn(name="c_clase", referencedColumnName="c_clase"), 
-       @JoinColumn(name="c_atributo", referencedColumnName="c_atributo") } )
+       @JoinColumn(name="c_clase", referencedColumnName="c_clase",insertable=false,updatable=false), 
+       @JoinColumn(name="c_atributo", referencedColumnName="c_atributo",insertable=false,updatable=false) } )
    public AsAtributo getAsAtributo() {
        return this.asAtributo;
    }
@@ -83,9 +83,9 @@ public class AsObservacion implements Serializable{
     
    @ManyToOne(fetch=FetchType.LAZY)
    @JoinColumns( { 
-       @JoinColumn(name="c_clase", referencedColumnName="c_clase"), 
-       @JoinColumn(name="c_metodo", referencedColumnName="c_metodo"), 
-       @JoinColumn(name="c_parametro", referencedColumnName="c_parametro") } )
+       @JoinColumn(name="c_clase", referencedColumnName="c_clase",insertable=false,updatable=false), 
+       @JoinColumn(name="c_metodo", referencedColumnName="c_metodo",insertable=false,updatable=false), 
+       @JoinColumn(name="c_parametro", referencedColumnName="c_parametro",insertable=false,updatable=false) } )
    public AsParametro getAsParametro() {
        return this.asParametro;
    }
@@ -97,7 +97,7 @@ public class AsObservacion implements Serializable{
    
        
    @ManyToOne(fetch=FetchType.LAZY)
-   @JoinColumn(name="c_clase")
+   @JoinColumn(name="c_clase",referencedColumnName="c_clase",insertable=false,updatable=false)
    public AsClase getAsClase() {
        return this.asClase;
    }

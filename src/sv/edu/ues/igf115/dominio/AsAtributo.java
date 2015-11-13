@@ -10,7 +10,7 @@ import java.util.*;
 	@NamedQuery(name="AsAtributo.findAll", query="SELECT a FROM AsAtributo a"),
 	@NamedQuery(name="daAsAtributoById", query ="SELECT a FROM AsAtributo " +
 			"a WHERE a.AsAtributoPKDetalle.cClase = :cClase and a.asAtributoPKDetalle.cAtributo = :cAtributo"),
-	@NamedQuery(name="AsAtributo.findByFIngreso", query ="SELECT a FROM AsAtributo" +
+	@NamedQuery(name="AsAtributo.findByFIngreso", query =" FROM AsAtributo as " +
 			"a WHERE a.fIngreso = :fIngreso")})
 
 public class AsAtributo implements Serializable {
@@ -103,7 +103,7 @@ public class AsAtributo implements Serializable {
 	}
 	
 	@Basic(optional=false)
-	@Column(name="c_tipo_atributo")
+	@Column(name="c_tipo_atributo",insertable=false,updatable=false)
 	public String getcTipoAtributo() {
 		return cTipoAtributo;
 	}
@@ -111,7 +111,7 @@ public class AsAtributo implements Serializable {
 		this.cTipoAtributo = cTipoAtributo;
 	}
 	
-	@JoinColumn(name="c_clase",,referencedColumnName = "c_clase")
+	@JoinColumn(name="c_clase",referencedColumnName = "c_clase",insertable=false,updatable=false)
 	@ManyToOne
 	public AsClase getAsClase() {
 		return asClase;
@@ -132,8 +132,8 @@ public class AsAtributo implements Serializable {
 	}
 
 	@JoinColumns({
-		@JoinColumn(name="c_metodo", referencedColumnName = "c_metodo"),
-		@JoinColumn(name="c_clase", referencedColumnName = "c_clase")
+		@JoinColumn(name="c_metodo", referencedColumnName = "c_metodo",insertable=false,updatable=false),
+		@JoinColumn(name="c_clase", referencedColumnName = "c_clase",insertable=false,updatable=false)
 	})
 	@ManyToOne
 	public AsMetodo getAsMetodo() {

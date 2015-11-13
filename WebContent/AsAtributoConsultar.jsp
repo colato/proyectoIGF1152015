@@ -14,7 +14,7 @@
 	DateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
 	String mensaje;
 	if(asAtributo!=null){
-		mensaje="c_aplicativo: " "<br>"+
+		mensaje="c_aplicativo: "+tbAplicativo.getcAplicativo()+ "<br>"+
 		        "d_aplicativo: "+tbAplicativo.getdAplicativo()+"<br>"+
 				"f_ingreso: "+tbAplicativo.getfIngreso().toString();
 	}

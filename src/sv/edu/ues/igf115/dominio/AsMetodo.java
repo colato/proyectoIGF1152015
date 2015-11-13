@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Table(name="AS_metodo", catalog="modelo_proyecto", schema="")
 @NamedQueries({
 	@NamedQuery(name="daMetodoPorLlave",
-			query="from AsMetodo as asMetodo where as.AsMetodoPKDetalle.cClase=:cClase and as.AsMetodoPKDetalle.cMetodo=:cMetodo"),
+			query="from AsMetodo as asMetodo where asMetodo.AsMetodoPKDetalle.cClase=:cClase and asMetodo.AsMetodoPKDetalle.cMetodo=:cMetodo"),
 	@NamedQuery(name="daListaMetodos",
 			query="from AsMetodo as asMetodo")
 })
@@ -62,7 +62,7 @@ public class AsMetodo implements Serializable{
 	//--------------------------------------------------
 	
 	@ManyToOne
-	@JoinColumn(name = "c_clase")
+	@JoinColumn(name = "c_clase",referencedColumnName="c_clase",insertable=false,updatable=false)
 	public AsClase getcClaseRelacion() {
 		return cClaseRelacion;
 	}
