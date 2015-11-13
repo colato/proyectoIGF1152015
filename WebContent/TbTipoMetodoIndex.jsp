@@ -3,9 +3,13 @@
 <%@ page import="sv.edu.ues.igf115.negocio.CtrlTbTipoMetodo" %>
 <%@ page import="sv.edu.ues.igf115.dominio.TbTipoMetodo" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.text.SimpleDateFormat"%>
+<%@ page import="java.text.DateFormat"%>
 <%
 	CtrlTbTipoMetodo ctrlTbTipoMetodo=new CtrlTbTipoMetodo();
 	List<TbTipoMetodo> listaTbTipoMetodo=ctrlTbTipoMetodo.daListaTbTipoMetodo();
+	DateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+	
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -342,7 +346,7 @@
 						out.print("<tr>");
 						out.print("<td>"+temp.getcTipoMetodo()+"</td>");
 						out.print("<td>"+temp.getDTipoMetodo()+"</td>");
-						out.print("<td>"+temp.getFIngreso()+"</td>");
+						out.print("<td>"+formato.format(temp.getFIngreso())+"</td>");
 						out.print("<td><a href=/proyectoIGF1152015/TbTipoMetodoConsultar.jsp?cTipoMetodo="+temp.getcTipoMetodo()+">Ver</a></td>");
 						out.print("<td><a href=/proyectoIGF1152015/TbTipoMetodoActualizar.jsp?cTipoMetodo="+temp.getcTipoMetodo()+">Editar</a></td>");
 						out.print("<td><a href=/proyectoIGF1152015/TbTipoMetodoEliminar.jsp?cTipoMetodo="+temp.getcTipoMetodo()+">Eliminar</a></td>");

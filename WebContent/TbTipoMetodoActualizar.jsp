@@ -2,10 +2,15 @@
     pageEncoding="ISO-8859-1"%>
 <%@ page import="sv.edu.ues.igf115.negocio.CtrlTbTipoMetodo" %>
 <%@ page import="sv.edu.ues.igf115.dominio.TbTipoMetodo" %>
+<%@ page import="java.util.*" %>
+<%@ page import="java.text.SimpleDateFormat"%>
+<%@ page import="java.text.DateFormat"%>
 <%
 	String cTipoMetodo=request.getParameter("cTipoMetodo");
 	CtrlTbTipoMetodo ctrlTipoMetodo=new CtrlTbTipoMetodo();
 	TbTipoMetodo tbTipoMetodo=ctrlTipoMetodo.verTbTipoMetodo(cTipoMetodo);
+	DateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+	String fecha=formato.format(tbTipoMetodo.getFIngreso());
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -332,10 +337,13 @@
 		
 		<div class="container col-xs-1 col-sm-4 col-md-4"></div>
 		<div class="container col-xs-10 col-sm-4 col-md-4 form1">
-			<form role="form" name="crearTbTipoMetodo" method="post" action="TbTipoMetodoCrear.jsp">
+			<form role="form" name="crearTbTipoMetodo" method="post" action="TbTipoMetodoActualizarEjecuta.jsp">
 				<div class="form-group">
 					<label for="cTipoMetodo">Correlativo tipo de metodo</label>
-				 	<input type="text" class="form-control disabled" name="cTipoMetodo" id="cTipoMetodo" value="<%=tbTipoMetodo.getcTipoMetodo()%>" disabled>
+				 	<input type="text" class="form-control " name="cTipoMetodo" id="cTipoMetodo" value="<%=tbTipoMetodo.getcTipoMetodo()%>" disabled>
+				</div>
+				<div class="form-group">
+				 	<input type="hidden" class="form-control " name="cTipoMetodo" id="cTipoMetodo" value="<%=tbTipoMetodo.getcTipoMetodo()%>">
 				</div>
 				<div class="form-group">
 					<label for="dTipoMetodo">Descripción</label>
@@ -343,7 +351,7 @@
 				 </div>
 				 <div class="form-group">
 				 	<label for="fIngreso">Fecha de Ingreso</label>
-						<input type="date" class="form-control" name="fIngreso" id="fIngreso" value="<%=tbTipoMetodo.getFIngreso()%>">
+						<input type="date" class="form-control" name="fIngreso" id="fIngreso" value="<%=fecha %>">
 				</div>
 				<input type="submit" class="btn btn-primary" value="Actualizar">
 				

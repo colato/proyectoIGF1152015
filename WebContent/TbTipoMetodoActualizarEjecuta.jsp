@@ -1,55 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ page import="sv.edu.ues.igf115.dao.*" %>
-    <%@ page import="sv.edu.ues.igf115.dominio.*" %>
-<%@ page import="sv.edu.ues.igf115.negocio.*" %>
+<%@ page import="sv.edu.ues.igf115.negocio.CtrlTbTipoMetodo" %>
+<%@ page import="sv.edu.ues.igf115.dominio.TbTipoMetodo" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.text.SimpleDateFormat"%>
 <%
-	int cObservacion = Integer.parseInt(request.getParameter("cObservacion"));
-	String dObservacion = request.getParameter("dObservacion");
-	String cUsuario = request.getParameter("cUsuario");
-	String fIngresoString = request.getParameter("fIngreso");
-	SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+	String cTipoMetodo=request.getParameter("cTipoMetodo");
+	String dTipoMetodo=request.getParameter("dTipoMetodo");
+	String fIngresoString=request.getParameter("fIngreso");
+	SimpleDateFormat formato = new SimpleDateFormat("yyyy-mm-dd");
     Date fIngreso = formato.parse(fIngresoString);
-    int bActivo = Integer.parseInt(request.getParameter("bActivo"));
-    int  cAtributo = Integer.parseInt(request.getParameter("cAtributo"));
-    int cClase = Integer.parseInt(request.getParameter("cClase"));
-    int cParametro = Integer.parseInt(request.getParameter("cParametro"));
-    int cMetodo = Integer.parseInt(request.getParameter("cMetodo"));
-    AsParametroPKDetalle asParametroPK = new AsParametroPKDetalle();
-    asParametroPK.setcClase(cClase);
-    asParametroPK.setcMetodo(cMetodo);
-    asParametroPK.setcParametro(cParametro);
-    CtrlAsParametro ctrlAsParametro = new CtrlAsParametro();
-    AsParametro asParametro = ctrlAsParametro.verAsParametro(asParametroPK);
-    AsAtributoPKDetalle asAtributoPK = new AsAtributoPKDetalle();
-    asAtributoPK.setcAtributo(cAtributo);
-    asAtributoPK.setcClase(cClase);
-    CtrlAsAtributo ctrlAsAtributo = new CtrlAsAtributo();
-    AsAtributo asAtributo = ctrlAsAtributo.daAsAtributoById(asAtributoPK);
-    AsMetodoPKDetalle asMetodoPK = new AsMetodoPKDetalle();
-    asMetodoPK.setcClase(cClase);
-    asMetodoPK.setcMetodo(cMetodo);
-    CtrlAsMetodo ctrlAsMetodo = new CtrlAsMetodo();
-    AsMetodo asMetodo = ctrlAsMetodo.verAsMetodo(asMetodoPK);
-    CtrlAsClase ctrlAsClase = new CtrlAsClase();
-    AsClase asClase = ctrlAsClase.daAsClaseById(cClase);
-    CtrlAsObservacion ctrlAsObservacion = new CtrlAsObservacion();
-    
-   boolean resultado= ctrlAsObservacion.crearObservacion(cObservacion, dObservacion, cUsuario, fIngreso, bActivo, asMetodo, asAtributo, asParametro, asClase);
-
-    
-    
-   
-    
-    
-    String mensaje;
-    if(resultado){
-    	mensaje="Registro creado con éxito";
-    }
-    else
-    	mensaje="Falló la creación del registro, por duplicación de llaves.";
+	CtrlTbTipoMetodo ctrlTipoMetodo=new CtrlTbTipoMetodo();
+	boolean resultado=ctrlTipoMetodo.actualizarTbTipoMetodo(cTipoMetodo, dTipoMetodo, fIngreso);
+	String mensaje;
+	String clase;
+	if(resultado){
+	    	mensaje="Registro actualizado con éxito";
+	    	clase="alert alert-success";
+	    }
+	    else{
+	    	mensaje="Falló la actualización del registro.";
+	    	clase="alert alert-danger";
+	    }
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -61,7 +33,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>AsObservacion Actualizar| Proyecto IGF115 2015</title>
+    <title>TbTipoMétodo Crear Resultado| Proyecto IGF115 2015</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -114,11 +86,11 @@
 					  Clase <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="CrearAsClase.jsp">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+						<li><a href="AsClaseCrear.html">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
 								Crear
 							</a>
 						</li>
-						<li><a href="AsClaseActualizar2.jsp">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
+						<li><a href="AsClaseActualizar.html">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
 								Actualizar
 							</a>
 						</li>
@@ -229,11 +201,11 @@
 					  Observación <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="AsObservacionInsert.jsp">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+						<li><a href="AsObservacionCrear.html">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
 								Crear
 							</a>
 						</li>
-						<li><a href="AsObservacionActualizar2.jsp">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
+						<li><a href="AsObservacionActualizar.html">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
 								Actualizar
 							</a>
 						</li>
@@ -340,27 +312,9 @@
 					</ul>
 				</li>
 				<li role="presentation" class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-					  Tipo Método <span class="caret"></span>
+					<a href="TbTipoMetodoIndex.jsp">
+					  Tipo Método
 					</a>
-					<ul class="dropdown-menu">
-						<li><a href="TbTipoMetodoCrear.html">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-								Crear
-							</a>
-						</li>
-						<li><a href="TbTipoMetodoActualizar.html">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
-								Actualizar
-							</a>
-						</li>
-						<li><a href="TbTipoMetodoConsultar.html">  <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span>
-								Consultar
-							</a>
-						</li>
-						<li><a href="TbTipoMetodoEliminar.html">  <span class="glyphicon glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
-								Eliminar
-							</a>
-						</li>
-					</ul>
 				</li>
             </ul>
         </div>
@@ -380,11 +334,12 @@
         <!-- /#page-content-wrapper -->
 		<ol class="breadcrumb">
 		  <li><a href="index.html">Inicio</a></li>
-		  <li><a href="AsObservacionActualizar2.jsp">Actualizar Tipo Clase</a></li>
+		  <li><a href="TbTipoMetodoIndex.jsp">Tipos de Método</a></li>
+		  <li><a href="TbTipoMetodoActualizar.jsp">Actualizar Tipo Metodo</a></li>
 		  <li class="active">Resultado</li>
 		</ol>
-		<h3>Resultado:</h3>
-		<%=mensaje %>
+		<h3 class="page-header">Resultado:</h3>
+		<div class="<%=clase %> alert-dismissible" role="alert"><%=mensaje %>
 		
 		
     </div>

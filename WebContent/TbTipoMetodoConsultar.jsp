@@ -2,10 +2,13 @@
     pageEncoding="ISO-8859-1"%>
 <%@ page import="sv.edu.ues.igf115.negocio.CtrlTbTipoMetodo" %>
 <%@ page import="sv.edu.ues.igf115.dominio.TbTipoMetodo" %>
+<%@ page import="java.text.SimpleDateFormat"%>
+<%@ page import="java.text.DateFormat"%>
 <%
 	String cTipoMetodo=request.getParameter("cTipoMetodo");
 	CtrlTbTipoMetodo ctrlTipoMetodo=new CtrlTbTipoMetodo();
 	TbTipoMetodo tbTipoMetodo=ctrlTipoMetodo.verTbTipoMetodo(cTipoMetodo);
+	DateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
 	String mensaje;
 	if(tbTipoMetodo!=null){
 		mensaje="c_tipo_metodo: "+tbTipoMetodo.getcTipoMetodo()+"<br>"+
@@ -350,7 +353,7 @@
 						out.print("<tr>");
 						out.print("<td>"+tbTipoMetodo.getcTipoMetodo()+"</td>");
 						out.print("<td>"+tbTipoMetodo.getDTipoMetodo()+"</td>");
-						out.print("<td>"+tbTipoMetodo.getFIngreso()+"</td>");
+						out.print("<td>"+formato.format(tbTipoMetodo.getFIngreso())+"</td>");
 						out.print("<td><a href=/proyectoIGF1152015/TbTipoMetodoActualizar.jsp?cTipoMetodo="+tbTipoMetodo.getcTipoMetodo()+">Editar</a></td>");
 						out.print("<td><a href=/proyectoIGF1152015/TbTipoMetodoEliminar.jsp?cTipoMetodo="+tbTipoMetodo.getcTipoMetodo()+">Eliminar</a></td>");
 						out.print("</tr>");
