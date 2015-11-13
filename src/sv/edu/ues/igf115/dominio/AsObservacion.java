@@ -6,6 +6,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="AS_observacion",catalog="modelo_proyecto",schema="")
 @NamedQueries({
+	@NamedQuery(name = "AsObservacion.findAll", query = "from AsObservacion"),
 	@NamedQuery(name="daObservacionById",
 			query="from AsObservacion as ob where ob.cObservacion=:cObservacion"),
 	@NamedQuery(name="daObservacionNombre",

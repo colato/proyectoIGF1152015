@@ -9,8 +9,12 @@
         <!-- Settings for a local HSQL (testing) database. -->
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+<<<<<<< HEAD
+        <property name="connection.url">jdbc:mysql://localhost:3306/modelo_proyecto</property>
+=======
         <!-- <property name="connection.url">jdbc:mysql://localhost/modelo_proyecto</property>-->
         <property name="connection.url">jdbc:mysql://localhost/modelo_proyecto</property>
+>>>>>>> branch 'master' of https://github.com/colato/proyectoIGF1152015.git
         <property name="connection.username">root</property>
         <property name="connection.password">114i2012mm10020</property>
 
@@ -37,20 +41,33 @@
         <property name="current_session_context_class">thread</property>
 
         <!-- Hibernate mapping Clases -->
+<<<<<<< HEAD
+        
+        <mapping class="sv.edu.ues.igf115.dominio.AsAtributo"/>
+=======
         <!--<mapping class="sv.edu.ues.igf115.dominio.AsAtributo"/>
         <mapping class="sv.edu.ues.igf115.dominio.AsClase"/>
+>>>>>>> branch 'master' of https://github.com/colato/proyectoIGF1152015.git
         <mapping class="sv.edu.ues.igf115.dominio.AsClaseInterface"/>
         <mapping class="sv.edu.ues.igf115.dominio.AsInterface"/>
         <mapping class="sv.edu.ues.igf115.dominio.AsInterfaceImplementa"/>
-        <mapping class="sv.edu.ues.igf115.dominio.AsMetodo"/>
+        
         <mapping class="sv.edu.ues.igf115.dominio.AsObservacion"/>
         <mapping class="sv.edu.ues.igf115.dominio.AsParametro"/>
+<<<<<<< HEAD
+        <mapping class="sv.edu.ues.igf115.dominio.TbTipoAtributo"/>
+=======
         <mapping class="sv.edu.ues.igf115.dominio.TbAplicativo"/>
         <mapping class="sv.edu.ues.igf115.dominio.TbTipoAtributo"/>-->
         <mapping class="sv.edu.ues.igf115.dominio.TbTipoClase"/>
+>>>>>>> branch 'master' of https://github.com/colato/proyectoIGF1152015.git
         <mapping class="sv.edu.ues.igf115.dominio.TbTipoMetodo"/>
+        <mapping class="sv.edu.ues.igf115.dominio.AsMetodo"/>
+        <mapping class="sv.edu.ues.igf115.dominio.TbAplicativo"/>
+         
+    	<mapping class="sv.edu.ues.igf115.dominio.AsClase"/>
         
-    
+    	<mapping class="sv.edu.ues.igf115.dominio.TbTipoClase"/>
         <!-- Hibernate Annotations (and package-info.java)
         <mapping package="org.mypackage"/>
         <mapping class="org.MyClass/>

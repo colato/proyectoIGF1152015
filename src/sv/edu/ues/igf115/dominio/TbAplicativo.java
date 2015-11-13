@@ -61,7 +61,7 @@ public class TbAplicativo implements Serializable{
 	}
 	
 	//Multiplicidad 1:N Un tb_aplicativo tiene muchas as_clase
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "tbaplicativo")
+	@OneToMany(cascade = CascadeType.ALL , fetch=FetchType.LAZY, mappedBy = "tbAplicativo")
 	public List<AsClase> getAsClaseList() {
 		return asClaseList;
 	}

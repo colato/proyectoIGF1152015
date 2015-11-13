@@ -17,22 +17,28 @@ import javax.persistence.*;
 
 public class AsClaseInterface implements Serializable{
   private static final long serialVersionUID = 1L;
+  @Id
+  @Basic(optional=false)
+  @Column(name="c_clase_interface")
   private int c_clase_interface;
-  private int asclase;
-  private int asinterface;
+  @ManyToOne(fetch=FetchType.LAZY)
+  @JoinColumn(name="c_clase", nullable=false)
+  private AsClase asclase;
+
+  @ManyToOne(fetch=FetchType.LAZY)
+  @JoinColumn(name="c_interface", nullable=false)
+  private AsInterface asinterface;
 
   private AsClaseInterface()
   {}
   
-public AsClaseInterface(int c_clase_interface, int asclase, int asinterface){
+public AsClaseInterface(int c_clase_interface, AsClase asclase, AsInterface asinterface){
 	this.c_clase_interface= c_clase_interface;
 	this.asclase= asclase;
 	this.asinterface=asinterface;
 	
 }
-@Id
-@Basic(optional=false)
-@Column(name="c_clase_interface")
+
 public int getC_clase_interface() {
 	return c_clase_interface;
 }
@@ -40,20 +46,18 @@ public void setC_clase_interface(int c_clase_interface) {
 	this.c_clase_interface = c_clase_interface;
 }
 
-@JoinColumn(name="c_clase", referencedColumnName="c_clase")
-@ManyToOne(optional= false)
-public int getAsclase() {
+
+public AsClase getAsclase() {
 	return asclase;
 }
-public void setAsclase(int asclase) {
+public void setAsclase(AsClase asclase) {
 	this.asclase = asclase;
 }
-@JoinColumn(name="c_interface", referencedColumnName="c_interface")
-@ManyToOne(optional= false)
-public int getAsinterface() {
+
+public AsInterface getAsinterface() {
 	return asinterface;
 }
-public void setAsinterface(int asinterface) {
+public void setAsinterface(AsInterface asinterface) {
 	this.asinterface = asinterface;
 }
 
