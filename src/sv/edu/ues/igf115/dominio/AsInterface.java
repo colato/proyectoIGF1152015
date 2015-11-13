@@ -33,11 +33,14 @@ public class AsInterface implements Serializable {
 	@Temporal(TemporalType.DATE)
 	@Column(name="f_ingreso")
 	private Date f_ingreso;
+	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="asinterface")
     private List<AsClaseInterface> ListaAsClaseInterface;
-    @OneToMany(cascade=CascadeType.ALL, mappedBy="c_interface_hijo")
+   
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="c_interface_hijo")
     private List<AsInterfaceImplementa> ListaAsInterfaceHijo;
-    @OneToMany(cascade=CascadeType.ALL,  mappedBy="c_interface_padre")
+   
+	@OneToMany(cascade=CascadeType.ALL,  mappedBy="c_interface_padre")
     private List<AsInterfaceImplementa> ListaAsInterfacePadre;
     
 	private AsInterface(){ // Lo usa Hibernate
@@ -79,7 +82,7 @@ public class AsInterface implements Serializable {
 		this.f_ingreso = f_ingreso;
 	} 
 	
-	/*public List<AsClaseInterface> getListaAsClaseInterface() {
+	public List<AsClaseInterface> getListaAsClaseInterface() {
 		return ListaAsClaseInterface;
 	}
 	public void setListaAsClaseInterface(
@@ -103,7 +106,7 @@ public class AsInterface implements Serializable {
 			List<AsInterfaceImplementa> listaAsInterfacePadre) {
 		ListaAsInterfacePadre = listaAsInterfacePadre;
 	}
-  */  
+   
     
     
 }

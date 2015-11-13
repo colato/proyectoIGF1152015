@@ -30,16 +30,22 @@ public class AsClase implements Serializable{
 	@Column(name = "f_ingreso")
 	@Temporal(TemporalType.DATE)
     private Date fIngreso;
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="asClase")
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="asclase")
     private List<AsClaseInterface> listaAsClaseInterface;
-    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="asClase")
+    
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="cClaseRelacion")
 	private List<AsMetodo> listaAsMetodo;
+	
     @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="asClase")
     private List<AsAtributo> listaAsAtributo;
+    
     @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="asClase")
     private List<AsObservacion> listaAsObservacion;
+    
     @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY,mappedBy = "asClase")
     private List<AsClase> listaAsClase;
+    
     @JoinColumn(name="c_tipo_clase", nullable=false)
     @ManyToOne(fetch=FetchType.LAZY)
     private TbTipoClase tbTipoClase;
