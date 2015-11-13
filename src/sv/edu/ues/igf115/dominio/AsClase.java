@@ -32,6 +32,7 @@ public class AsClase implements Serializable{
     private Date fIngreso;
 	
 	
+	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="asclase")
     private List<AsClaseInterface> listaAsClaseInterface;
     
