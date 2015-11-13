@@ -7,14 +7,18 @@ import javax.persistence.*;
 @Table(name="AS_observacion",catalog="modelo_proyecto",schema="")
 @NamedQueries({
 	@NamedQuery(name = "AsObservacion.findAll", query = "from AsObservacion"),
-	@NamedQuery(name="daObservacionById",
-			query="from AsObservacion as ob where ob.cObservacion=:cObservacion"),
+	//@NamedQuery(name="daObservacionById",
+	//		query="from AsObservacion as ob where ob.cObservacion=:cObservacion"),
 	@NamedQuery(name="daObservacionNombre",
 			query="from AsObservacion as ob where ob.dObservacion=:dObservacion")
 })
 
 public class AsObservacion implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int cObservacion;
     private String dObservacion;
     private String cUsuario;
