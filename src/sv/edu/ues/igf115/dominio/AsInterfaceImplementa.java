@@ -23,11 +23,13 @@ public class AsInterfaceImplementa implements Serializable {
  @Basic (optional=false)
  @Column(name="c_interface_implementa")
   private int c_interface_implementa;
-  @ManyToOne(fetch=FetchType.LAZY)
-  @JoinColumn(name="c_interface_hijo", nullable=false)
+ @JoinColumn(name="c_interface_hijo", nullable=false)
+ @ManyToOne(fetch=FetchType.LAZY)
+  
   private AsInterface c_interface_hijo;
+ @JoinColumn(name="c_interface_padre", nullable=false)
   @ManyToOne(fetch=FetchType.LAZY)
-  @JoinColumn(name="c_interface_padre", nullable=false)
+  
   private AsInterface c_interface_padre;
   
  private AsInterfaceImplementa(){ //Lo usa Hibernate

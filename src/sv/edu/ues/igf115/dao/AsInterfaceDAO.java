@@ -34,7 +34,7 @@ public class AsInterfaceDAO {
 	   //Obtengo una sesion
 	   Session sesion= sesionF.openSession();
 	   //Obtengo el registro
-	   Query query= sesion.getNamedQuery("asinterface.findAllInterface");
+	   Query query= sesion.getNamedQuery("asinterface.findInterface");
        query.setParameter("c_interface",c_interface);
        AsInterface asinterface=(AsInterface) query.uniqueResult();
 	   //Cierro la Sesion

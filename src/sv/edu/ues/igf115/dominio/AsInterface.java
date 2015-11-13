@@ -79,7 +79,7 @@ public class AsInterface implements Serializable {
 		this.f_ingreso = f_ingreso;
 	} 
 	
-	public List<AsClaseInterface> getListaAsClaseInterface() {
+	/*public List<AsClaseInterface> getListaAsClaseInterface() {
 		return ListaAsClaseInterface;
 	}
 	public void setListaAsClaseInterface(
@@ -103,7 +103,7 @@ public class AsInterface implements Serializable {
 			List<AsInterfaceImplementa> listaAsInterfacePadre) {
 		ListaAsInterfacePadre = listaAsInterfacePadre;
 	}
-    
+  */  
     
     
 }
