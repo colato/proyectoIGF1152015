@@ -46,10 +46,10 @@
     
     String mensaje;
     if(resultado){
-    	mensaje="Registro creado con éxito";
+    	mensaje="Registro actualizado con éxito";
     }
     else
-    	mensaje="Falló la creación del registro, por duplicación de llaves.";
+    	mensaje="Falló la actualizacion del registro, por duplicación de llaves.";
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
