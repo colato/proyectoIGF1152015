@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="sv.edu.ues.igf115.negocio.CtrlAsClaseInterface" %>
+<%@ page import="sv.edu.ues.igf115.negocio.*" %>
 <%@ page import="sv.edu.ues.igf115.dominio.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.text.SimpleDateFormat"%>
@@ -8,9 +8,9 @@
     
 <%
   CtrlAsClaseInterface ctrl= new CtrlAsClaseInterface();
-  List<AsClaseInterface> interfaces=ctrl.verTodasClaseInterface();
+  List<AsClaseInterface> interfa=ctrl.verTodasClaseInterface();
   String mensaje;
-  if(interfaces==null){
+  if(interfa==null){
 	  mensaje="No existen registros";
   }
 %> 
@@ -27,25 +27,31 @@
 <li><a href="index.html">Inicio</a></li>
 <li><a href="AsClaseInterfaceConsultar.html">Consultar As Clase Interface</a></li>
 </ol>
-<table border="1">
- <tr>
-   <td>c clase interface</td>
-   <td>c_clase</td>
-    <td>c_interface</td>
- </tr> 
- <!-- Lleno la tabla con la Variable Lista -->
- <% for(AsClaseInterface interfac: interfaces) {%>
-	<tr>
-	 <td><input type="text" name="cinterface"><%=interfac%></td>
-	 
-	 </tr>
-<% } %>
-
-</table>
-<form name="BuscarInterface" method="POST" action="AsClaseInterfaceActualizar.jsp">
-    Ingrese el c_interface a Actualizar: <input type="text" name="cinterfaceBuscar">
-    <input type="submit" value="Buscar">
-    </form>
-    <!--fin -->
+<div>
+				<table class="table table-striped">
+					<thead>
+				      <tr>
+				        <th>cClaseInterface</th>
+				        <th>cClase</th>
+				        <th>cInterface</th>
+				        <th>Ver</th>
+				        <th>Editar</th>
+				        <th>Eliminar</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				<% for(AsClaseInterface interf: interfa) {
+						out.print("<tr>");
+						out.print("<td>"+interf.getC_clase_interface() +"</td>");
+						out.print("<td>"+interf.getAsclase().getCClase() +"</td>");
+						out.print("<td>"+interf.getAsinterface().getC_interface()  +"</td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsClaseInterfaceVer.jsp?claseinterfaceBuscar="+interf.getC_clase_interface()+">Ver</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsClaseInterfaceActualizar.jsp?cinterfaceBuscar="+interf.getC_clase_interface() +">Editar</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsClaseInterfaceEliminar.jsp?claseInterface="+interf.getC_clase_interface() +">Eliminar</a></td>");
+						out.print("</tr>");
+				 }%>
+				</tbody>
+				</table>
+			
 </body>
 </html>
