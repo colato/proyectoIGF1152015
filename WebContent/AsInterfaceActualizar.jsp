@@ -323,11 +323,21 @@
 <form name="ActualizarInterface" method="POST" action="AsInterfaceCrear.jsp">
 
 <!-- Lleno los campos correspondientes -->
+   <div class="form-group"> 
    c_interface:<input type="text" name="cinterface"><%=asinterface.getC_interface() %> 
+   </div>
+   <div class="form-group">
    d_interface:<input type="text" name="dinterface"><%=asinterface.getD_interface() %>
+   </div>
+   <div class="form-group">
    c_usuario:<input type="text" name="cusuario"><%=asinterface.getC_usuario()%>
+   </div>
+   <div class="form-group">
    f_ingreso:<input type="text" name="fecha"><%=asinterface.getF_ingreso() %>
+   </div>
+   <div class="form-group">
    <input type="submit" value="Actualizar"> 
+   </div>
  
 </form>
 </div>

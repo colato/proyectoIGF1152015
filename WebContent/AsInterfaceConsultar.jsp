@@ -326,13 +326,13 @@
 						
 <table border="1">
  <tr>
-   <td>c_interface</td>
-   <td>d_interface</td>
-   <td>c_usuario</td>
-   <td>f_ingreso</td>
-   <td>Ver</td>
-   <td>Editar</td>			        
-   <td>Eliminar</td>
+   <th>c_interface</th>
+   <th>d_interface</th>
+   <th>c_usuario</th>
+   <th>f_ingreso</th>
+   <th>Ver</th>
+   <th>Editar</th>			        
+   <th>Eliminar</th>
  </tr> 
  <tbody>
  <!-- Lleno la tabla con la Variable Lista -->

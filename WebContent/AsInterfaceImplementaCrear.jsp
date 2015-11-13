@@ -21,10 +21,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>AS interface Implementa Crear</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <!-- Bootstrap Core CSS -->
+    <title>Proyecto IGF115 2015 | Grupo 2</title>
+
+    <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
@@ -51,39 +57,21 @@
                         Menú
                     </a>
                 </li>
-                <li role="presentation" class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <li role="presentation">
+					<a href="AsAtributo.jsp">
 					  Atributo <span class="caret"></span>
 					</a>
-					<ul class="dropdown-menu">
-						<li><a href="AsAtributoCrear.html">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-								Crear
-							</a>
-						</li>
-						<li><a href="AsAtributoActualizar.html">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
-								Actualizar
-							</a>
-						</li>
-						<li><a href="AsAtributoConsultar.html">  <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span>
-								Consultar
-							</a>
-						</li>
-						<li><a href="AsAtributoEliminar.html">  <span class="glyphicon glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
-								Eliminar
-							</a>
-						</li>
-					</ul>
 				</li>
 				<li role="presentation" class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 					  Clase <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="AsClaseCrear.html">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+						<li><a href="CrearAsClase.jsp">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
 								Crear
 							</a>
 						</li>
-						<li><a href="AsClaseActualizar.html">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
+						<li><a href="AsClaseActualizar2.jsp">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
 								Actualizar
 							</a>
 						</li>
@@ -106,15 +94,15 @@
 								Crear
 							</a>
 						</li>
-						<li><a href="AsClaseInterfaceActualizar.html">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
+						<li><a href="AsClaseInterfaceConsultar.jsp">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
 								Actualizar
 							</a>
 						</li>
-						<li><a href="AsClaseInterfaceConsultar.html">  <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span>
+						<li><a href="AsClaseInterfaceConsultar.jsp">  <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span>
 								Consultar
 							</a>
 						</li>
-						<li><a href="AsClaseInterfaceEliminar.html">  <span class="glyphicon glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+						<li><a href="AsClaseInterfaceConsultar.jsp">  <span class="glyphicon glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
 								Eliminar
 							</a>
 						</li>
@@ -129,15 +117,15 @@
 								Crear
 							</a>
 						</li>
-						<li><a href="AsInterfaceActualizar.html">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
+						<li><a href="AsInterfaceConsultar.jsp">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
 								Actualizar
 							</a>
 						</li>
-						<li><a href="AsInterfaceConsultar.html">  <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span>
+						<li><a href="AsInterfaceConsultar.jsp">  <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span>
 								Consultar
 							</a>
 						</li>
-						<li><a href="AsInterfaceEliminar.html">  <span class="glyphicon glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+						<li><a href="AsInterfaceConsultar.jsp">  <span class="glyphicon glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
 								Eliminar
 							</a>
 						</li>
@@ -152,15 +140,15 @@
 								Crear
 							</a>
 						</li>
-						<li><a href="AsInterfaceImplementaActualizar.html">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
+						<li><a href="AsInterfaceImplementaConsultar.jsp">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
 								Actualizar
 							</a>
 						</li>
-						<li><a href="AsInterfaceConsultar.html">  <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span>
+						<li><a href="AsInterfaceConsultar.jsp">  <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span>
 								Consultar
 							</a>
 						</li>
-						<li><a href="AsInterfaceEliminar.html">  <span class="glyphicon glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+						<li><a href="AsInterfaceConsultar.jsp">  <span class="glyphicon glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
 								Eliminar
 							</a>
 						</li>
@@ -194,11 +182,11 @@
 					  Observación <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="AsObservacionCrear.html">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+						<li><a href="AsObservacionInsert.jsp">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
 								Crear
 							</a>
 						</li>
-						<li><a href="AsObservacionActualizar.html">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
+						<li><a href="AsObservacionActualizar2.jsp">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
 								Actualizar
 							</a>
 						</li>
@@ -286,7 +274,7 @@
 					  Tipo Clase <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="TbTipoClaseCrear.html">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+						<li><a href="TbTipoClaseIndex.jsp">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
 								Crear
 							</a>
 						</li>
@@ -331,6 +319,19 @@
         </div>
         <!-- /#sidebar-wrapper -->
 
+        <!-- Page Content -->
+		<div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <a href="#menu-toggle" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></a>
+						<!--AcÃ¡ el contenido-->
+					</div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
 <!-- Content -->
 		<ol class="breadcrumb">
 		  <li><a href="index.html">Inicio</a></li>
@@ -338,9 +339,19 @@
 		</ol>
 		
 		<h3> Formulario para Crear un As Interface Implementa</h3>
+		 <div class="row">
+            
+            <div class="container col-xs-1 col-sm-4 col-md-4"></div>
+
+            <div class="container col-xs-10 col-sm-4 col-md-4 form1">
 		<form name="crearAsInterfaceImplementa" method="POST" action="AsInterfaceImpCrear.jsp">
+		<div class="form-group">
 		c Interface: <input type="text" name="cInterface"> </br>
-		Interface hijo: 
+	    </div>
+		<div class="form-group">
+		Interface hijo:
+		</div>
+		<div class="form-group"> 
 		<select name="InterfaceHijo"> 
 			<option value="0" >Seleccione una Interface...</option></br>
 			<% for (AsInterface registro :registros ){%> 
@@ -349,10 +360,32 @@
 			<option value="0" >Seleccione una Interface...</option></br>
 	    	<% for (AsInterface  registro:registros ){%> 
 			<option value="<%= registro.getC_interface() %>"><%= registro.getD_interface() %></option><%} %></br>
-		</input>
+		</select>
+		</div>
+		<div class="form-group">
         <input type="submit" value="Crear">
+        </div>
+        
         </form>
+         </div>
+            <div class="container col-xs-1 col-sm-4 col-md-4"></div>
+        </div>
         <!-- fin --> 
+  <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
 
 </body>
 </html>
