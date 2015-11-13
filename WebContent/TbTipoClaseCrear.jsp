@@ -7,18 +7,22 @@
 	String cTipoClase = request.getParameter("ctipoclase");
 	String dTipoClase = request.getParameter("d_tipoclase");
 	String fIngresoString = request.getParameter("fIngreso");
-	SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+	SimpleDateFormat formato = new SimpleDateFormat("yyyy-mm-dd");
     Date fIngreso = formato.parse(fIngresoString);
     
     CtrlTbTipoClase ctrlTbTipoClase = new CtrlTbTipoClase();
     boolean resultado = ctrlTbTipoClase.crearTipoClase(cTipoClase,dTipoClase, fIngreso);
     
     String mensaje;
+    String clase;
     if(resultado){
     	mensaje="Registro creado con éxito";
+    	clase="alert alert-success";
     }
-    else
+    else{
     	mensaje="Falló la creación del registro, por duplicación de llaves.";
+    	clase="alert alert-danger";
+    }
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -349,11 +353,12 @@
         <!-- /#page-content-wrapper -->
 		<ol class="breadcrumb">
 		  <li><a href="index.html">Inicio</a></li>
-		  <li><a href="TbTipoClaseCrear.html">Crear Tipo Clase</a></li>
+		  <li><a href="TbTipoClaseIndex.jsp">Tipos de Clases</a></li>
+		  <li><a href="TbTipoClaseCrear.html">Crear tipo de clase</a></li>
 		  <li class="active">Resultado</li>
 		</ol>
-		<h3>Resultado:</h3>
-		<%=mensaje %>
+		<h3 class="page-header">Resultado:</h3>
+		<div class="<%=clase %> alert-dismissible" role="alert"><%=mensaje %>
 		
 		
     </div>

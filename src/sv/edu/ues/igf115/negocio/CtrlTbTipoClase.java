@@ -23,9 +23,9 @@ public class CtrlTbTipoClase {
 		
 	    }
 	            
-	    public boolean eliminarTbTipoClase(String dTipoClase) {
-	      if(daoTbTipoClase.daTbTipoClaseByNombre(dTipoClase)!= null){
-	    	  TbTipoClase tbtipoclase = daoTbTipoClase.daTbTipoClaseByNombre(dTipoClase);
+	    public boolean eliminarTbTipoClase(String cTipoClase) {
+	      if(daoTbTipoClase.daTbTipoClaseById(cTipoClase)!= null){
+	    	  TbTipoClase tbtipoclase = daoTbTipoClase.daTbTipoClaseById(cTipoClase);
 	    	  daoTbTipoClase.eliminar(tbtipoclase);
 	    	  return true;
 	      }
