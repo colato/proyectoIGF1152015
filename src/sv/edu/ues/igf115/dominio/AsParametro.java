@@ -65,7 +65,10 @@ public class AsParametro implements Serializable{
 	//--------------------------------------------------
 	
 	@ManyToOne
-	@JoinColumn(name="c_metodo")
+	@JoinColumns({
+		@JoinColumn(name="c_metodo"),
+		@JoinColumn(name="c_clase")
+	})
 	public AsMetodo getcMetodo() {
 		return cMetodo;
 	}
