@@ -9,7 +9,7 @@ import javax.persistence.*;
 @NamedQueries({
 	@NamedQuery(name="daMetodoPorLlave",
 			query="from AsMetodo as asMetodo where as.AsMetodoPKDetalle.cClase=:cClase and as.AsMetodoPKDetalle.cMetodo=:cMetodo"),
-			@NamedQuery(name="daListaMetodos",
+	@NamedQuery(name="daListaMetodos",
 			query="from AsMetodo as asMetodo")
 })
 public class AsMetodo implements Serializable{

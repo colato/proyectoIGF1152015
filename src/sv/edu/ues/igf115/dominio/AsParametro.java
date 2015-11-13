@@ -8,10 +8,14 @@ import javax.persistence.*;
 @Entity
 @Table(name="AS_parametro", catalog="modelo_proyecto", schema="")
 @NamedQueries({
-	@NamedQuery(name="daParamteoPorLlave",
+	@NamedQuery(
+			name="daParametroPorLlave",
 			query="from AsParametro as asParametro where as.AsParametroPKDetalle.cClase=:cClase " +
 					"and as.AsParametroPKDetalle.cMetodo=:cMetodo " +
-					"and as.AsParametroPKDetalle.cParametro=:cParametro")
+					"and as.AsParametroPKDetalle.cParametro=:cParametro"),
+	@NamedQuery(
+			name="daListaParametros",
+			query="from AsParametro as asParametro")
 })
 public class AsParametro implements Serializable{
 

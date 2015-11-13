@@ -1,6 +1,7 @@
 package sv.edu.ues.igf115.negocio;
 
 import java.util.Date;
+import java.util.List;
 
 import sv.edu.ues.igf115.dao.AsParametroDAO;
 import sv.edu.ues.igf115.dominio.AsClase;
@@ -8,6 +9,7 @@ import sv.edu.ues.igf115.dominio.AsMetodo;
 import sv.edu.ues.igf115.dominio.AsMetodoPKDetalle;
 import sv.edu.ues.igf115.dominio.AsParametro;
 import sv.edu.ues.igf115.dominio.AsParametroPKDetalle;
+import sv.edu.ues.igf115.dominio.TbTipoMetodo;
 
 public class CtrlAsParametro {
 	AsParametroDAO asParametroDAO=new AsParametroDAO();
@@ -50,5 +52,9 @@ public class CtrlAsParametro {
 			//Se retorna el objeto
 			return asParametro;
 		}
+	}
+	
+	public List<AsParametro> daListaAsParametro(){
+		return asParametroDAO.daListAsParametro();
 	}
 }

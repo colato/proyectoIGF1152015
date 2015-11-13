@@ -1,5 +1,7 @@
 package sv.edu.ues.igf115.dao;
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -7,6 +9,7 @@ import org.hibernate.Transaction;
 
 import sv.edu.ues.igf115.dominio.AsParametro;
 import sv.edu.ues.igf115.dominio.AsParametroPKDetalle;
+import sv.edu.ues.igf115.dominio.TbTipoMetodo;
 import sv.edu.ues.igf115.utilidades.datos.HibernateUtil;
 
 public class AsParametroDAO {
@@ -63,5 +66,13 @@ public class AsParametroDAO {
 		tx.commit();
 		session.flush();
 		session.close();	
+	}
+	public List<AsParametro> daListAsParametro(){
+		SessionFactory sessionFactory=hibernateUtil.getSessionFactory();
+		Session session= sessionFactory.openSession();
+		Query query=session.getNamedQuery("daListaParametros");
+		List<AsParametro> listaAsParametro=query.list();
+		session.close();
+		return listaAsParametro;
 	}
 }
