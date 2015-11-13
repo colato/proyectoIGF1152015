@@ -10,9 +10,9 @@ import javax.persistence.*;
 @NamedQueries({
 	@NamedQuery(
 			name="daParametroPorLlave",
-			query="from AsParametro as asParametro where as.AsParametroPKDetalle.cClase=:cClase " +
-					"and as.AsParametroPKDetalle.cMetodo=:cMetodo " +
-					"and as.AsParametroPKDetalle.cParametro=:cParametro"),
+			query="from AsParametro as asParametro where asParametro.llaveCompuesta.cClase=:cClase " +
+					"and asParametro.llaveCompuesta.cMetodo=:cMetodo " +
+					"and asParametro.llaveCompuesta.cParametro=:cParametro"),
 	@NamedQuery(
 			name="daListaParametros",
 			query="from AsParametro as asParametro")

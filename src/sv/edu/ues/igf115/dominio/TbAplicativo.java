@@ -7,11 +7,11 @@ import java.util.*; //Para la fecha
 @Entity
 @Table(name="Tb_aplicativo", catalog="modelo_proyecto",schema = "")
 @NamedQueries({
-	@NamedQuery(name = "TbAplicativo.findAll", query = "SELECT t FROM TbAplicativo t"),
-	@NamedQuery(name = "daTbAplicativoById", query = "SELECT t FROM " +
-			"TbAplicativo t WHERE t.cAplicativo = :cAplicativo"),
-	@NamedQuery(name = "TbAplicativo.findByFIngreso", query = "FROM" +
-			"TbAplicativo as t WHERE t.fIngreso = :fIngreso")})
+	@NamedQuery(name = "TbAplicativo.findAll", query = " from TbAplicativo as t"),
+	@NamedQuery(name = "daTbAplicativoById", query = "from " +
+			"TbAplicativo as t where t.cAplicativo = :cAplicativo"),
+	@NamedQuery(name = "TbAplicativo.findByFIngreso", query = "FROM " +
+			"TbAplicativo as t where t.fIngreso = :fIngreso")})
 
 public class TbAplicativo implements Serializable{
 	private static final long serialVersionUID = 1L;

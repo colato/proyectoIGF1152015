@@ -7,11 +7,11 @@ import java.util.*;
 @Entity
 @Table(name = "TB_tipo_atributo", catalog = "modelo_proyecto", schema = "")
 @NamedQueries({
-	@NamedQuery(name = "TbTipoAtributo.findAll", query = "SELECT t FROM TbTipoAtributo t"),
-	@NamedQuery(name = "daTbTipoAtributoById", query = "SELECT t FROM " +
-			"TbTipoAtributo t WHERE t.cTipoAtributo = :cTipoAtributo"),
-	@NamedQuery(name = "TbTipoAtributo.findByFIngreso", query = "SELECT t FROM" +
-			"TbTipoAtributo t WHERE t.fIngreso = :fIngreso")})
+	@NamedQuery(name = "TbTipoAtributo.findAll", query = "from TbTipoAtributo as t"),
+	@NamedQuery(name = "daTbTipoAtributoById", query = "from " +
+			"TbTipoAtributo as t where t.cTipoAtributo = :cTipoAtributo"),
+	@NamedQuery(name = "TbTipoAtributo.findByFIngreso", query = "from " +
+			"TbTipoAtributo as t WHERE t.fIngreso = :fIngreso")})
 public class TbTipoAtributo implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String cTipoAtributo;

@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Table(name="AS_metodo", catalog="modelo_proyecto", schema="")
 @NamedQueries({
 	@NamedQuery(name="daMetodoPorLlave",
-			query="from AsMetodo as asMetodo where asMetodo.AsMetodoPKDetalle.cClase=:cClase and asMetodo.AsMetodoPKDetalle.cMetodo=:cMetodo"),
+			query="from AsMetodo as asMetodo where asMetodo.llaveCompuesta.cClase=:cClase and asMetodo.llaveCompuesta.cMetodo=:cMetodo"),
 	@NamedQuery(name="daListaMetodos",
 			query="from AsMetodo as asMetodo")
 })

@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Table (name="AS_interface", catalog="modelo_proyecto", schema="") 
 @NamedQueries({
 	@NamedQuery(name="asinterface.findInterface", 
-			    query="from AsInterface asi WHERE asi.c_interface =:c_interface"
+			    query="from AsInterface as asi WHERE asi.c_interface =:c_interface"
 			    ),
 	@NamedQuery(name="asinterface.findAllInterface", 
                query="from AsInterface"

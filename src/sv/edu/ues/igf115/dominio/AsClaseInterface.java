@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Table (name="AS_clase_interface", catalog="modelo_proyecto", schema="") 
 @NamedQueries({
  @NamedQuery( name="as_clase_interface.findClaseInterface", 
-		 query="from AsClaseInterface claseinter where claseinter.c_clase_interface =:c__clase_interface"),
+		 query="from AsClaseInterface as claseinter where claseinter.c_clase_interface =:c__clase_interface"),
  @NamedQuery(name="as_clase_interface.findAllClaseInterface", 
  query="from AsClaseInterface"
  )
