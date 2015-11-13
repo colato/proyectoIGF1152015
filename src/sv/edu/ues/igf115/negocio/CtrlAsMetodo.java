@@ -1,6 +1,7 @@
 package sv.edu.ues.igf115.negocio;
 
 import java.util.Date;
+import java.util.List;
 
 import sv.edu.ues.igf115.dao.AsMetodoDAO;
 import sv.edu.ues.igf115.dominio.AsClase;
@@ -51,5 +52,9 @@ public class CtrlAsMetodo {
 			//Se retorna el objeto
 			return asMetodo;
 		}
+	}
+	
+	public List<AsMetodo> daListaAsMetodos(){
+		return asMetodoDAO.daListaMetodos();
 	}
 }
