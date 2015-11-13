@@ -9,13 +9,17 @@
 <%
 	String cClase=request.getParameter("cClase");
 	String cAtributo=request.getParameter("cAtributo");
-	CtrlAsAtributo asAtributo=new CtrlAsAtributo();	
+	CtrlAsAtributo ctrlAsAtributo = new CtrlAsAtributo();
+	AsAtributoPKDetalle aapkd = new AsAtributoPKDetalle();
+	aapkd.setcAtributo(Integer.parseInt(cAtributo));
+	aapkd.setcClase(Integer.parseInt(cClase));
+	AsAtributo asAtributo = ctrlAsAtributo.daAsAtributoById(aapkd);
 	
 	DateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
 	String mensaje;
 	if(asAtributo!=null){
-		mensaje="c_aplicativo: "+tbAplicativo.getcAplicativo()+ "<br>"+
-		        "d_aplicativo: "+tbAplicativo.getdAplicativo()+"<br>"+
+		mensaje="c_Clase: "+ asAtributo.getLlaveCompuesta().getcClase()+ "<br>"+
+		        "d_Atributo: "+tbAplicativo.getdAplicativo()+"<br>"+
 				"f_ingreso: "+tbAplicativo.getfIngreso().toString();
 	}
 	else
