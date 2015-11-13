@@ -34,6 +34,7 @@ public class AsInterface implements Serializable {
 	@Column(name="f_ingreso")
 	private Date f_ingreso;
 	
+	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="asinterface")
     private List<AsClaseInterface> ListaAsClaseInterface;
    
