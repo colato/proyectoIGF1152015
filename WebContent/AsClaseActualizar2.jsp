@@ -6,11 +6,12 @@
 <%@ page import="java.util.*" %>
 <% CtrlAsClase ctrlAsClase = new CtrlAsClase();
 	List<AsClase> listAsClase = ctrlAsClase.daClases(); %>
-<% CtrlTbTipoClase ctrlTbTipoClase = new CtrlTbTipoClase();
-	List<TbTipoClase> listaTbTipoClase = ctrlTbTipoClase.daTbTipoClases(); %>
-<% CtrlTbAplicativo ctrlTbAplicativo = new CtrlTbAplicativo();
-	
-   List<TbAplicativo> listaTbAplicativo= ctrlTbAplicativo.daTbAplicativos();  %>
+<% CtrlAsAtributo ctrlAsAtributo = new CtrlAsAtributo();
+	List<AsAtributo> listAsAtributo = ctrlAsAtributo.daAsAtributos();  %>
+<% CtrlAsMetodo ctrlAsMetodo = new CtrlAsMetodo();
+	List<AsMetodo> listAsMetodo = ctrlAsMetodo.daListaAsMetodos(); %>\
+<% CtrlAsParametro ctrlAsParametro = new CtrlAsParametro();
+	List<AsParametro> listAsParametro = ctrlAsParametro.daListaAsParametro(); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,7 +22,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Clase Crear | Proyecto IGF115 2015</title>
+    <title>AsObservacion Crear| Proyecto IGF115 2015</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -193,11 +194,11 @@
 					  Observación <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="AsObservacionCrear.html">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+						<li><a href="AsObservacionInsert.jsp">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
 								Crear
 							</a>
 						</li>
-						<li><a href="AsObservacionActualizar.html">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
+						<li><a href="AsObservacionActualizar2.jsp">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
 								Actualizar
 							</a>
 						</li>
@@ -344,23 +345,23 @@
         <!-- /#page-content-wrapper -->
 				<ol class="breadcrumb">
 		  <li><a href="index.html">Inicio</a></li>
-		  <li class=active><a href="TbTipoClaseCrear.html">Crear Tipo Clase</a></li>
+		  <li class=active><a href="AsObservacionActualizar2.jsp">Actualizar Observacion</a></li>
 		</ol>
 		
-		 <h3 class="page-header">Registrar Nuevo Tipo Clase</h3>
+		 <h3 class="page-header">Actualizar Observacion</h3>
         <div class="row">
             
             <div class="container col-xs-1 col-sm-4 col-md-4"></div>
 
             <div class="container col-xs-10 col-sm-4 col-md-4 form1">
-                <form role="form" method="post" action="AsClaseCrear.jsp">
+                <form role="form" method="post" action="AsObservacionCrear.jsp">
                     <div class="form-group">
-                        <label for="ctipoclase">ClaseID:</label>
-                        <input type="text" class="form-control" id="ctipoclase" name="cClase">
+                        <label for="cObservacion">Observacion ID:</label>
+                        <input type="text" class="form-control" id="cObservacion" name="cObservacion">
                     </div>
                     <div class="form-group">
-                        <label for="d_tipoclase">Nombre Clase:</label>
-                        <input type="text" class="form-control" id="d_tipoclase" name="dClase">
+                        <label for="dObservacion">Nombre Observacion:</label>
+                        <input type="text" class="form-control" id="dObservacion" name="dObservacion">
                     </div>
                     <div class="form-group">
                         <label for="cUsuario">Usuario nombre:</label>
@@ -371,32 +372,46 @@
                         <input type="date" class="form-control" id="fIngreso" name="fIngreso">
                     </div>
                     <div class="form-group">
-                        <label for="cAplicativo">Aplicativo ID:</label>
-                        <select name="cAplicativo">
-                        	<%for(TbAplicativo tbAplicativo : listaTbAplicativo){ %>
-                        	<option value="cAplicativoID"><%//=tbAplicativo.getcAplicativo()%></option>
+                        <label for="bActivo">Activo:</label>
+                        <input type="number" class="form-control" id="bActivo" name="bActivo">
+                    </div>
+                    <div class="form-group">
+                        <label for="cAtributo">Atributo ID:</label>
+                        <select name="cAtributo">
+                        	<%for(AsAtributo asAtributo: listAsAtributo){ %>
+                        	<option value="cAtributoID""><%=asAtributo.getLlaveCompuesta().getcAtributo() %></option>
                         	<%} %>
                         </select>
                         
                     </div>   
+                    
                     <div class="form-group">
-                        <label for="cTipoClase">Tipo Clase ID:</label>
-                        <select name="cTipoClase">
-                        	<%for (TbTipoClase tbTipoClase: listaTbTipoClase) { %>
-                        	<option value="cTipoClase"><%=tbTipoClase.getcTipoClase() %></option>
-                        	<%} %>
-                        </select>
-                        
-                    </div>
-                    <div class="form-group">
-                        <label for="cClasep">Clase ID:</label>
-                        <select name="cClasep">
+                        <label for="cClase">Tipo Clase ID:</label>
+                        <select name="cClase">
                         	<%for (AsClase asClase: listAsClase) { %>
-                        	<option value="cClasep"><%=asClase.getCClase() %></option>
+                        	<option value="cClase"><%=asClase.getCClase() %></option>
                         	<%} %>
                         </select>
                         
-                    </div>                            
+                    </div>  
+                    <div class="form-group">
+                        <label for="cMetodo">Metodo ID:</label>
+                        <select name="cMetodo">
+                        	 <%for (AsMetodo asMetodo : listAsMetodo) { %> 
+                        	<option value="cMetodo"><%=asMetodo.getLlaveCompuesta().getcMetodo() %></option>
+                        	<%} %>
+                        </select>
+                        
+                    </div>  
+                    <div class="form-group">
+                        <label for="cParametro">Parametro ID:</label>
+                        <select name="cParametro">
+                        	 <%for (AsParametro asParametro : listAsParametro) { %> 
+                        	<option value="cParametro"><%=asParametro.getLlaveCompuesta().getcParametro() %></option>
+                        	<%} %>
+                        </select>
+                        
+                    </div>                          
                     <button type="submit" class="btn btn-primary"> Actualizar</button>
                     <div class="point"><br/>.</div>
                 </form>

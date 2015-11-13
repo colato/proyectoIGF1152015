@@ -13,7 +13,7 @@ import javax.persistence.*;
 			query="from TbTipoClase as tipoClase where tipoClase.cTipoClase=:cTipoClase"),
 	@NamedQuery(name="daTipoClaseNombre",
 			query="from TbTipoClase as tipoClase where tipoClase.dTipoClase=:dTipoClase"),
-	@NamedQuery(name = "TbTipoClase.findAll", query = "FROM TbTipoClase")
+	
 })
 
 public class TbTipoClase implements Serializable{
@@ -83,9 +83,7 @@ public class TbTipoClase implements Serializable{
 
 
 
- // @OneToMany: (1:N) Asocia varios campos con uno 
-    // Multiplicidad 1:N Una Tipo Clase tiene muchas clases
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tbTipoClase" )
+
     public List<AsClase> getAsClaseList() {
         return asClaseList;
     }

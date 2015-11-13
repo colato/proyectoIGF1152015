@@ -18,12 +18,10 @@
     CtrlTbTipoClase ctrlTbTipoClase = new CtrlTbTipoClase();
     TbTipoClase tbTipoClase = ctrlTbTipoClase.daAsTipoClaseById(cTipoClase);
     CtrlTbAplicativo ctrlTbAplicativo = new CtrlTbAplicativo();
-    TbAplicativo tbAplicativo= ctrlTbAplicativo.daTbAplicativoById(cAplicativo) ;
-    
+    TbAplicativo tbAplicativo= ctrlTbAplicativo.daTbAplicativoById(cAplicativo);
     		
     CtrlAsClase ctrlAsClase = new CtrlAsClase();
     AsClase asClasePadre= ctrlAsClase.daAsClaseById(asClasep);
-    
     boolean resultado = ctrlAsClase.crearOactualiza(cClase, dClase, cUsuario, fIngreso, tbTipoClase, tbAplicativo, asClasePadre);
     
     
@@ -47,7 +45,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>AsClase Crear Resultado| Proyecto IGF115 2015</title>
+    <title>AsClase Actualizar | Proyecto IGF115 2015</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -219,7 +217,7 @@
 								Crear
 							</a>
 						</li>
-						<li><a href="AsObservacionActualizar.html">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
+						<li><a href="AsObservacionActualizar2.jsp">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
 								Actualizar
 							</a>
 						</li>
@@ -366,11 +364,11 @@
         <!-- /#page-content-wrapper -->
 		<ol class="breadcrumb">
 		  <li><a href="index.html">Inicio</a></li>
-		  <li><a href="TbTipoClaseCrear.html">Crear Tipo Clase</a></li>
+		  <li><a href="AsClaseActualizar.jsp">ACTUALIZAR  Clase</a></li>
 		  <li class="active">Resultado</li>
 		</ol>
 		<h3>Resultado:</h3>
-		<%//mensaje %>
+		<%=mensaje %>
 		
 		
     </div>
