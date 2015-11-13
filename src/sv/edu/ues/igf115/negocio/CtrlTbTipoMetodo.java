@@ -20,6 +20,11 @@ public class CtrlTbTipoMetodo {
 			return false;
 	}
 	
+	public boolean actualizarTbTipoMetodo(String cTipoMetodo,String dTipoMetodo, Date fIngreso){
+		TbTipoMetodo nuevoRegistro=new TbTipoMetodo(cTipoMetodo,dTipoMetodo,fIngreso);
+		tbTipoMetodoDAO.crearTipoMetodo(nuevoRegistro);
+		return true;
+	}
 	public boolean borrarTbTipoMetodo(String cTipoMetodo){
 		TbTipoMetodo tbTipoMetodo= tbTipoMetodoDAO.obtenerTbTipoMetodo(cTipoMetodo);
 		if(tbTipoMetodo==null){

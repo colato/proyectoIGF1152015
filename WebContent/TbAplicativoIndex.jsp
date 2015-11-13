@@ -1,30 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@page import="javax.persistence.TemporalType"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="sv.edu.ues.igf115.negocio.CtrlTbTipoMetodo" %>
-<%@ page import="sv.edu.ues.igf115.dominio.TbTipoMetodo" %>
-<%@ page import="java.util.List" %>
-<%@ page import="java.text.SimpleDateFormat"%>
-<%@ page import="java.text.DateFormat"%>
+<%@ page import="sv.edu.ues.igf115.negocio.CtrlTbAplicativo" %>
+<%@ page import="sv.edu.ues.igf115.dominio.TbAplicativo" %>
+<%@ page import="java.util.*" %>
 <%
-	CtrlTbTipoMetodo ctrlTbTipoMetodo=new CtrlTbTipoMetodo();
-	List<TbTipoMetodo> listaTbTipoMetodo=ctrlTbTipoMetodo.daListaTbTipoMetodo();
-	DateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
-	
+	CtrlTbAplicativo ctrlTbAplicativo = new CtrlTbAplicativo();
+	List<TbAplicativo> listaTbAplicativo = ctrlTbAplicativo.daTbAplicativos();
 %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>TbAplicativo Registros | Colato | Proyecto IGF115 2015</title>
 
-    <title>TbTipoMétodo Crear Resultado| Proyecto IGF115 2015</title>
-
-    <!-- Bootstrap Core CSS -->
+<!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
@@ -37,6 +27,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+<body>
 <div id="wrapper">
 
         <!-- Sidebar -->
@@ -323,33 +314,33 @@
         <!-- /#page-content-wrapper -->
 		<ol class="breadcrumb">
 		  <li><a href="index.html">Inicio</a></li>
-		  <li class="active">Tipos de Métodos</li>
+		  <li class="active">Tb Aplicativo</li>
 		</ol>
-		<div class="page-header"><h3>Tipos de Métodos</h3>
-		<a class="btn btn-primary" href="TbTipoMetodoCrear.html" role="submit">Crear nuevo tipo</a>
+		<div class="page-header"><h3>Tb Aplicativo</h3>
+		<a class="btn btn-primary" href="TbAplicativoCrear.html" role="submit">Crear nuevo TbAplicativo</a>
 		</div>
 		<div>
 				<table class="table table-striped">
 					<thead>
 				      <tr>
-				        <th>cTipoMetodo</th>
-				        <th>DTipoMetodo</th>
-				        <th>FIngreso</th>
-				        <th>Ver</th>
+				        <th>cAplicativo</th>
+				        <th>dAplicativo</th>
+				        <th>fIngreso</th>
+				        <th>Detalles</th>
 				        <th>Editar</th>
 				        <th>Eliminar</th>
 				      </tr>
 				    </thead>
 				    <tbody>
 				<% 
-					for (TbTipoMetodo temp : listaTbTipoMetodo) {
+					for (TbAplicativo temp : listaTbAplicativo) {
 						out.print("<tr>");
-						out.print("<td>"+temp.getcTipoMetodo()+"</td>");
-						out.print("<td>"+temp.getDTipoMetodo()+"</td>");
-						out.print("<td>"+formato.format(temp.getFIngreso())+"</td>");
-						out.print("<td><a href=/proyectoIGF1152015/TbTipoMetodoConsultar.jsp?cTipoMetodo="+temp.getcTipoMetodo()+">Ver</a></td>");
-						out.print("<td><a href=/proyectoIGF1152015/TbTipoMetodoActualizar.jsp?cTipoMetodo="+temp.getcTipoMetodo()+">Editar</a></td>");
-						out.print("<td><a href=/proyectoIGF1152015/TbTipoMetodoEliminar.jsp?cTipoMetodo="+temp.getcTipoMetodo()+">Eliminar</a></td>");
+						out.print("<td>"+temp.getcAplicativo()+"</td>");
+						out.print("<td>"+temp.getdAplicativo()+"</td>");
+						out.print("<td>"+temp.getfIngreso()+"</td>");
+						out.print("<td><a href=/proyectoIGF1152015/TbAplicativoConsultar.jsp?cAplicativo="+temp.getcAplicativo()+">Ver</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/TbAplicativoActualizar.jsp?cAplicativo="+temp.getcAplicativo()+">Editar</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/TbAplicativoEliminar.jsp?cAplicativo="+temp.getcAplicativo()+">Eliminar</a></td>");
 						out.print("</tr>");
 					}
 				%>
@@ -372,4 +363,5 @@
         $("#wrapper").toggleClass("toggled");
     });
     </script>
+</body>
 </html>

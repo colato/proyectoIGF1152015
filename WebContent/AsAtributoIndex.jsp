@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="sv.edu.ues.igf115.negocio.CtrlAsAtributo" %>
+<%@ page import="sv.edu.ues.igf115.negocio.CtrlAsMetodo" %>
 <%@ page import="sv.edu.ues.igf115.dominio.AsAtributo" %>
 <%@ page import="java.util.*" %>
 <%
@@ -316,7 +317,7 @@
 		  <li><a href="index.html">Inicio</a></li>
 		  <li class="active">As Atributos</li>
 		</ol>
-		<div class="page-header"><h3>As Métodos</h3>
+		<div class="page-header"><h3>As Atributos</h3>
 		<a class="btn btn-primary" href="AsAtributoCrear.html" role="submit">Crear nuevo AsAtributo</a>
 		</div>
 		<div>
@@ -348,9 +349,9 @@
 						out.print("<td>"+temp.getcUsuario()+"</td>");
 						out.print("<td>"+temp.getfIngreso()+"</td>");
 						out.print("<td>"+temp.getcTipoAtributo()+"</td>");
-						out.print("<td><a href=/proyectoIGF1152015/AsAtributoConsultar.jsp?cTipoMetodo="+temp.getLlaveCompuesta()+">Ver</a></td>");
-						out.print("<td><a href=/proyectoIGF1152015/AsAtributoActualizar.jsp?cTipoMetodo="+temp.getLlaveCompuesta()+">Editar</a></td>");
-						out.print("<td><a href=/proyectoIGF1152015/AsAtributoEliminar.jsp?cTipoMetodo="+temp.getLlaveCompuesta()+">Eliminar</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsAtributoConsultar.jsp?cClase="+temp.getLlaveCompuesta().getcClase()+"&cAtributo="+temp.getLlaveCompuesta().getcAtributo()+">Ver</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsAtributoActualizar.jsp?cClase="+temp.getLlaveCompuesta().getcClase()+"&cAtributo="+temp.getLlaveCompuesta().getcAtributo()+">Editar</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsAtributoEliminar.jsp?cClase="+temp.getLlaveCompuesta().getcClase()+"&cAtributo="+temp.getLlaveCompuesta().getcAtributo()+">Eliminar</a></td>");
 						out.print("</tr>");
 					}
 				%>
