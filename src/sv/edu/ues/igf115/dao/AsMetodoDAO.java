@@ -1,8 +1,11 @@
 package sv.edu.ues.igf115.dao;
 
+import java.util.List;
+
 import org.hibernate.*;
 
 import sv.edu.ues.igf115.dominio.AsMetodo;
+import sv.edu.ues.igf115.dominio.TbTipoMetodo;
 import sv.edu.ues.igf115.utilidades.datos.HibernateUtil;
 import sv.edu.ues.igf115.dominio.AsMetodoPKDetalle;
 public class AsMetodoDAO {
@@ -58,5 +61,14 @@ public class AsMetodoDAO {
 		tx.commit();
 		session.flush();
 		session.close();	
+	}
+	
+	public List<AsMetodo> daListaMetodos(){
+		SessionFactory sessionFactory=hibernateUtil.getSessionFactory();
+		Session session= sessionFactory.openSession();
+		Query query=session.getNamedQuery("daListaMetodos");
+		List<AsMetodo> listaAsMetodos=query.list();
+		session.close();
+		return listaAsMetodos;
 	}
 }
