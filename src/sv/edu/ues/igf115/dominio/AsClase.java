@@ -45,14 +45,14 @@ public class AsClase implements Serializable{
     @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="asClase")
     private List<AsObservacion> listaAsObservacion;
     
-    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY,mappedBy = "asClase")
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY,mappedBy = "asClasep")
     private List<AsClase> listaAsClase;
     
-    @JoinColumn(name="c_tipo_clase", nullable=false)
+    @JoinColumn(name="c_tipo_clase")
     @ManyToOne(fetch=FetchType.LAZY)
     private TbTipoClase tbTipoClase;
-    @JoinColumn(name="c_aplicativo", nullable=false)
-    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="c_aplicativo")
+    @ManyToOne
     private TbAplicativo tbAplicativo;
     
     @JoinColumn(name="c_clase_padre",referencedColumnName="c_clase")

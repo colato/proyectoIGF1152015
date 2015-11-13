@@ -111,8 +111,8 @@ public class AsAtributo implements Serializable {
 		this.cTipoAtributo = cTipoAtributo;
 	}
 	
-	@JoinColumn(name="c_clase", referencedColumnName = "c_clase")
-	@ManyToOne(optional = false)
+	@JoinColumn(name="c_clase",,referencedColumnName = "c_clase")
+	@ManyToOne
 	public AsClase getAsClase() {
 		return asClase;
 	}
@@ -120,9 +120,9 @@ public class AsAtributo implements Serializable {
 	public void setAsClase(AsClase asClase) {
 		this.asClase = asClase;
 	}
-
-	@JoinColumn(name="c_tipo_atributo", referencedColumnName = "c_tipo_atributo")
-	@ManyToOne(optional = false)
+//
+	@JoinColumn(name="c_tipo_atributo" ,referencedColumnName = "c_tipo_atributo")
+	@ManyToOne
 	public TbTipoAtributo getTbTipoAtributo() {
 		return tbTipoAtributo;
 	}
@@ -135,7 +135,7 @@ public class AsAtributo implements Serializable {
 		@JoinColumn(name="c_metodo", referencedColumnName = "c_metodo"),
 		@JoinColumn(name="c_clase", referencedColumnName = "c_clase")
 	})
-	@ManyToOne(optional = false)
+	@ManyToOne
 	public AsMetodo getAsMetodo() {
 		return asMetodo;
 	}

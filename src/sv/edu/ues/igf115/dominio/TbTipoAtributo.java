@@ -62,7 +62,7 @@ public class TbTipoAtributo implements Serializable{
 		this.fIngreso = fIngreso;
 	}
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "tbtipoatributo")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "tbTipoAtributo")
 	public List<AsAtributo> getAsAtributoList() {
 		return asAtributoList;
 	}
