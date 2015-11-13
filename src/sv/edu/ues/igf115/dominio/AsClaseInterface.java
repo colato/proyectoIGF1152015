@@ -21,12 +21,11 @@ public class AsClaseInterface implements Serializable{
   @Basic(optional=false)
   @Column(name="c_clase_interface")
   private int c_clase_interface;
-  @ManyToOne(fetch=FetchType.LAZY)
-  @JoinColumn(name="c_clase", nullable=false)
+  @ManyToOne
+  @JoinColumn(name="c_clase")
   private AsClase asclase;
-
-  @ManyToOne(fetch=FetchType.LAZY)
-  @JoinColumn(name="c_interface", nullable=false)
+  @ManyToOne
+  @JoinColumn(name="c_interface")
   private AsInterface asinterface;
 
   private AsClaseInterface()

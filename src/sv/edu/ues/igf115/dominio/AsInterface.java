@@ -33,11 +33,11 @@ public class AsInterface implements Serializable {
 	@Temporal(TemporalType.DATE)
 	@Column(name="f_ingreso")
 	private Date f_ingreso;
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="asInterface")
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="asinterface")
     private List<AsClaseInterface> ListaAsClaseInterface;
-    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="asInterfaceByCInterfaceHijo")
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="c_interface_hijo")
     private List<AsInterfaceImplementa> ListaAsInterfaceHijo;
-    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="asInterfaceByCInterfacePadre")
+    @OneToMany(cascade=CascadeType.ALL,  mappedBy="c_interface_padre")
     private List<AsInterfaceImplementa> ListaAsInterfacePadre;
     
 	private AsInterface(){ // Lo usa Hibernate
