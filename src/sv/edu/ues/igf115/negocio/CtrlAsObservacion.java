@@ -29,9 +29,9 @@ private AsObservacionDAO daoObservacion = new AsObservacionDAO() ;
             return false ;
          }
     
-	 public boolean borrarObservacion(String dObservacion) {
-	        if (daoObservacion.daAsObservacionByNombre(dObservacion) != null ) {
-	        	AsObservacion asObservacion = daoObservacion.daAsObservacionByNombre(dObservacion);
+	 public boolean borrarObservacion(int cObservacion) {
+	        if (daoObservacion.daAsObservacionById(cObservacion) != null ) {
+	        	AsObservacion asObservacion = daoObservacion.daAsObservacionById(cObservacion);
 	        	daoObservacion.eliminar(asObservacion);
 		         return true ;
 		        }

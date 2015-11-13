@@ -11,13 +11,13 @@
 	
 	String mensaje;
 	
-    if(asObservacion!=null){
-    	String dObservacion = asObservacion.getdObservacion();
+    if(asObservacion != null){
     	
     	
     	
     	
-    	mensaje="Registro clase ID:"+cObservacion+ "con nombre:"+dObservacion+" fue encontrado con éxito";
+    	
+    	mensaje="Registro Observacion ID:"+cObservacion+ "fue consultado con éxito";
     	
     }
     else
