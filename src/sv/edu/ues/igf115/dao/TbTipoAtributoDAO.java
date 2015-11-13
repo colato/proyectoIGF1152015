@@ -52,9 +52,19 @@ public class TbTipoAtributoDAO {
 	
 	public TbTipoAtributo daTbTipoAtributoById(String cTipoAtributo){
 		sesion = sessionFactory.openSession();
-		TbTipoAtributo id = (TbTipoAtributo) sesion.get(TbTipoAtributo.class, new String(cTipoAtributo));
+		Query query = sesion.getNamedQuery("daTbTipoAtributoById");
+		
+		query.setString("cTipoAtributo", cTipoAtributo);
+		
+		TbTipoAtributo resultado = (TbTipoAtributo) query.uniqueResult();
+		
 		sesion.close();
-		return id;
+		
+		if(resultado!=null){
+			return resultado;
+		}
+		else
+			return null;
 	}
 	
 	public List<TbTipoAtributo> daTbTipoAtributos(){

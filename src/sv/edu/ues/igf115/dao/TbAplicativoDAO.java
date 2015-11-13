@@ -51,9 +51,17 @@ public class TbAplicativoDAO {
 	
 	public TbAplicativo daTbAplicativoById(String cAplicativo){
 		sesion = sessionFactory.openSession();
-		TbAplicativo id = (TbAplicativo) sesion.get(TbAplicativo.class, new String(cAplicativo));
-		sesion.close();
-		return id;
+		
+		Query query = sesion.getNamedQuery("daTbAplicativoById");
+		query.setParameter("cAplicativo", cAplicativo);
+		
+		TbAplicativo resultado = (TbAplicativo) query.uniqueResult();
+		
+		if(resultado != null){
+			return resultado;
+		}
+		else
+			return null;
 	}
 	
 	public List<TbAplicativo> datbAplicativos(){
