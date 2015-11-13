@@ -7,7 +7,7 @@
 	AsAtributoDAO asAtributoDAO = new AsAtributoDAO();
 	AsAtributo asAtributoRecuperado = null;
 	//Obtener lista de objetos AsAtributo
-	List<AsAtributo> listaAsAtributo = asAtributoDAO.daAsAtributo();
+	List<AsAtributo> listaAsAtributo = asAtributoDAO.daAsAtributos();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
