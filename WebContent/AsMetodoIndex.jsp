@@ -1,17 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="sv.edu.ues.igf115.negocio.CtrlTbTipoMetodo" %>
-<%@ page import="sv.edu.ues.igf115.dominio.TbTipoMetodo" %>
+<%@ page import="sv.edu.ues.igf115.negocio.CtrlAsMetodo" %>
+<%@ page import="sv.edu.ues.igf115.dominio.AsMetodo" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.text.SimpleDateFormat"%>
 <%@ page import="java.text.DateFormat"%>
-<%
-	CtrlTbTipoMetodo ctrlTbTipoMetodo=new CtrlTbTipoMetodo();
-	List<TbTipoMetodo> listaTbTipoMetodo=ctrlTbTipoMetodo.daListaTbTipoMetodo();
-	DateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
-	
-%>
 
+<%  CtrlAsMetodo ctrlAsMetodo=new CtrlAsMetodo();
+	List<AsMetodo> listaAsMetodo=ctrlAsMetodo.daListaAsMetodos();
+	DateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -22,7 +20,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>TbTipoMétodo | Proyecto IGF115 2015</title>
+    <title>Métodos | Proyecto IGF115 2015</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -323,18 +321,18 @@
         <!-- /#page-content-wrapper -->
 		<ol class="breadcrumb">
 		  <li><a href="index.html">Inicio</a></li>
-		  <li class="active">Tipos de Métodos</li>
+		  <li class="active">Métodos</li>
 		</ol>
-		<div class="page-header"><h3>Tipos de Métodos</h3>
-		<a class="btn btn-primary" href="TbTipoMetodoCrear.html" role="submit">Crear nuevo tipo</a>
+		<div class="page-header"><h3>Métodos</h3>
+		<a class="btn btn-primary" href="AsMetodoCrear.html" role="submit">Crear nuevo tipo</a>
 		</div>
 		<div>
 				<table class="table table-striped">
 					<thead>
 				      <tr>
-				        <th>cTipoMetodo</th>
-				        <th>DTipoMetodo</th>
-				        <th>FIngreso</th>
+				        <th>cClase</th>
+				        <th>cMetodo</th>
+				        <th>dMetodo</th>
 				        <th>Ver</th>
 				        <th>Editar</th>
 				        <th>Eliminar</th>
@@ -342,11 +340,11 @@
 				    </thead>
 				    <tbody>
 				<% 
-					for (TbTipoMetodo temp : listaTbTipoMetodo) {
+					for (AsMetodo temp : listaAsMetodo) {
 						out.print("<tr>");
-						out.print("<td>"+temp.getcTipoMetodo()+"</td>");
-						out.print("<td>"+temp.getDTipoMetodo()+"</td>");
-						out.print("<td>"+formato.format(temp.getFIngreso())+"</td>");
+						out.print("<td>"+temp.getLlaveCompuesta().getcClase()+"</td>");
+						out.print("<td>"+temp.getLlaveCompuesta().getcMetodo()+"</td>");
+						out.print("<td>"+temp.getdMetodo()+"</td>");
 						out.print("<td><a href=/proyectoIGF1152015/TbTipoMetodoConsultar.jsp?cTipoMetodo="+temp.getcTipoMetodo()+">Ver</a></td>");
 						out.print("<td><a href=/proyectoIGF1152015/TbTipoMetodoActualizar.jsp?cTipoMetodo="+temp.getcTipoMetodo()+">Editar</a></td>");
 						out.print("<td><a href=/proyectoIGF1152015/TbTipoMetodoEliminar.jsp?cTipoMetodo="+temp.getcTipoMetodo()+">Eliminar</a></td>");
