@@ -12,6 +12,7 @@ import java.util.*; //Para la fecha
 			"TbAplicativo t WHERE t.cAplicativo = :cAplicativo"),
 	@NamedQuery(name = "TbAplicativo.findByFIngreso", query = "SELECT t FROM" +
 			"TbAplicativo t WHERE t.fIngreso = :fIngreso")})
+
 public class TbAplicativo implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String cAplicativo;
