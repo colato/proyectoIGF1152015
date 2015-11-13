@@ -32,7 +32,7 @@ public class AsInterfaceImplementa implements Serializable {
   
   private AsInterface c_interface_padre;
   
- private AsInterfaceImplementa(){ //Lo usa Hibernate
+public AsInterfaceImplementa(){ //Lo usa Hibernate
 	 
  }
  

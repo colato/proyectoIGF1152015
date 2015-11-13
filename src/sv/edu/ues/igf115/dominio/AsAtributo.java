@@ -27,7 +27,7 @@ public class AsAtributo implements Serializable {
 	private TbTipoAtributo tbTipoAtributo;
 	private AsMetodo asMetodo;
 	
-	private AsAtributo(){
+	public AsAtributo(){
 		
 	}
 	

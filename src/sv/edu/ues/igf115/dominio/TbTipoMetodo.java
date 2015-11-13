@@ -22,8 +22,7 @@ public class TbTipoMetodo implements Serializable{
 	private String dTipoMetodo;
 	private Date fIngreso;
 	
-	@SuppressWarnings("unused")
-	private TbTipoMetodo(){
+	public TbTipoMetodo(){
 		//Constructor sin parámetros necesitado por Hibernate
 	}
 	

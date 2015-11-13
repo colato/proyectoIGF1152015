@@ -43,7 +43,7 @@ public class AsInterface implements Serializable {
 	@OneToMany(cascade=CascadeType.ALL,  mappedBy="c_interface_padre")
     private List<AsInterfaceImplementa> ListaAsInterfacePadre;
     
-	private AsInterface(){ // Lo usa Hibernate
+	public AsInterface(){ // Lo usa Hibernate
     	
     }
     public AsInterface(int c_interface, String d_interface, String c_usuario, Date f_ingreso){

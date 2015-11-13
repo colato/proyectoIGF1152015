@@ -64,7 +64,7 @@ public class AsParametro implements Serializable{
 
 	//--------------------------------------------------
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL,fetch=FetchType.LAZY)
 	@JoinColumns({
 		@JoinColumn(name="c_metodo",referencedColumnName="c_metodo",insertable=false,updatable=false),
 		@JoinColumn(name="c_clase",referencedColumnName="c_clase",insertable=false,updatable=false)
@@ -80,7 +80,7 @@ public class AsParametro implements Serializable{
 	//--------------------------------------------------
 
 	//Revisar logica de esta relacion
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL,fetch=FetchType.LAZY)
 	@JoinColumn(name="c_clase",referencedColumnName="c_clase",insertable=false,updatable=false)
 	public AsClase getcClase() {
 		return cClase;

@@ -30,7 +30,7 @@ public class AsObservacion implements Serializable{
     private AsClase asClase;
 
    @SuppressWarnings("unused")
-   private AsObservacion() {
+public  AsObservacion() {
    }
 
 	

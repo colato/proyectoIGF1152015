@@ -61,7 +61,7 @@ public class AsMetodo implements Serializable{
 	
 	//--------------------------------------------------
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL,fetch=FetchType.LAZY)
 	@JoinColumn(name = "c_clase",referencedColumnName="c_clase",insertable=false,updatable=false)
 	public AsClase getcClaseRelacion() {
 		return cClaseRelacion;
@@ -72,7 +72,7 @@ public class AsMetodo implements Serializable{
 	
 	//--------------------------------------------------
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL,fetch=FetchType.LAZY)
 	@JoinColumn(name = "c_tipo_metodo")
 	public TbTipoMetodo getcTipoMetodo() {
 		return cTipoMetodo;

@@ -59,9 +59,8 @@ public class AsClase implements Serializable{
     @ManyToOne(fetch=FetchType.LAZY)
     private AsClase asClasep;
 
-    
-  @SuppressWarnings("unused")
-   private AsClase() {
+ 
+   public AsClase() {
 	  //Constructor que utiliza hibernate
    }
 

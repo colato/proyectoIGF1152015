@@ -19,7 +19,7 @@ public class TbTipoAtributo implements Serializable{
 	private Date fIngreso;
 	private List<AsAtributo> asAtributoList;
 	
-	private TbTipoAtributo(){
+	public TbTipoAtributo(){
 		
 	}
 	

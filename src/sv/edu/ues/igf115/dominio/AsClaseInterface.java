@@ -28,7 +28,7 @@ public class AsClaseInterface implements Serializable{
   @JoinColumn(name="c_interface")
   private AsInterface asinterface;
 
-  private AsClaseInterface()
+  public AsClaseInterface()
   {}
   
 public AsClaseInterface(int c_clase_interface, AsClase asclase, AsInterface asinterface){

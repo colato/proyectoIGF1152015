@@ -39,8 +39,7 @@ public class TbTipoClase implements Serializable{
 
      
 
-    @SuppressWarnings("unused")
-	private TbTipoClase() {
+    public TbTipoClase() {
     //Constructor que utiliza hibernate
     }
 

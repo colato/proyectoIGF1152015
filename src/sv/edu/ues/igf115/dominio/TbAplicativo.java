@@ -20,7 +20,7 @@ public class TbAplicativo implements Serializable{
 	private Date fIngreso;
 	private List<AsClase> asClaseList;
 	
-	private TbAplicativo(){
+	public TbAplicativo(){
 		//Usado por hibernate
 	}
 	

@@ -8,7 +8,7 @@
 
 <%  CtrlAsMetodo ctrlAsMetodo=new CtrlAsMetodo();
 	List<AsMetodo> listaAsMetodo=ctrlAsMetodo.daListaAsMetodos();
-	DateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+	//DateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
