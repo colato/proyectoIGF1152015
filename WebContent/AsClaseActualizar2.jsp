@@ -21,7 +21,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>TbTipoClase Crear | Proyecto IGF115 2015</title>
+    <title>Clase Crear | Proyecto IGF115 2015</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -389,7 +389,7 @@
                         
                     </div>
                     <div class="form-group">
-                        <label for="cClasep">Tipo Clase ID:</label>
+                        <label for="cClasep">Clase ID:</label>
                         <select name="cClasep">
                         	<%for (AsClase asClase: listAsClase) { %>
                         	<option value="cClasep"><%=asClase.getCClase() %></option>

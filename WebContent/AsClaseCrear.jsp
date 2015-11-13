@@ -18,7 +18,6 @@
     CtrlTbTipoClase ctrlTbTipoClase = new CtrlTbTipoClase();
     TbTipoClase tbTipoClase = ctrlTbTipoClase.daAsTipoClaseById(cTipoClase);
     CtrlTbAplicativo ctrlTbAplicativo = new CtrlTbAplicativo();
-    //ESPERANDO EL METODO FINDBYID DE APLICATIVO
     TbAplicativo tbAplicativo= ctrlTbAplicativo.daTbAplicativoById(cAplicativo);
     		
     CtrlAsClase ctrlAsClase = new CtrlAsClase();
@@ -99,7 +98,7 @@
 					  Clase <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="AsClaseCrear.html">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+						<li><a href="CrearAsClase.jsp">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
 								Crear
 							</a>
 						</li>
@@ -365,7 +364,7 @@
         <!-- /#page-content-wrapper -->
 		<ol class="breadcrumb">
 		  <li><a href="index.html">Inicio</a></li>
-		  <li><a href="TbTipoClaseCrear.html">Crear Tipo Clase</a></li>
+		  <li><a href="CrearAsClase.jsp">Crear Tipo Clase</a></li>
 		  <li class="active">Resultado</li>
 		</ol>
 		<h3>Resultado:</h3>

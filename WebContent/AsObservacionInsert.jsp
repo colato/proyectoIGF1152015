@@ -8,8 +8,10 @@
 	List<AsClase> listAsClase = ctrlAsClase.daClases(); %>
 <% CtrlAsAtributo ctrlAsAtributo = new CtrlAsAtributo();
 	List<AsAtributo> listAsAtributo = ctrlAsAtributo.daAsAtributos();  %>
-<% CtrlTbAplicativo ctrlTbAplicativo = new CtrlTbAplicativo();
-   List<TbAplicativo> listaTbAplicativo= ctrlTbAplicativo.daTbAplicativos(); %>
+<% CtrlAsMetodo ctrlAsMetodo = new CtrlAsMetodo();
+	List<AsMetodo> listAsMetodo = ctrlAsMetodo.daListaAsMetodos(); %>\
+<% CtrlAsParametro ctrlAsParametro = new CtrlAsParametro();
+	List<AsParametro> listAsParametro = ctrlAsParametro.daListaAsParametro(); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -343,7 +345,7 @@
         <!-- /#page-content-wrapper -->
 				<ol class="breadcrumb">
 		  <li><a href="index.html">Inicio</a></li>
-		  <li class=active><a href="TbTipoClaseCrear.html">Crear Tipo Clase</a></li>
+		  <li class=active><a href="AsObservacionInsert.jsp">Crear Observacion</a></li>
 		</ol>
 		
 		 <h3 class="page-header">Registrar Nueva Observacion</h3>
@@ -377,29 +379,39 @@
                         <label for="cAtributo">Atributo ID:</label>
                         <select name="cAtributo">
                         	<%for(AsAtributo asAtributo: listAsAtributo){ %>
-                        	<option value="cAtributoID""><%=asAtributo.getcAtributo()  %></option>
+                        	<option value="cAtributoID""><%=asAtributo.getLlaveCompuesta().getcAtributo() %></option>
                         	<%} %>
                         </select>
                         
                     </div>   
+                    
                     <div class="form-group">
-                        <label for="cMetodo">Tipo Clase ID:</label>
-                        <select name="cTipoClase">
-                        	 <%//for () { %> 
-                        	<option value="cTipoClase"><%= %></option>
-                        	<%//} %>
-                        </select>
-                        
-                    </div>
-                    <div class="form-group">
-                        <label for="cClasep">Tipo Clase ID:</label>
-                        <select name="cClasep">
+                        <label for="cClase">Tipo Clase ID:</label>
+                        <select name="cClase">
                         	<%for (AsClase asClase: listAsClase) { %>
-                        	<option value="cClasep"><%=asClase.getCClase() %></option>
+                        	<option value="cClase"><%=asClase.getCClase() %></option>
                         	<%} %>
                         </select>
                         
-                    </div>                            
+                    </div>  
+                    <div class="form-group">
+                        <label for="cMetodo">Metodo ID:</label>
+                        <select name="cMetodo">
+                        	 <%for (AsMetodo asMetodo : listAsMetodo) { %> 
+                        	<option value="cMetodo"><%=asMetodo.getLlaveCompuesta().getcMetodo() %></option>
+                        	<%} %>
+                        </select>
+                        
+                    </div>  
+                    <div class="form-group">
+                        <label for="cParametro">Parametro ID:</label>
+                        <select name="cParametro">
+                        	 <%for (AsParametro asParametro : listAsParametro) { %> 
+                        	<option value="cParametro"><%=asParametro.getLlaveCompuesta().getcParametro() %></option>
+                        	<%} %>
+                        </select>
+                        
+                    </div>                          
                     <button type="submit" class="btn btn-primary"> Registrar</button>
                     <div class="point"><br/>.</div>
                 </form>
