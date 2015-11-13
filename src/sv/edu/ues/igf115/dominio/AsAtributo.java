@@ -131,7 +131,10 @@ public class AsAtributo implements Serializable {
 		this.tbTipoAtributo = tbTipoAtributo;
 	}
 
-	@JoinColumn(name="c_metodo", referencedColumnName = "c_metodo")
+	@JoinColumns({
+		@JoinColumn(name="c_metodo", referencedColumnName = "c_metodo"),
+		@JoinColumn(name="c_clase", referencedColumnName = "c_clase")
+	})
 	@ManyToOne(optional = false)
 	public AsMetodo getAsMetodo() {
 		return asMetodo;
