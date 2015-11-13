@@ -292,27 +292,9 @@
 					</ul>
 				</li>
 				<li role="presentation" class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-					  Tipo Método <span class="caret"></span>
+					<a href="TbTipoMetodoIndex.jsp">
+					  Tipo Método
 					</a>
-					<ul class="dropdown-menu">
-						<li><a href="TbTipoMetodoCrear.html">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-								Crear
-							</a>
-						</li>
-						<li><a href="TbTipoMetodoActualizar.html">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
-								Actualizar
-							</a>
-						</li>
-						<li><a href="TbTipoMetodoConsultar.html">  <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span>
-								Consultar
-							</a>
-						</li>
-						<li><a href="TbTipoMetodoEliminar.html">  <span class="glyphicon glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
-								Eliminar
-							</a>
-						</li>
-					</ul>
 				</li>
             </ul>
         </div>
@@ -332,16 +314,33 @@
         <!-- /#page-content-wrapper -->
 		<ol class="breadcrumb">
 		  <li><a href="index.html">Inicio</a></li>
-		  <li class=active><a href="TbTipoMetodoCrear.html">Crear Tipo Metodo</a></li>
+		  <li><a href="TbTipoMetodoIndex.jsp">Tipos de Métodos</a></li>
+		  <li class=active>Crear Tipo Metodo</a></li>
 		</ol>
 		
-		<h3>Formulario de creación de registro para tabla TB_tipo_metodo:</h3>
-		<form name="crearTbTipoMetodo" method="post" action="TbTipoMetodoCrear.jsp">
-			cTipoMetodo: <input type="text" name="cTipoMetodo"><br>
-			dTipoMetodo: <input type="text" name="dTipoMetodo"><br>
-			fIngreso: <input type="text" name="fIngreso"><br>
-			<input type="submit" value="Crear">
-		</form>
+		<div class="page-header"><h3>Formulario de creación de Tipo de Método</h3></div>
+		<div class="row">
+		
+		<div class="container col-xs-1 col-sm-4 col-md-4"></div>
+		<div class="container col-xs-10 col-sm-4 col-md-4 form1">
+			<form role="form" name="crearTbTipoMetodo" method="post" action="TbTipoMetodoCrear.jsp">
+				<div class="form-group">
+					<label for="cTipoMetodo">Correlativo tipo de metodo</label>
+				 	<input type="text" class="form-control" name="cTipoMetodo" id="cTipoMetodo" maxlength="1">
+				</div>
+				<div class="form-group">
+					<label for="dTipoMetodo">Descripción</label>
+				 	<textarea class="form-control" maxlength="20" name="dTipoMetodo" id="dTipoMetodo"></textarea>
+				 </div>
+				 <div class="form-group">
+				 	<label for="fIngreso">Fecha de Ingreso</label>
+						<input type="date" class="form-control" name="fIngreso" id="fIngreso">
+				</div>
+				<input type="submit" class="btn btn-primary" value="Crear">
+				
+			</form>
+		</div>
+		</div>
 		
 		
     </div>

@@ -4,10 +4,10 @@
 <%@ page import="java.util.*" %>
 <%@ page import="java.text.SimpleDateFormat"%>
 <%
-	String cTipoClase = request.getParameter("ctipoclase");
+	String cTipoClase = request.getParameter("cTipoClase");
 	String dTipoClase = request.getParameter("d_tipoclase");
 	String fIngresoString = request.getParameter("fIngreso");
-	SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+	SimpleDateFormat formato = new SimpleDateFormat("yyyy-mm-dd");
     Date fIngreso = formato.parse(fIngresoString);
     
     CtrlTbTipoClase ctrlTbTipoClase = new CtrlTbTipoClase();

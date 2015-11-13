@@ -7,7 +7,7 @@ import java.util.*;
 @Entity
 @Table(name="AS_atributo", catalog="modelo_proyecto", schema="")
 //Indica la clase que se a usar como llave compuesta
-@IdClass(AsAtributoPk.class)
+//@IdClass(AsAtributoPk.class)
 @NamedQueries({
 	@NamedQuery(name="AsAtributo.findAll", query="SELECT a FROM AsAtributo a"),
 	@NamedQuery(name="AsAtributo.findByKeys", query ="SELECT a FROM AsAtributo " +
@@ -154,14 +154,4 @@ public class AsAtributo implements Serializable {
 		this.asMetodo = asMetodo;
 	}
 	
-}
-
-//Definicion de la clase para la llave compuesta
-class AsAtributoPk implements Serializable{
-	private static final long serialVersionUID = 1L;
-	@Column(name="c_clase")
-	private int cClase;
-	
-	@Column(name="c_atributo")
-	private int cAtributo;
 }

@@ -19,7 +19,7 @@
     	
     }
     else
-    	mensaje="Falló la elimacion del registro, el registro no existe.";
+    	mensaje="Falló la consulta.";
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -350,11 +350,35 @@
         <!-- /#page-content-wrapper -->
 		<ol class="breadcrumb">
 		  <li><a href="index.html">Inicio</a></li>
-		  <li><a href="TbTipoClaseCrear.html">Crear Tipo Clase</a></li>
-		  <li class="active">Resultado</li>
+		  <li><a href="TbTipoClaseIndex.jsp">Tipos de Clases</a></li>
+		  <li class=active>Resultado</a></li>
 		</ol>
-		<h3>Resultado:</h3>
-		<%=mensaje %>
+		<h3 class="page-header">Resultado:</h3>
+		<div>
+				<table class="table table-striped">
+					<thead>
+				      <tr>
+				        <th>cTipoMetodo</th>
+				        <th>DTipoMetodo</th>
+				        <th>FIngreso</th>
+				        <th>Editar</th>
+				        <th>Eliminar</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				<% 
+						out.print("<tr>");
+						out.print("<td>"+tbTipoClase.getcTipoClase()+"</td>");
+						out.print("<td>"+tbTipoClase.getdTipoClase()+"</td>");
+						out.print("<td>"+tbTipoClase.getfIngreso()+"</td>");
+						out.print("<td><a href=/proyectoIGF1152015/TbTipoClaseActualizar.jsp?cTipoClase="+tbTipoClase.getcTipoClase()+">Editar</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/TbTipoClaseEliminar.jsp?cTipoClase="+tbTipoClase.getcTipoClase()+">Eliminar</a></td>");
+						out.print("</tr>");
+				%>
+				</tbody>
+				</table>
+			</div>
+    </div>
 		
 		
     </div>

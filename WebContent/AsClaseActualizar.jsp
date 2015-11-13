@@ -13,28 +13,29 @@
 	SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
     Date fIngreso = formato.parse(fIngresoString);
     String cTipoClase= request.getParameter("cTipoClase");
-    String cTipoAplicativo = request.getParameter("cTipoAplicativo");
+    String cAplicativo = request.getParameter("cTipoAplicativo");
     int asClasep = Integer.parseInt(request.getParameter("asClasep"));
     CtrlTbTipoClase ctrlTbTipoClase = new CtrlTbTipoClase();
     TbTipoClase tbTipoClase = ctrlTbTipoClase.daAsTipoClaseById(cTipoClase);
-    TbAplicativoDAO daoTbAplicativo = new TbAplicativoDAO();
-    //TbAplicativo tbAplicativo= daoTbAplicativo;
+    CtrlTbAplicativo ctrlTbAplicativo = new CtrlTbAplicativo();
+    TbAplicativo tbAplicativo= ctrlTbAplicativo.daTbAplicativoById(cAplicativo) ;
+    
     		
     CtrlAsClase ctrlAsClase = new CtrlAsClase();
     AsClase asClasePadre= ctrlAsClase.daAsClaseById(asClasep);
     
-    //boolean mensaje = ctrlAsClase.crearOactualiza(cClase, dClase, cUsuario, fIngreso, tbTipoClase, tbAplicativo, asClasePadre);
+    boolean resultado = ctrlAsClase.crearOactualiza(cClase, dClase, cUsuario, fIngreso, tbTipoClase, tbAplicativo, asClasePadre);
     
     
    
     
     
-    //String mensaje;
-    //if(resultado){
-    	//mensaje="Registro creado con éxito";
-    //}
-    //else
-    	//mensaje="Falló la creación del registro, por duplicación de llaves.";
+    String mensaje;
+    if(resultado){
+    	mensaje="Registro creado con éxito";
+    }
+    else
+    	mensaje="Falló la creación del registro, por duplicación de llaves.";
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -99,7 +100,7 @@
 					  Clase <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="AsClaseCrear.html">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+						<li><a href="CrearAsClase.jsp">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
 								Crear
 							</a>
 						</li>
@@ -214,7 +215,7 @@
 					  Observación <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="AsObservacionCrear.html">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+						<li><a href="AsObservacionInsert.jsp">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
 								Crear
 							</a>
 						</li>

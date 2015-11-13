@@ -12,7 +12,8 @@ import javax.persistence.*;
 	@NamedQuery(name="daTipoClaseById",
 			query="from TbTipoClase as tipoClase where tipoClase.cTipoClase=:cTipoClase"),
 	@NamedQuery(name="daTipoClaseNombre",
-			query="from TbTipoClase as tipoClase where tipoClase.dTipoClase=:dTipoClase")
+			query="from TbTipoClase as tipoClase where tipoClase.dTipoClase=:dTipoClase"),
+	@NamedQuery(name = "TbTipoClase.findAll", query = "FROM TbTipoClase")
 })
 
 public class TbTipoClase implements Serializable{
@@ -28,10 +29,14 @@ public class TbTipoClase implements Serializable{
 	 @Temporal(TemporalType.DATE)
 	 @Column(name = "f_ingreso")
      private Date fIngreso;
+
 	//@OneToMany: (1:N) Asocia varios campos con uno 
 	    //Multiplicidad 1:N Una Tipo Clase tiene muchas clases
 	 @OneToMany(cascade = CascadeType.ALL,fetch=FetchType.LAZY, mappedBy = "tbTipoClase" )
      private List<AsClase> asClaseList = new ArrayList<AsClase> ();
+
+     //private List<AsClase> asClaseList;
+
      
 
     @SuppressWarnings("unused")
@@ -48,7 +53,9 @@ public class TbTipoClase implements Serializable{
        
     }
     
+
     
+
     public String getcTipoClase() {
         return cTipoClase;
     }
@@ -74,15 +81,18 @@ public class TbTipoClase implements Serializable{
         this.fIngreso = fIngreso;
     }
 
-  
-    
-    
+
+
+ // @OneToMany: (1:N) Asocia varios campos con uno 
+    // Multiplicidad 1:N Una Tipo Clase tiene muchas clases
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tbTipoClase" )
     public List<AsClase> getAsClaseList() {
         return asClaseList;
     }
 
+
     public void setAsClaseList(List<AsClase> asClaseList) {
-        this.asClaseList = asClaseList;
+       this.asClaseList = asClaseList;
     }
 }
    

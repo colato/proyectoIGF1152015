@@ -308,27 +308,9 @@
 					</ul>
 				</li>
 				<li role="presentation" class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-					  Tipo Método <span class="caret"></span>
+					<a href="TbTipoMetodoIndex.jsp">
+					  Tipo Método
 					</a>
-					<ul class="dropdown-menu">
-						<li><a href="TbTipoMetodoCrear.html">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-								Crear
-							</a>
-						</li>
-						<li><a href="TbTipoMetodoActualizar.html">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
-								Actualizar
-							</a>
-						</li>
-						<li><a href="TbTipoMetodoConsultar.html">  <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span>
-								Consultar
-							</a>
-						</li>
-						<li><a href="TbTipoMetodoEliminar.html">  <span class="glyphicon glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
-								Eliminar
-							</a>
-						</li>
-					</ul>
 				</li>
             </ul>
         </div>
@@ -348,12 +330,34 @@
         <!-- /#page-content-wrapper -->
 		<ol class="breadcrumb">
 		  <li><a href="index.html">Inicio</a></li>
-		  <li><a href="TbTipoMetodoConsultar.html">Consultar Tipo Metodo</a></li>
+		  <li><a href="TbTipoMetodoIndex.jsp">Tipos de Métodos</a></li>
 		  <li class=active>Resultado</a></li>
 		</ol>
-		<h3>Resultado:</h3>
-		<%=mensaje %>
-		
+		<h3 class="page-header">Resultado:</h3>
+		<div>
+				<table class="table table-striped">
+					<thead>
+				      <tr>
+				        <th>cTipoMetodo</th>
+				        <th>DTipoMetodo</th>
+				        <th>FIngreso</th>
+				        <th>Editar</th>
+				        <th>Eliminar</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				<% 
+						out.print("<tr>");
+						out.print("<td>"+tbTipoMetodo.getcTipoMetodo()+"</td>");
+						out.print("<td>"+tbTipoMetodo.getDTipoMetodo()+"</td>");
+						out.print("<td>"+tbTipoMetodo.getFIngreso()+"</td>");
+						out.print("<td><a href=/proyectoIGF1152015/TbTipoMetodoActualizar.jsp?cTipoMetodo="+tbTipoMetodo.getcTipoMetodo()+">Editar</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/TbTipoMetodoEliminar.jsp?cTipoMetodo="+tbTipoMetodo.getcTipoMetodo()+">Eliminar</a></td>");
+						out.print("</tr>");
+				%>
+				</tbody>
+				</table>
+			</div>
     </div>
     <!-- /#wrapper -->
 

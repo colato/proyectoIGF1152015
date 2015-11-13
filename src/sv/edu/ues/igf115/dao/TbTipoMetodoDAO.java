@@ -1,5 +1,7 @@
 package sv.edu.ues.igf115.dao;
 
+import java.util.List;
+
 import org.hibernate.*;
 
 import sv.edu.ues.igf115.dominio.TbTipoMetodo;
@@ -16,8 +18,8 @@ public class TbTipoMetodoDAO {
 		Session session=sessionFactory.openSession();
 		//3.Obtener la transacción
 		Transaction tx=session.beginTransaction();
-		//4.Guarda el objeto
-		session.save(tbTipoMetodo);
+		//4.Guarda el objeto o actualiza
+		session.saveOrUpdate(tbTipoMetodo);
 		//5.Guarda los cambios
 		tx.commit();
 		session.flush();
@@ -50,9 +52,21 @@ public class TbTipoMetodoDAO {
 		SessionFactory sessionFactory=hibernateUtil.getSessionFactory();
 		Session session= sessionFactory.openSession();
 		Transaction tx=session.beginTransaction();
+		
+
 		session.delete(tbTipoMetodo);
+
 		tx.commit();
 		session.flush();
 		session.close();	
+	}
+	
+	public List<TbTipoMetodo> daListTipoMetodo(){
+		SessionFactory sessionFactory=hibernateUtil.getSessionFactory();
+		Session session= sessionFactory.openSession();
+		Query query=session.getNamedQuery("daListaTipoMetodo");
+		List<TbTipoMetodo> listaTbTipoMetodo=query.list();
+		session.close();
+		return listaTbTipoMetodo;
 	}
 }

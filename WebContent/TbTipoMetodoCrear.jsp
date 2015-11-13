@@ -7,17 +7,21 @@
 	String cTipoMetodo=request.getParameter("cTipoMetodo");
 	String dTipoMetodo=request.getParameter("dTipoMetodo");
 	String fIngresoString=request.getParameter("fIngreso");
-	SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+	SimpleDateFormat formato = new SimpleDateFormat("yyyy-mm-dd");
     Date fIngreso = formato.parse(fIngresoString);
     
     CtrlTbTipoMetodo ctrlTbTipoMetodo=new CtrlTbTipoMetodo();
     boolean resultado=ctrlTbTipoMetodo.crearTbTipoMetodo(cTipoMetodo, dTipoMetodo, fIngreso);
     String mensaje;
+    String clase;
     if(resultado){
     	mensaje="Registro creado con éxito";
+    	clase="alert alert-success";
     }
-    else
+    else{
     	mensaje="Falló la creación del registro, por duplicación de llaves.";
+    	clase="alert alert-danger";
+    }
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -308,27 +312,9 @@
 					</ul>
 				</li>
 				<li role="presentation" class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-					  Tipo Método <span class="caret"></span>
+					<a href="TbTipoMetodoIndex.jsp">
+					  Tipo Método
 					</a>
-					<ul class="dropdown-menu">
-						<li><a href="TbTipoMetodoCrear.html">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-								Crear
-							</a>
-						</li>
-						<li><a href="TbTipoMetodoActualizar.html">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
-								Actualizar
-							</a>
-						</li>
-						<li><a href="TbTipoMetodoConsultar.html">  <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span>
-								Consultar
-							</a>
-						</li>
-						<li><a href="TbTipoMetodoEliminar.html">  <span class="glyphicon glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
-								Eliminar
-							</a>
-						</li>
-					</ul>
 				</li>
             </ul>
         </div>
@@ -348,11 +334,12 @@
         <!-- /#page-content-wrapper -->
 		<ol class="breadcrumb">
 		  <li><a href="index.html">Inicio</a></li>
+		  <li><a href="TbTipoMetodoIndex.jsp">Tipos de Método</a></li>
 		  <li><a href="TbTipoMetodoCrear.html">Crear Tipo Metodo</a></li>
 		  <li class="active">Resultado</li>
 		</ol>
-		<h3>Resultado:</h3>
-		<%=mensaje %>
+		<h3 class="page-header">Resultado:</h3>
+		<div class="<%=clase %> alert-dismissible" role="alert"><%=mensaje %>
 		
 		
     </div>
