@@ -8,7 +8,7 @@ import java.util.*;
 @Table(name = "TB_tipo_atributo", catalog = "modelo_proyecto", schema = "")
 @NamedQueries({
 	@NamedQuery(name = "TbTipoAtributo.findAll", query = "SELECT t FROM TbTipoAtributo t"),
-	@NamedQuery(name = "TbTipoAtributo.findByKey", query = "SELECT t FROM " +
+	@NamedQuery(name = "daTbTipoAtributoById", query = "SELECT t FROM " +
 			"TbTipoAtributo t WHERE t.cTipoAtributo = :cTipoAtributo"),
 	@NamedQuery(name = "TbTipoAtributo.findByFIngreso", query = "SELECT t FROM" +
 			"TbTipoAtributo t WHERE t.fIngreso = :fIngreso")})
