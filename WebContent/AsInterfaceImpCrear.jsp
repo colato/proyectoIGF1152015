@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
- <%@ page import="sv.edu.ues.igf115.negocio.CtrlAsInterfaceImplementa" %>
+ <%@ page import="sv.edu.ues.igf115.negocio.*" %>
 <%@ page import="sv.edu.ues.igf115.dominio.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.text.SimpleDateFormat"%>
@@ -8,8 +8,11 @@
     
 <%
 int cInterface= Integer.parseInt(request.getParameter("cInterface"));
-int hijo=Integer.parseInt(request.getParameter("InterfaceHijo"));
-int padre=Integer.parseInt(request.getParameter("InterfacePadre"));
+int hijo1=Integer.parseInt(request.getParameter("interfaceHijo"));
+int padre1=Integer.parseInt(request.getParameter("interfacePadre"));
+CtrlAsInterface control= new CtrlAsInterface();
+AsInterface hijo = control.verAsInterface(hijo1);
+AsInterface padre= control.verAsInterface(padre1);
 CtrlAsInterfaceImplementa ctrl= new CtrlAsInterfaceImplementa();
 boolean resultado= ctrl.crearAsInterfaceImplementa(cInterface, hijo, padre);
 String mensaje;
