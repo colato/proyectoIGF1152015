@@ -27,24 +27,34 @@
 <li><a href="index.html">Inicio</a></li>
 <li><a href="AsInterfaceConsultar.html">Consultar As Interface Implementa</a></li>
 </ol>
-<table border="1">
- <tr>
-   <td>c_interface</td>
-   <td>d_interface</td>
- </tr> 
- <!-- Lleno la tabla con la Variable Lista -->
- <% for(AsInterfaceImplementa interfac: interfaces) {%>
-	<tr>
-	 <td><input type="text" name="cinterface"><%=interfac%></td>
-	 
-	 </tr>
-<% } %>
-
-</table>
-<form name="BuscarInterface" method="POST" action="AsInterfaceImplementaActualizar.jsp">
-    Ingrese el c_interface a Actualizar: <input type="text" name="cinterfaceBuscar">
-    <input type="submit" value="Buscar">
-    </form>
-    <!--fin -->
+<div>
+				<table class="table table-striped">
+					<thead>
+				      <tr>
+				        <th>cInterfaceImplementa</th>
+				        <th>Hijo</th>
+				        <th>Padre</th>
+				        <th>Ver</th>
+				        <th>Editar</th>
+				        <th>Eliminar</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				<% 
+					for (AsInterfaceImplementa imp : interfaces) {
+						out.print("<tr>");
+						out.print("<td>"+imp.getC_interface_implementa()+"</td>");
+						out.print("<td>"+imp.getC_interface_hijo().getC_interface()+"</td>");
+						out.print("<td>"+imp.getC_interface_padre().getC_interface()+"</td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsInterfaceImplementaVer.jsp?cinterfaceBuscar="+imp.getC_interface_implementa()+">Ver</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsInterfaceImplementaActualizar.jsp?cinterfaceBuscar="+imp.getC_interface_implementa()+">Editar</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsInterfaceImplementaEliminar.jsp?cInterfaceimplementa="+imp.getC_interface_implementa()+">Eliminar</a></td>");
+						out.print("</tr>");
+					}
+				%>
+				</tbody>
+				</table>
+			</div>
+    
 </body>
 </html>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+ <%@ page import="sv.edu.ues.igf115.dominio.*" %>
 <%@ page import="sv.edu.ues.igf115.negocio.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.text.SimpleDateFormat"%>
@@ -7,9 +8,12 @@
      int claseinterface= Integer.parseInt(request.getParameter("claseInterface"));
      int cInterface= Integer.parseInt(request.getParameter("cInterface"));
      int cClase = Integer.parseInt(request.getParameter("cClase"));
-     
+     CtrlAsClase ctrlClase= new CtrlAsClase();
+     AsClase clase= ctrlClase.daAsClaseById(cClase);
+     CtrlAsInterface ctrlinte= new CtrlAsInterface();
+     AsInterface inter= ctrlinte.verAsInterface(cInterface);
      CtrlAsClaseInterface ctrl= new CtrlAsClaseInterface();
-     boolean resultado=ctrl.crearAsClaseInterface(claseinterface, cClase,cInterface);
+     boolean resultado=ctrl.crearAsClaseInterface(claseinterface, clase,inter);
      String mensaje;
      if(resultado)
     	 mensaje="Registro creado";

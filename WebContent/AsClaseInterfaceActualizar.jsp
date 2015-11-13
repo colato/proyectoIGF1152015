@@ -16,12 +16,13 @@
 <title>Actualizar As Clase interface </title>
 </head>
 <body>
+
 <form name="ActualizarInterface" method="POST" action="AsClaseInterfaceCrear.jsp">
 
 <!-- Lleno los campos correspondientes -->
    clase interface:<input type="text" name="claseInterface"><%=asinterface.getC_clase_interface() %> 
-   c_clase:<input type="text" name="cClase"><%=asinterface.getAsclase() %>
-   c_interface:<input type="text" name="cInterface"><%=asinterface.getAsinterface() %>
+   c_clase:<input type="text" name="cClase"><%=asinterface.getAsclase().getCClase() %>
+   c_interface:<input type="text" name="cInterface"><%=asinterface.getAsinterface().getC_interface() %>
    
    <input type="submit" value="Actualizar"> 
  

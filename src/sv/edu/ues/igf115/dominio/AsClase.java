@@ -67,26 +67,7 @@ public class AsClase implements Serializable{
        this.asClasep = asClasep;
        this.cUsuario = cUsuario;
    }
-   //List<AsAtributo> listaAsAtributo,
-   public AsClase(int cClase, String dClase, String cUsuario, Date fIngreso,
-		List<AsClaseInterface> listaAsClaseInterface,
-		List<AsMetodo> listaAsMetodo, 
-		List<AsObservacion> listaAsObservacion, List<AsClase> listaAsClase,
-		TbTipoClase tbTipoClase, TbAplicativo tbAplicativo, AsClase asClasep) {
-	super();
-	this.cClase = cClase;
-	this.dClase = dClase;
-	this.cUsuario = cUsuario;
-	this.fIngreso = fIngreso;
-	this.listaAsClaseInterface = listaAsClaseInterface;
-	this.listaAsMetodo = listaAsMetodo;
-	this.listaAsAtributo = listaAsAtributo;
-	this.listaAsObservacion = listaAsObservacion;
-	this.listaAsClase = listaAsClase;
-	this.tbTipoClase = tbTipoClase;
-	this.tbAplicativo = tbAplicativo;
-	this.asClasep = asClasep;
-}
+   
 
 
    
