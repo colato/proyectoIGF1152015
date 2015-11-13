@@ -52,7 +52,6 @@ public class AsMetodo implements Serializable{
 
 	//--------------------------------------------------
 	@EmbeddedId
-	
 	public AsMetodoPKDetalle getLlaveCompuesta() {
 		return llaveCompuesta;
 	}
