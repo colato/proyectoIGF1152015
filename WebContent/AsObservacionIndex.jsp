@@ -1,18 +1,27 @@
-<%@page import="javax.persistence.*"%>
+<%@page import="javax.persistence.TemporalType"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="sv.edu.ues.igf115.negocio.CtrlTbAplicativo" %>
-<%@ page import="sv.edu.ues.igf115.dominio.TbAplicativo" %>
+<%@ page import="sv.edu.ues.igf115.negocio.*" %>
+<%@ page import="sv.edu.ues.igf115.dominio.*" %>
 <%@ page import="java.util.*" %>
 <%
-	CtrlTbAplicativo ctrlTbAplicativo = new CtrlTbAplicativo();
-	List<TbAplicativo> listaTbAplicativo = ctrlTbAplicativo.daTbAplicativos();
+	CtrlAsObservacion ctrlAsObservacion = new CtrlAsObservacion();
+	List<AsObservacion> listAsObservacion =ctrlAsObservacion.daObservaciones();
+	
 %>
+<% CtrlAsClase ctrlAsClase = new CtrlAsClase();
+	List<AsClase> listAsClase = ctrlAsClase.daClases(); %>
+<% CtrlAsAtributo ctrlAsAtributo = new CtrlAsAtributo();
+	List<AsAtributo> listAsAtributo = ctrlAsAtributo.daAsAtributos();  %>
+<% CtrlAsMetodo ctrlAsMetodo = new CtrlAsMetodo();
+	List<AsMetodo> listAsMetodo = ctrlAsMetodo.daListaAsMetodos(); %>\
+<% CtrlAsParametro ctrlAsParametro = new CtrlAsParametro();
+	List<AsParametro> listAsParametro = ctrlAsParametro.daListaAsParametro(); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>TbAplicativo Registros | Colato | Proyecto IGF115 2015</title>
+<title>AsObservacion Registros | Steven | Proyecto IGF115 2015</title>
 
 <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -70,7 +79,7 @@
 								Crear
 							</a>
 						</li>
-						<li><a href="AsClaseActualizar.html">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
+						<li><a href="AsClaseActualizar2.jsp">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
 								Actualizar
 							</a>
 						</li>
@@ -181,11 +190,11 @@
 					  Observación <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="AsObservacionCrear.html">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+						<li><a href="AsObservacionInsert.jsp">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
 								Crear
 							</a>
 						</li>
-						<li><a href="AsObservacionActualizar.html">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
+						<li><a href="AsObservacionActualizar2.jsp">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
 								Actualizar
 							</a>
 						</li>
@@ -314,18 +323,24 @@
         <!-- /#page-content-wrapper -->
 		<ol class="breadcrumb">
 		  <li><a href="index.html">Inicio</a></li>
-		  <li class="active">Tb Aplicativo</li>
+		  <li class="active">As Observacion </li>
 		</ol>
-		<div class="page-header"><h3>Tb Aplicativo</h3>
-		<a class="btn btn-primary" href="TbAplicativoCrear.html" role="submit">Crear nuevo TbAplicativo</a>
+		<div class="page-header"><h3>As Observacion</h3>
+		<a class="btn btn-primary" href="AsObservacionInsert.jsp" role="submit">Crear nuevo AsObservacion</a>
 		</div>
 		<div>
 				<table class="table table-striped">
 					<thead>
 				      <tr>
-				        <th>cAplicativo</th>
-				        <th>dAplicativo</th>
+				        <th>cObservacion</th>
+				        <th>dObservacion</th>
 				        <th>fIngreso</th>
+				        <th>cUsario</th>
+				        <th>bActivo</th>
+				        <th>cClase</th>
+				        <th>cAtributo</th>
+				        <th>cMetodo</th>
+				        <th>cParametro</th>
 				        <th>Detalles</th>
 				        <th>Editar</th>
 				        <th>Eliminar</th>
@@ -333,14 +348,20 @@
 				    </thead>
 				    <tbody>
 				<% 
-					for (TbAplicativo temp : listaTbAplicativo) {
+					for (AsObservacion asObervacion  : listAsObservacion) {
 						out.print("<tr>");
-						out.print("<td>"+temp.getcAplicativo()+"</td>");
-						out.print("<td>"+temp.getdAplicativo()+"</td>");
-						out.print("<td>"+temp.getfIngreso()+"</td>");
-						out.print("<td><a href=/proyectoIGF1152015/TbAplicativoConsultar.jsp?cAplicativo="+temp.getcAplicativo()+">Ver</a></td>");
-						out.print("<td><a href=/proyectoIGF1152015/TbAplicativoActualizar.jsp?cAplicativo="+temp.getcAplicativo()+">Editar</a></td>");
-						out.print("<td><a href=/proyectoIGF1152015/TbAplicativoEliminar.jsp?cAplicativo="+temp.getcAplicativo()+">Eliminar</a></td>");
+						out.print("<td>"+asObervacion.getCObservacion()+"</td>");
+						out.print("<td>"+asObervacion.getdObservacion()+"</td>");
+						out.print("<td>"+String.valueOf(asObervacion.getfIngreso())+"</td>");
+						out.print("<td>"+asObervacion.getcUsuario()+"</td>");
+						out.print("<td>"+String.valueOf(asObervacion.getbActivo())+"</td>");
+						out.print("<td>"+asObervacion.getAsClase().getCClase() +"</td>");
+						out.print("<td>"+asObervacion.getAsAtributo().getdAtributo() +"</td>");
+						out.print("<td>"+asObervacion.getAsMetodo().getdMetodo() +"</td>");
+						out.print("<td>"+asObervacion.getAsParametro().getdParametro() +"</td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsObservacionConsultar.jsp?cObservacion="+asObervacion.getCObservacion()+">Ver</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsObservacionActualizar.jsp?cObservacion="+asObervacion.getCObservacion()+">Editar</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsObservacionEliminar.jsp?cObservacion="+asObervacion.getCObservacion()+">Eliminar</a></td>");
 						out.print("</tr>");
 					}
 				%>

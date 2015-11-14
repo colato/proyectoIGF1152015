@@ -1,18 +1,20 @@
-<%@page import="javax.persistence.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="sv.edu.ues.igf115.negocio.CtrlTbAplicativo" %>
-<%@ page import="sv.edu.ues.igf115.dominio.TbAplicativo" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ page import="sv.edu.ues.igf115.negocio.CtrlAsClase" %>
+<%@ page import="sv.edu.ues.igf115.negocio.CtrlAsMetodo" %>
+<%@ page import="sv.edu.ues.igf115.dominio.AsClase" %>
 <%@ page import="java.util.*" %>
 <%
-	CtrlTbAplicativo ctrlTbAplicativo = new CtrlTbAplicativo();
-	List<TbAplicativo> listaTbAplicativo = ctrlTbAplicativo.daTbAplicativos();
+	CtrlAsClase ctrlAsClase = new CtrlAsClase();
+	List<AsClase> listaAsClase = ctrlAsClase.daClases();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>TbAplicativo Registros | Colato | Proyecto IGF115 2015</title>
+<title>As Clase Registros | Colato | Proyecto IGF115 2015</title>
 
 <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -312,20 +314,26 @@
             </div>
         </div>
         <!-- /#page-content-wrapper -->
+<!-- /#page-content-wrapper -->
 		<ol class="breadcrumb">
 		  <li><a href="index.html">Inicio</a></li>
-		  <li class="active">Tb Aplicativo</li>
+		  <li class="active">As Observacion </li>
 		</ol>
-		<div class="page-header"><h3>Tb Aplicativo</h3>
-		<a class="btn btn-primary" href="TbAplicativoCrear.html" role="submit">Crear nuevo TbAplicativo</a>
+		<div class="page-header"><h3>As Observacion</h3>
+		<a class="btn btn-primary" href="AsObservacionInsert.jsp" role="submit">Crear nuevo AsObservacion</a>
 		</div>
 		<div>
 				<table class="table table-striped">
 					<thead>
 				      <tr>
-				        <th>cAplicativo</th>
-				        <th>dAplicativo</th>
+				        <th>cClase</th>
+				        <th>dClase</th>
+				        <th>cTipoClase</th>
+				        <th>cUsario</th>
 				        <th>fIngreso</th>
+				        <th>cAplicativo</th>
+				        <th>cClasePadre</th>
+				  
 				        <th>Detalles</th>
 				        <th>Editar</th>
 				        <th>Eliminar</th>
@@ -333,14 +341,19 @@
 				    </thead>
 				    <tbody>
 				<% 
-					for (TbAplicativo temp : listaTbAplicativo) {
+					for (AsClase asclase  : listaAsClase) {
 						out.print("<tr>");
-						out.print("<td>"+temp.getcAplicativo()+"</td>");
-						out.print("<td>"+temp.getdAplicativo()+"</td>");
-						out.print("<td>"+temp.getfIngreso()+"</td>");
-						out.print("<td><a href=/proyectoIGF1152015/TbAplicativoConsultar.jsp?cAplicativo="+temp.getcAplicativo()+">Ver</a></td>");
-						out.print("<td><a href=/proyectoIGF1152015/TbAplicativoActualizar.jsp?cAplicativo="+temp.getcAplicativo()+">Editar</a></td>");
-						out.print("<td><a href=/proyectoIGF1152015/TbAplicativoEliminar.jsp?cAplicativo="+temp.getcAplicativo()+">Eliminar</a></td>");
+						out.print("<td>"+asclase.getCClase()+"</td>");
+						out.print("<td>"+asclase.getDClase()+"</td>");
+						out.print("<td>"+asclase.getTbTipoClase()+"</td>");
+						out.print("<td>"+asclase.getCUsuario()+"</td>");
+						out.print("<td>"+asclase.getFIngreso()+"</td>");
+						out.print("<td>"+asclase.getTbAplicativo() +"</td>");
+						out.print("<td>"+asclase.getAsClasep().getCClase() +"</td>");
+						
+						out.print("<td><a href=/proyectoIGF1152015/AsClaseConsultar.jsp?dClase="+asclase.getCClase()+">Ver</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsClaseActualizar.jsp?dClase="+asclase.getCClase()+">Editar</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsClaseEliminar.jsp?dClase="+asclase.getCClase()+">Eliminar</a></td>");
 						out.print("</tr>");
 					}
 				%>
