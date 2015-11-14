@@ -60,7 +60,7 @@ public class AsInterfaceImplementaDAO {
 	 	   //Obtengo una sesion
 	 	   Session sesion= sesionF.openSession();
 	 	   //Obtengo el registro
-	 	   Query query= sesion.getNamedQuery("AS_interface_implementa.findAllInterfaceImplementa");
+	 	   Query query= sesion.getNamedQuery("as_interface_implementa.findAllInterfaceImplementa");
 	 	   List<AsInterfaceImplementa> lista=query.list(); 
 	 	   //Cierro la Sesion
 	 	   sesion.close();
