@@ -9,15 +9,11 @@ import sv.edu.ues.igf115.dominio.*;
 public class CtrlTbAplicativo {
 	private TbAplicativoDAO daoTbAplicativo = new TbAplicativoDAO();
 	
-	public boolean crearTbAplicativo(String cAplicativo, String dAplicativo, Date fIngreso, List<AsClase> asClase){
+	public boolean crearTbAplicativo(String cAplicativo, String dAplicativo, Date fIngreso){
 		if(daoTbAplicativo.daTbAplicativoById(cAplicativo) == null){
-			if(asClase != null){
-				TbAplicativo tbAplicativo = new TbAplicativo(cAplicativo, dAplicativo, fIngreso, asClase);
+				TbAplicativo tbAplicativo = new TbAplicativo(cAplicativo, dAplicativo, fIngreso);
 				daoTbAplicativo.guardaActualiza(tbAplicativo);
 				return true;
-			}
-			else
-				return false;
 		}
 		else
 			return false;
@@ -33,11 +29,10 @@ public class CtrlTbAplicativo {
 			return false;
 	}
 	
-	public boolean modificarTbAplicativo(String cAplicativo, String dAplicativo, Date fIngreso, List<AsClase> asClase){
+	public boolean modificarTbAplicativo(String cAplicativo, String dAplicativo, Date fIngreso){
 		if(daoTbAplicativo.daTbAplicativoById(cAplicativo)!= null){
 			TbAplicativo tbAplicativo = daoTbAplicativo.daTbAplicativoById(cAplicativo);
 			
-			tbAplicativo.setAsClaseList(asClase);
 			tbAplicativo.setcAplicativo(dAplicativo);
 			tbAplicativo.setfIngreso(fIngreso);
 			

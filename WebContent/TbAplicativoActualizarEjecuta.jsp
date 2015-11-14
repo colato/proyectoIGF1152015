@@ -1,33 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="sv.edu.ues.igf115.negocio.CtrlTbAplicativo" %>
+<%@ page import="sv.edu.ues.igf115.dominio.TbAplicativo" %>
+<%@ page import="java.util.*" %>
+<%@ page import="java.text.SimpleDateFormat"%>
 <%
 	String cAplicativo=request.getParameter("cAplicativo");
-	CtrlTbAplicativo ctrlTbAplicativo=new CtrlTbAplicativo();
-	boolean resultado= ctrlTbAplicativo.eliminarTbAplicativo(cAplicativo);
+	String dAplicativo=request.getParameter("dAplicativo");
+	String fIngresoString=request.getParameter("fIngreso");
+	SimpleDateFormat formato = new SimpleDateFormat("yyyy-mm-dd");
+    Date fIngreso = formato.parse(fIngresoString);
+	CtrlTbAplicativo ctrlAplicativo=new CtrlTbAplicativo();
+	boolean resultado=ctrlAplicativo.modificarTbAplicativo(cAplicativo, dAplicativo, fIngreso);
 	String mensaje;
 	String clase;
 	if(resultado){
-		mensaje="Registro eliminado con éxito.";
-		clase="alert alert-success";
-	}
-	else{
-		mensaje="El registro no existe por lo que no puede ser eliminado.";
-		clase="alert alert-danger";
-	}
+	    	mensaje="Registro actualizado con éxito";
+	    	clase="alert alert-success";
+	    }
+	    else{
+	    	mensaje="Falló la actualización del registro.";
+	    	clase="alert alert-danger";
+	    }
 %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>TbAplicativo Eliminar | Proyecto IGF115 2015</title>
+    <title>TbAplicativo Actualizar Resultado| Proyecto IGF115 2015</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -42,14 +48,12 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
-
-    <div id="wrapper">
+<div id="wrapper">
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
-        	<%@include file = "Menu.jsp"%>
-        </div>
+            <%@include file = "Menu.jsp"%>
+                    </div>
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
@@ -64,14 +68,15 @@
             </div>
         </div>
         <!-- /#page-content-wrapper -->
-				<ol class="breadcrumb">
+		<ol class="breadcrumb">
 		  <li><a href="index.html">Inicio</a></li>
 		  <li><a href="TbAplicativoIndex.jsp">Aplicativos</a></li>
-		  <li class=active>Eliminar Aplicativo</a></li>
+		  <li><a href="TbAplicativoActualizar.jsp">Actualizar Aplicativo</a></li>
+		  <li class="active">Resultado</li>
 		</ol>
-		
 		<h3 class="page-header">Resultado:</h3>
 		<div class="<%=clase %> alert-dismissible" role="alert"><%=mensaje %>
+		
 		
     </div>
     <!-- /#wrapper -->
@@ -89,5 +94,4 @@
         $("#wrapper").toggleClass("toggled");
     });
     </script>
-</body>
 </html>
