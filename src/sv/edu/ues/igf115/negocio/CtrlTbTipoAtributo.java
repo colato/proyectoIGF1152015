@@ -9,11 +9,10 @@ import sv.edu.ues.igf115.negocio.*;
 public class CtrlTbTipoAtributo {
 	private TbTipoAtributoDAO daoTbTipoAtributo = new TbTipoAtributoDAO();
 	
-	public boolean crearTbTipoAtributo(String cTipoAtributo, String dTipoAtributo, Date fIngreso, 
-			List<AsAtributo> asAtributo){
+	public boolean crearTbTipoAtributo(String cTipoAtributo, String dTipoAtributo, Date fIngreso){
 		if(daoTbTipoAtributo.daTbTipoAtributoById(cTipoAtributo)==null){
 			TbTipoAtributo tbTipoAtributo = new TbTipoAtributo(cTipoAtributo, dTipoAtributo,
-					fIngreso, asAtributo);
+					fIngreso);
 			daoTbTipoAtributo.guardaActualiza(tbTipoAtributo);
 			return true;
 		}

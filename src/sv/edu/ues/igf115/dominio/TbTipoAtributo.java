@@ -23,11 +23,10 @@ public class TbTipoAtributo implements Serializable{
 		
 	}
 	
-	public TbTipoAtributo(String cTipoAtributo, String dTipoAtributo, Date fIngreso, List<AsAtributo> asAtributo){
+	public TbTipoAtributo(String cTipoAtributo, String dTipoAtributo, Date fIngreso){
 		this.cTipoAtributo = cTipoAtributo;
 		this.dTipoAtributo = dTipoAtributo;
 		this.fIngreso = fIngreso;
-		this.asAtributoList = asAtributo;
 	}
 	
 	@Id
