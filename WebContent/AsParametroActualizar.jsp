@@ -9,6 +9,8 @@
 <%@ page import="sv.edu.ues.igf115.negocio.CtrlAsParametro" %>
 <%@ page import="sv.edu.ues.igf115.dominio.AsParametro" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.text.SimpleDateFormat"%>
+<%@ page import="java.text.DateFormat"%>
 <% 
 	CtrlAsClase ctrlAsClase=new CtrlAsClase();
 	List<AsClase> listaClases=ctrlAsClase.daClases();
@@ -30,6 +32,9 @@
 	
 	CtrlAsParametro ctrlAsParametro=new CtrlAsParametro();
 	AsParametro asParametro=ctrlAsParametro.verAsParametro(llaveCompuesta);
+
+	DateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+	String fecha=formato.format(asParametro.getfIngreso());
 %>
 <html>
 
@@ -96,7 +101,11 @@
 				
 				<div class="form-group">
 					<label for="cParametro">Correlativo de Parámetro</label>
-				 	<input type="number" id="cParametro" class="form-control" name="cParametro" value="<%=asParametro.getLlaveCompuesta().getcParametro()%>">
+				 	<input type="number" id="cParametro" class="form-control" name="cParametro" value="<%=asParametro.getLlaveCompuesta().getcParametro()%>" disabled>
+				</div>
+				<div class="form-group">
+					<label for="cParametro">Correlativo de Parámetro</label>
+				 	<input type="number" id="cParametro" class="hidden" name="cParametro" value="<%=asParametro.getLlaveCompuesta().getcParametro()%>">
 				</div>
 				<div class="form-group">
 					<label for="dParametro">Descripción de Parámetro</label>
@@ -105,24 +114,27 @@
 
 				<div class="form-group">
 					<label for="dTipoParametro">Descripción de tipo de parámetro</label>
-				 	<textarea class="form-control" maxlength="50" name="dTipoParametro" id="dTipoParametro"></textarea>
+				 	<textarea class="form-control" maxlength="50" name="dTipoParametro" id="dTipoParametro"><%=asParametro.getdTipoParametro()%></textarea>
 				 </div>
 				<div class="form-group">
 				 	<label for="cUsuario">Usuario</label>
-						<input type="text" class="form-control" maxlength="30" name="cUsuario" id="cUsuario">
+						<input type="text" class="form-control" maxlength="30" name="cUsuario" id="cUsuario" value="<%=asParametro.getcUsuario()%>">
 				</div>
 		</div>
 		<div class="container col-xs-10 col-sm-4 col-md-4 form1">
 			
 				 <div class="form-group">
 				 	<label for="fIngreso">Fecha de Ingreso</label>
-						<input type="date" class="form-control" name="fIngreso" id="fIngreso">
+						<input type="date" class="form-control" name="fIngreso" id="fIngreso" value="<%=fecha %>">
 				</div>
 				<div class="form-group">
 					<label for="cMetodo">Método</label>
 				 	<select class="form-control" name="cMetodo">
 					  <%for (AsMetodo temp : listaAsMetodo){
-						  out.print("<option value="+temp.getLlaveCompuesta().getcMetodo()+">"+temp.getdMetodo()+"</option>");
+						  if(temp.getLlaveCompuesta().getcMetodo()==asParametro.getLlaveCompuesta().getcMetodo())
+						  		out.print("<option value="+temp.getLlaveCompuesta().getcMetodo()+" selected>"+temp.getdMetodo()+"</option>");
+						  else
+							  out.print("<option value="+temp.getLlaveCompuesta().getcMetodo()+">"+temp.getdMetodo()+"</option>");
 					  }%>
 					</select>
 				</div>
@@ -130,11 +142,14 @@
 					<label for="cClase">Correlativo de Clase</label>
 				 	<select class="form-control" name="cClase">
 					  <%for (AsClase temp : listaClases){
-						  out.print("<option value="+temp.getCClase()+">"+temp.getDClase()+"</option>");
+						  if(temp.getCClase()==asParametro.getLlaveCompuesta().getcClase())
+						  		out.print("<option value="+temp.getCClase()+" selected>"+temp.getDClase()+"</option>");
+						  else
+							  out.print("<option value="+temp.getCClase()+">"+temp.getDClase()+"</option>");
 					  }%>
 					</select>
 				</div>
-				<input type="submit" class="btn btn-primary" value="Crear">
+				<input type="submit" class="btn btn-primary" value="Actualizar">
 				
 			</form>
 		</div>

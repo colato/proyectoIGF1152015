@@ -89,9 +89,9 @@
 						out.print("<td>"+temp.getdTipoParametro()+"</td>");
 						out.print("<td>"+temp.getcUsuario()+"</td>");
 						out.print("<td>"+temp.getfIngreso()+"</td>");
-						out.print("<td><a href=/proyectoIGF1152015/AsMetodoConsultar.jsp?cMetodo="+temp.getLlaveCompuesta().getcMetodo()+"&cClase="+temp.getLlaveCompuesta().getcClase()+"&cParametro="+temp.getLlaveCompuesta().getcParametro()+">Ver</a></td>");
-						out.print("<td><a href=/proyectoIGF1152015/AsMetodoActualizar.jsp?cMetodo="+temp.getLlaveCompuesta().getcMetodo()+"&cClase="+temp.getLlaveCompuesta().getcClase()+"&cParametro="+temp.getLlaveCompuesta().getcParametro()+">Editar</a></td>");
-						out.print("<td><a href=/proyectoIGF1152015/AsMetodoEliminar.jsp?cMetodo=cMetodo="+temp.getLlaveCompuesta().getcMetodo()+"&cClase="+temp.getLlaveCompuesta().getcClase()+"&cParametro="+temp.getLlaveCompuesta().getcParametro()+">Eliminar</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsParametroConsultar.jsp?cMetodo="+temp.getLlaveCompuesta().getcMetodo()+"&cClase="+temp.getLlaveCompuesta().getcClase()+"&cParametro="+temp.getLlaveCompuesta().getcParametro()+">Ver</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsParametroActualizar.jsp?cMetodo="+temp.getLlaveCompuesta().getcMetodo()+"&cClase="+temp.getLlaveCompuesta().getcClase()+"&cParametro="+temp.getLlaveCompuesta().getcParametro()+">Editar</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsParametroEliminar.jsp?cMetodo=cMetodo="+temp.getLlaveCompuesta().getcMetodo()+"&cClase="+temp.getLlaveCompuesta().getcClase()+"&cParametro="+temp.getLlaveCompuesta().getcParametro()+">Eliminar</a></td>");
 						out.print("</tr>");
 					}
 				%>

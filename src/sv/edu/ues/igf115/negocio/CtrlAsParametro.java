@@ -56,4 +56,12 @@ public class CtrlAsParametro {
 	public List<AsParametro> daListaAsParametro(){
 		return asParametroDAO.daListAsParametro();
 	}
+	
+	public boolean actualizarAsParametro(AsParametroPKDetalle llaveCompuesta, String dParametro, String dTipoParametro,
+			String cUsuario, Date fIngreso){
+		AsParametro nuevoRegistro=new AsParametro(llaveCompuesta, dParametro, dTipoParametro,
+				 cUsuario, fIngreso);
+		asParametroDAO.crearAsParametro(nuevoRegistro);
+		return true;
+	}
 }

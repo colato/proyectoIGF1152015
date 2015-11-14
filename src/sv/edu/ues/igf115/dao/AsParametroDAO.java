@@ -25,7 +25,7 @@ public class AsParametroDAO {
 		//3.Obtener la transacción
 		Transaction tx=session.beginTransaction();
 		//4.Guarda el objeto
-		session.save(asParametro);
+		session.saveOrUpdate(asParametro);
 		//5.Guarda los cambios
 		tx.commit();
 		session.flush();
