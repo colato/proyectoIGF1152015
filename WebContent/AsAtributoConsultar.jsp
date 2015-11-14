@@ -91,9 +91,14 @@
 				<table class="table table-striped">
 					<thead>
 				      <tr>
-				        <th>cAplicativo</th>
-				        <th>dAplicativo</th>
-				        <th>FIngreso</th>
+				        <th>cClase</th>
+				        <th>cAtributo</th>
+				        <th>cMetodo</th>
+				        <th>dAtributo</th>
+				        <th>dTipoDatoAtributo</th>
+				        <th>cUsuario</th>
+				        <th>cTipoAtributo</th>
+				        <th>fIngreso</th>
 				        <th>Editar</th>
 				        <th>Eliminar</th>
 				      </tr>
@@ -105,6 +110,11 @@
 						out.print("<tr>");
 						out.print("<td>"+asAtributo.getLlaveCompuesta().getcClase()+"</td>");
 						out.print("<td>"+asAtributo.getLlaveCompuesta().getcAtributo()+"</td>");
+						out.print("<td>"+asAtributo.getcMetodo()+"</td>");
+						out.print("<td>"+asAtributo.getdAtributo()+"</td>");
+						out.print("<td>"+asAtributo.getdTipoDatoAtributo()+"</td>");
+						out.print("<td>"+asAtributo.getcUsuario()+"</td>");
+						out.print("<td>"+asAtributo.getcTipoAtributo()+"</td>");
 						out.print("<td>"+formato.format(asAtributo.getfIngreso())+"</td>");
 						out.print("<td><a href=/proyectoIGF1152015/TbAplicativoActualizar.jsp?cAplicativo="+asAtributo.getLlaveCompuesta().getcAtributo()+">Editar</a></td>");
 						out.print("<td><a href=/proyectoIGF1152015/TbAplicativoEliminar.jsp?cAplicativo="+asAtributo.getLlaveCompuesta().getcAtributo()+">Eliminar</a></td>");

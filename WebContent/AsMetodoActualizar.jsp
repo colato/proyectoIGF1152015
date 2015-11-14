@@ -391,8 +391,8 @@
 					<label for="cTipoMetodo">Tipo de Método</label>
 				 	<select class="form-control" name="cTipoMetodo">
 					  <%for (TbTipoMetodo temp : listaTbTipoMetodo){
-						  if(temp.getcTipoMetodo()==asMetodo.getcTipoMetodo().getcTipoMetodo())
-							  	out.print("<option value="+temp.getcTipoMetodo()+">"+temp.getDTipoMetodo()+"</option>");
+						  if(temp.getcTipoMetodo().equals(asMetodo.getcTipoMetodo().getcTipoMetodo()))
+							  	out.print("<option value="+temp.getcTipoMetodo()+" selected>"+temp.getDTipoMetodo()+"</option>");
 						  else
 						  		out.print("<option value="+temp.getcTipoMetodo()+">"+temp.getDTipoMetodo()+"</option>");
 					  }%>
@@ -402,7 +402,10 @@
 					<label for="cClase">Correlativo de Clase</label>
 				 	<select class="form-control" name="cClase">
 					  <%for (AsClase temp : listaClases){
-						  out.print("<option value="+temp.getCClase()+">"+temp.getDClase()+"</option>");
+						  if(temp.getCClase()==asMetodo.getcClaseRelacion().getCClase())
+							  	out.print("<option value="+temp.getCClase()+" selected>"+temp.getDClase()+"</option>"); 
+						  else
+						  		out.print("<option value="+temp.getCClase()+">"+temp.getDClase()+"</option>");
 					  }%>
 					</select>
 				</div>
