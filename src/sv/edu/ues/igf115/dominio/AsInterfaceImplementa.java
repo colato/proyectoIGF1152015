@@ -24,11 +24,11 @@ public class AsInterfaceImplementa implements Serializable {
  @Column(name="c_interface_implementa")
   private int c_interface_implementa;
  @JoinColumn(name="c_interface_hijo")
- @ManyToOne(fetch=FetchType.LAZY)
+ @ManyToOne(fetch=FetchType.EAGER)
   
   private AsInterface c_interface_hijo;
  @JoinColumn(name="c_interface_padre")
-  @ManyToOne(fetch=FetchType.LAZY)
+  @ManyToOne(fetch=FetchType.EAGER)
   
   private AsInterface c_interface_padre;
   
@@ -63,9 +63,5 @@ public AsInterface getC_interface_padre() {
 public void setC_interface_padre(AsInterface  c_interface_padre) {
 	this.c_interface_padre = c_interface_padre;
 }
-  
-  
-  
-  
-	
+
 }
