@@ -5,14 +5,14 @@
 <%@ page import="java.util.*" %>
 <%@ page import="java.text.SimpleDateFormat"%>
 <%
-	String dClase=request.getParameter("dClase");
+     int cClase=Integer.parseInt(request.getParameter("cClase"));
 	CtrlAsClase ctrlAsClase = new CtrlAsClase();
-	AsClase asClase = ctrlAsClase.daAsClaseByNombre(dClase);
+	AsClase asClase = ctrlAsClase.daAsClaseById(cClase);
 	
 	String mensaje;
 	
     if(asClase!=null){
-    	String cClase = String.valueOf(asClase.getCClase());
+    	
     	String dClaseS = asClase.getDClase();
     	
     	
@@ -20,7 +20,7 @@
     	
     }
     else
-    	mensaje="Falló la elimacion del registro, el registro no existe.";
+    	mensaje="Falló la Consulta del registro, el registro no existe.";
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

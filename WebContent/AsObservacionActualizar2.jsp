@@ -12,6 +12,14 @@
 	List<AsMetodo> listAsMetodo = ctrlAsMetodo.daListaAsMetodos(); %>\
 <% CtrlAsParametro ctrlAsParametro = new CtrlAsParametro();
 	List<AsParametro> listAsParametro = ctrlAsParametro.daListaAsParametro(); %>
+<%  int cObservacion = Integer.parseInt(request.getParameter("cObservacion"));
+	CtrlAsObservacion ctrlasObservacion= new CtrlAsObservacion();
+	AsObservacion asobservacion = ctrlasObservacion.daAsObservacionById(cObservacion);
+	String dObservacion = asobservacion.getdObservacion();
+	String cUsuario = asobservacion.getcUsuario();
+	String fIngreso = String.valueOf(asobservacion.getfIngreso());
+	String bActivo = String.valueOf(asobservacion.getbActivo());
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -63,41 +71,41 @@
         <!-- /#page-content-wrapper -->
 				<ol class="breadcrumb">
 		  <li><a href="index.html">Inicio</a></li>
-		  <li class=active><a href="AsObservacionInsert.jsp">Crear Observacion</a></li>
+		  <li class=active><a href="AsObservacionIndex.jsp">Observacion Index</a></li>
 		</ol>
 		
-		 <h3 class="page-header">Registrar Nueva Observacion</h3>
+		 <h3 class="page-header">Actualizar Nueva Observacion</h3>
         <div class="row">
             
             <div class="container col-xs-1 col-sm-4 col-md-4"></div>
 
             <div class="container col-xs-10 col-sm-4 col-md-4 form1">
-                <form role="form" method="post" action="AsObservacionCrear.jsp">
+                <form role="form" method="post" action="AsObservacionActualizar.jsp">
                     <div class="form-group">
                         <label for="cObservacion">Observacion ID:</label>
-                        <input type="text" class="form-control" id="cObservacion" name="cObservacion">
+                        <input type="text" class="form-control" id="cObservacion" name="cObservacion" value="<%=cObservacion%>">
                     </div>
                     <div class="form-group">
                         <label for="dObservacion">Nombre Observacion:</label>
-                        <input type="text" class="form-control" id="dObservacion" name="dObservacion">
+                        <input type="text" class="form-control" id="dObservacion" name="dObservacion" value="<%=dObservacion %>">
                     </div>
                     <div class="form-group">
                         <label for="cUsuario">Usuario nombre:</label>
-                        <input type="text" class="form-control" id="cUsuario" name="cUsuario">
+                        <input type="text" class="form-control" id="cUsuario" name="cUsuario" value="<%=cUsuario%>">
                     </div>
                     <div class="form-group">
                         <label for="fIngreso">Fecha de Ingreso:</label>
-                        <input type="date" class="form-control" id="fIngreso" name="fIngreso">
+                        <input type="date" class="form-control" id="fIngreso" name="fIngreso" value="<%=fIngreso%>">
                     </div>
                     <div class="form-group">
                         <label for="bActivo">Activo:</label>
-                        <input type="number" class="form-control" id="bActivo" name="bActivo">
+                        <input type="number" class="form-control" id="bActivo" name="bActivo" value="<%=bActivo%>">
                     </div>
                     <div class="form-group">
                         <label for="cAtributo">Atributo ID:</label>
                         <select name="cAtributo">
                         	<%for(AsAtributo asAtributo: listAsAtributo){ %>
-                        	<option value="cAtributoID""><%=asAtributo.getLlaveCompuesta().getcAtributo() %></option>
+                        	<option value="cAtributo""><%=asAtributo.getLlaveCompuesta().getcAtributo() %></option>
                         	<%} %>
                         </select>
                         

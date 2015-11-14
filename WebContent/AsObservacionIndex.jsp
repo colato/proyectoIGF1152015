@@ -62,7 +62,7 @@
 		  <li class="active">As Observacion </li>
 		</ol>
 		<div class="page-header"><h3>As Observacion</h3>
-		<a class="btn btn-primary" href="AsObservacionInsert.jsp" role="submit">Crear nuevo AsObservacion</a>
+		<a class="btn btn-primary" href="AsObservacionInsert.jsp" role="submit">Crear AsObservacion</a>
 		</div>
 		<div>
 				<table class="table table-striped">

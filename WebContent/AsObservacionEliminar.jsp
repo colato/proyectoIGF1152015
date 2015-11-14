@@ -7,6 +7,10 @@
 <%
 	int cObservacion=Integer.parseInt(request.getParameter("cObservacion"));
 	CtrlAsObservacion ctrlAsObservacion = new CtrlAsObservacion();
+	AsObservacion asObservacion = new AsObservacion();
+	asObservacion=ctrlAsObservacion.daAsObservacionById(cObservacion);
+	String dObservacion = asObservacion.getdObservacion();
+	String fIngreso =String.valueOf(asObservacion.getfIngreso());
 	boolean resultado = ctrlAsObservacion.borrarObservacion(cObservacion);
 	
 	String mensaje;
@@ -16,8 +20,8 @@
     	
     	
     	
-    	
-    	mensaje="Registro clase ID:"+cObservacion+"fue eliminado con éxito";
+    	mensaje="Registro clase ID:"+cObservacion+" con nombre:" +dObservacion+ 
+    			"y con fecha de ingreso"+fIngreso+"fue eliminado con éxito";
     	
     }
     else
