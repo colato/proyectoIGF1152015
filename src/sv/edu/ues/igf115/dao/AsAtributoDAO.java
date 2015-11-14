@@ -49,11 +49,12 @@ public class AsAtributoDAO {
 		}
 	}
 	
-	public AsAtributo daAsAtributoById(Integer asAtributo){
+	public AsAtributo daAsAtributoById(AsAtributoPKDetalle asAtributoPKDetalle){
 		sesion = sessionFactory.openSession();
 		Query query = sesion.getNamedQuery("daAsAtributoById");
 		
-		query.setInteger("cAtributo", asAtributo);
+		query.setInteger("cClase", asAtributoPKDetalle.getcClase());
+		query.setInteger("cAtributo", asAtributoPKDetalle.getcAtributo());
 		
 		AsAtributo resultado = (AsAtributo) query.uniqueResult();
 		
