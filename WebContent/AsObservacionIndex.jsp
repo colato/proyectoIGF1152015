@@ -96,7 +96,7 @@
 						out.print("<td>"+asObervacion.getAsMetodo().getdMetodo() +"</td>");
 						out.print("<td>"+asObervacion.getAsParametro().getdParametro() +"</td>");
 						out.print("<td><a href=/proyectoIGF1152015/AsObservacionConsultar.jsp?cObservacion="+asObervacion.getCObservacion()+">Ver</a></td>");
-						out.print("<td><a href=/proyectoIGF1152015/AsObservacionActualizar.jsp?cObservacion="+asObervacion.getCObservacion()+">Editar</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsObservacionActualizar2.jsp?cObservacion="+asObervacion.getCObservacion()+">Editar</a></td>");
 						out.print("<td><a href=/proyectoIGF1152015/AsObservacionEliminar.jsp?cObservacion="+asObervacion.getCObservacion()+">Eliminar</a></td>");
 						out.print("</tr>");
 					}

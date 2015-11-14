@@ -33,19 +33,19 @@ public class AsClase implements Serializable{
 	
 	
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="asclase")
+	@OneToMany(cascade=CascadeType.ALL,  mappedBy="asclase")
     private List<AsClaseInterface> listaAsClaseInterface;
     
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="cClaseRelacion")
+	@OneToMany(cascade=CascadeType.ALL,  mappedBy="cClaseRelacion")
 	private List<AsMetodo> listaAsMetodo;
 	
-    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="asClase")
+    @OneToMany(cascade=CascadeType.ALL,  mappedBy="asClase")
     private List<AsAtributo> listaAsAtributo;
     
-    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="asClase")
+    @OneToMany(cascade=CascadeType.ALL,  mappedBy="asClase")
     private List<AsObservacion> listaAsObservacion;
     
-    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY,mappedBy = "asClasep")
+    @OneToMany(cascade=CascadeType.ALL, mappedBy = "asClasep")
     private List<AsClase> listaAsClase;
     
     @JoinColumn(name="c_tipo_clase")
@@ -56,7 +56,7 @@ public class AsClase implements Serializable{
     private TbAplicativo tbAplicativo;
     
     @JoinColumn(name="c_clase_padre",referencedColumnName="c_clase")
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne
     private AsClase asClasep;
 
  

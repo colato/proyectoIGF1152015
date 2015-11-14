@@ -60,7 +60,7 @@ public  AsObservacion() {
    }
    
    
-   @ManyToOne(fetch=FetchType.LAZY)
+   @ManyToOne
    @JoinColumns( { 
        @JoinColumn(name="c_clase", referencedColumnName="c_clase",insertable=false,updatable=false), 
        @JoinColumn(name="c_metodo", referencedColumnName="c_metodo",insertable=false,updatable=false) } )
@@ -73,7 +73,7 @@ public  AsObservacion() {
        this.asMetodo = asMetodo;
    }
    
-   @ManyToOne(fetch=FetchType.LAZY)
+   @ManyToOne
    @JoinColumns( { 
        @JoinColumn(name="c_clase", referencedColumnName="c_clase",insertable=false,updatable=false), 
        @JoinColumn(name="c_atributo", referencedColumnName="c_atributo",insertable=false,updatable=false) } )
@@ -85,7 +85,7 @@ public  AsObservacion() {
        this.asAtributo = asAtributo;
    }
     
-   @ManyToOne(fetch=FetchType.LAZY)
+   @ManyToOne
    @JoinColumns( { 
        @JoinColumn(name="c_clase", referencedColumnName="c_clase",insertable=false,updatable=false), 
        @JoinColumn(name="c_metodo", referencedColumnName="c_metodo",insertable=false,updatable=false), 
@@ -100,7 +100,7 @@ public  AsObservacion() {
    
    
        
-   @ManyToOne(fetch=FetchType.LAZY)
+   @ManyToOne
    @JoinColumn(name="c_clase",referencedColumnName="c_clase",insertable=false,updatable=false)
    public AsClase getAsClase() {
        return this.asClase;
