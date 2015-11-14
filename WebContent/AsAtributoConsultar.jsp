@@ -15,12 +15,19 @@
 	aapkd.setcClase(Integer.parseInt(cClase));
 	AsAtributo asAtributo = ctrlAsAtributo.daAsAtributoById(aapkd);
 	
+	//int cClase, int cAtributo, int cMetodo, String dAtributo, String dTipoDatoAtributo, 
+	//String cUsuario, Date fIngreso, String cTipoAtributo
 	DateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
 	String mensaje;
 	if(asAtributo!=null){
 		mensaje="c_Clase: "+ asAtributo.getLlaveCompuesta().getcClase()+ "<br>"+
-		        "d_Atributo: "+tbAplicativo.getdAplicativo()+"<br>"+
-				"f_ingreso: "+tbAplicativo.getfIngreso().toString();
+		        "c_Atributo: "+asAtributo.getLlaveCompuesta().getcAtributo()+"<br>"+
+		        "f_ingreso: "+asAtributo.getcMetodo().toString()+"<br>"+
+		        "f_ingreso: "+asAtributo.getdAtributo().toString()+"<br>"+
+		        "f_ingreso: "+asAtributo.getdTipoDatoAtributo().toString()+"<br>"+
+		        "f_ingreso: "+asAtributo.getcUsuario()+"<br>"+
+		        "f_ingreso: "+asAtributo.getcTipoAtributo().toString()+"<br>"+
+				"f_ingreso: "+asAtributo.getfIngreso().toString();
 	}
 	else
 		mensaje="No se encontró el registro.";
@@ -358,11 +365,11 @@
 				    <tbody>
 				<% 
 						out.print("<tr>");
-						out.print("<td>"+tbAplicativo.getcAplicativo()+"</td>");
-						out.print("<td>"+tbAplicativo.getdAplicativo()+"</td>");
-						out.print("<td>"+formato.format(tbAplicativo.getfIngreso())+"</td>");
-						out.print("<td><a href=/proyectoIGF1152015/TbAplicativoActualizar.jsp?cAplicativo="+tbAplicativo.getcAplicativo()+">Editar</a></td>");
-						out.print("<td><a href=/proyectoIGF1152015/TbAplicativoEliminar.jsp?cAplicativo="+tbAplicativo.getcAplicativo()+">Eliminar</a></td>");
+						out.print("<td>"+asAtributo.getLlaveCompuesta().getcClase()+"</td>");
+						out.print("<td>"+asAtributo.getLlaveCompuesta().getcAtributo()+"</td>");
+						out.print("<td>"+formato.format(asAtributo.getfIngreso())+"</td>");
+						out.print("<td><a href=/proyectoIGF1152015/TbAplicativoActualizar.jsp?cAplicativo="+asAtributo.getLlaveCompuesta().getcAtributo()+">Editar</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/TbAplicativoEliminar.jsp?cAplicativo="+asAtributo.getLlaveCompuesta().getcAtributo()+">Eliminar</a></td>");
 						out.print("</tr>");
 				%>
 				</tbody>
