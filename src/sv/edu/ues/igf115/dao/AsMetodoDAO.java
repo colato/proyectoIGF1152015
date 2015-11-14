@@ -43,7 +43,8 @@ public class AsMetodoDAO {
 		
 		//ejecutar la query
 		AsMetodo resultado=(AsMetodo)query.uniqueResult();
-		
+		session.flush();
+		session.close();
 		if(resultado!=null){
 			return resultado;
 		}
