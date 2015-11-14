@@ -100,6 +100,8 @@
 				    </thead>
 				    <tbody>
 				<% 
+					//int cClase, int cAtributo, int cMetodo, String dAtributo, String dTipoDatoAtributo, 
+					//String cUsuario, Date fIngreso, String cTipoAtributo
 						out.print("<tr>");
 						out.print("<td>"+asAtributo.getLlaveCompuesta().getcClase()+"</td>");
 						out.print("<td>"+asAtributo.getLlaveCompuesta().getcAtributo()+"</td>");

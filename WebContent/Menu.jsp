@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+
 <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                     <a href="index.jsp">
