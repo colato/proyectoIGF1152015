@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.Cascade;
+
 @Entity
 @Table(name="AS_parametro", catalog="modelo_proyecto", schema="")
 @NamedQueries({
@@ -61,7 +63,7 @@ public class AsParametro implements Serializable{
 
 	//--------------------------------------------------
 	
-	@ManyToOne(cascade = CascadeType.ALL,fetch=FetchType.LAZY)
+	@ManyToOne()
 	@JoinColumns({
 		@JoinColumn(name="c_metodo",referencedColumnName="c_metodo",insertable=false,updatable=false),
 		@JoinColumn(name="c_clase",referencedColumnName="c_clase",insertable=false,updatable=false)
@@ -77,7 +79,7 @@ public class AsParametro implements Serializable{
 	//--------------------------------------------------
 
 	//Revisar logica de esta relacion
-	@ManyToOne(cascade = CascadeType.ALL,fetch=FetchType.LAZY)
+	@ManyToOne()
 	@JoinColumn(name="c_clase",referencedColumnName="c_clase",insertable=false,updatable=false)
 	public AsClase getcClase() {
 		return cClase;
