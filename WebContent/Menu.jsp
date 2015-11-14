@@ -7,62 +7,62 @@
                 </li>
                 <li role="presentation">
 					<a href="AsAtributoIndex.jsp">
-					  Atributo <span class="caret"></span>
+					  Atributo
 					</a>
 				</li>
 				<li role="presentation">
 					<a href="AsClaseIndex.jsp">
-					  Clase <span class="caret"></span>
+					  Clase 
 					</a>
 				</li>
 				<li role="presentation">
 					<a href="AsClaseInterfaceIndex.jsp">
-					  Clase Interface <span class="caret"></span>
+					  Clase Interface
 					</a>
 				</li>
 				<li role="presentation">
 					<a href="AsInterfaceIndex.jsp">
-					  Interface <span class="caret"></span>
+					  Interface 
 					</a>
 				</li>
 				<li role="presentation">
 					<a href="AsInterfaceImplementaIndex.jsp">
-					  Interface Implementa <span class="caret"></span>
+					  Interface Implementa 
 					</a>
 				</li>
 				<li role="presentation">
 					<a href="AsMetodoIndex.jsp">
-					  Método <span class="caret"></span>
+					  Método
 					</a>
 				</li>
 				<li role="presentation">
 					<a href="AsObservacionIndex.jsp">
-					  Observación <span class="caret"></span>
+					  Observación 
 					</a>
 				</li>
 				<li role="presentation">
 					<a href="AsParametroIndex.jsp">
-					  Parámetro <span class="caret"></span>
+					  Parámetro 
 					</a>
 				</li>
 				<li role="presentation">
 					<a href="TbAplicativoIndex.jsp">
-					  Aplicativo <span class="caret"></span>
+					  Aplicativo 
 					</a>
 				</li>
 				<li role="presentation">
 					<a href="TbTipoAtributoIndex.jsp">
-					  Tipo Atributo <span class="caret"></span>
+					  Tipo Atributo 
 					</a>
 				</li>
 				<li role="presentation">
 					<a href="TbTipoClaseIndex.jsp">
-					  Tipo Clase <span class="caret"></span>
+					  Tipo Clase 
 					</a>
 				</li>
 				<li role="presentation">
 					<a href="TbTipoMetodoIndex.jsp">
-					  Tipo Método <span class="caret"></span>
+					  Tipo Método 
 					</a>
 				</li>
             </ul>

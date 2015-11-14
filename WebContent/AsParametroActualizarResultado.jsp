@@ -1,16 +1,43 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="sv.edu.ues.igf115.negocio.CtrlAsParametro" %>
-<%@ page import="sv.edu.ues.igf115.dominio.AsParametro" %>
-<%@ page import="java.util.List" %>
+<%@ page import="sv.edu.ues.igf115.dominio.AsParametroPKDetalle" %>
 <%@ page import="java.text.SimpleDateFormat"%>
-<%@ page import="java.text.DateFormat"%>
-
-<%  CtrlAsParametro ctrlAsParametro=new CtrlAsParametro();
-	List<AsParametro> listaAsParametro=ctrlAsParametro.daListaAsParametro();
-	//DateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+<%@ page import="java.util.Date"%>
+<%
+	String cClaseS=request.getParameter("cClase");
+	Integer cClase=Integer.parseInt(cClaseS);
+	String cMetodoS=request.getParameter("cMetodo");
+	Integer cMetodo=Integer.parseInt(cMetodoS);
+	String cParametroS=request.getParameter("cParametro");
+	Integer cParametro=Integer.parseInt(cParametroS);
+	
+	AsParametroPKDetalle llaveCompuesta=new AsParametroPKDetalle();
+	llaveCompuesta.setcClase(cClase);
+	llaveCompuesta.setcMetodo(cMetodo);
+	llaveCompuesta.setcParametro(cParametro);
+	
+	String dParametro=request.getParameter("dParametro");
+	String dTipoParametro=request.getParameter("dTipoParametro");
+	String cUsuario=request.getParameter("cUsuario");
+	
+	String fIngresoS=request.getParameter("fIngreso");
+	SimpleDateFormat formato = new SimpleDateFormat("yyyy-mm-dd");
+    Date fIngreso = formato.parse(fIngresoS);
+    
+    CtrlAsParametro ctrlAsParametro=new CtrlAsParametro();
+    boolean resultado=ctrlAsParametro.actualizarAsParametro(llaveCompuesta, dParametro, dTipoParametro, cUsuario, fIngreso);
+    String mensaje;
+    String clase;
+    if(resultado){
+    	mensaje="Registro actualizado con éxito";
+    	clase="alert alert-success";
+    }
+    else{
+    	mensaje="Falló la actualización del registro.";
+    	clase="alert alert-danger";
+    }
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -20,7 +47,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Métodos | Proyecto IGF115 2015</title>
+    <title>Método Crear Resultado| Proyecto IGF115 2015</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -57,45 +84,14 @@
         <!-- /#page-content-wrapper -->
 		<ol class="breadcrumb">
 		  <li><a href="index.html">Inicio</a></li>
-		  <li class="active">Parametros</li>
+		  <li><a href="AsParametroIndex.jsp">Parámetros</a></li>
+		  <li><a href="AsParametroCrear.jsp">Crear Parámetro</a></li>
+		  <li class="active">Resultado</li>
 		</ol>
-		<div class="page-header"><h3>Parametros</h3>
-		<a class="btn btn-primary" href="AsParametroCrear.jsp" role="submit">Crear nuevo</a>
-		</div>
-		<div>
-				<table class="table table-striped">
-					<thead>
-				      <tr>
-				      	<th>cParametro</th>
-				       	<th>cMetodo</th>
-				        <th>Clase</th>
-				        <th>Parametro</th>
-				        <th>dTipoParametro</th>
-				        <th>cUsuario</th>
-				        <th>fIngreso</th>
-				        <th>Editar</th>
-				        <th>Eliminar</th>
-				      </tr>
-				    </thead>
-				    <tbody>
-				<% 
-					for (AsParametro temp : listaAsParametro) {
-						out.print("<tr>");
-						out.print("<td>"+temp.getLlaveCompuesta().getcParametro()+"</td>");
-						out.print("<td>"+temp.getLlaveCompuesta().getcClase()+"</td>");
-						out.print("<td>"+temp.getLlaveCompuesta().getcClase()+"</td>");
-						out.print("<td>"+temp.getdParametro()+"</td>");
-						out.print("<td>"+temp.getdTipoParametro()+"</td>");
-						out.print("<td>"+temp.getcUsuario()+"</td>");
-						out.print("<td>"+temp.getfIngreso()+"</td>");
-						out.print("<td><a href=/proyectoIGF1152015/AsParametroActualizar.jsp?cMetodo="+temp.getLlaveCompuesta().getcMetodo()+"&cClase="+temp.getLlaveCompuesta().getcClase()+"&cParametro="+temp.getLlaveCompuesta().getcParametro()+">Editar</a></td>");
-						out.print("<td><a href=/proyectoIGF1152015/AsParametroEliminar.jsp?cMetodo=cMetodo="+temp.getLlaveCompuesta().getcMetodo()+"&cClase="+temp.getLlaveCompuesta().getcClase()+"&cParametro="+temp.getLlaveCompuesta().getcParametro()+">Eliminar</a></td>");
-						out.print("</tr>");
-					}
-				%>
-				</tbody>
-				</table>
-			</div>
+		<h3 class="page-header">Resultado:</h3>
+		<div class="<%=clase %> alert-dismissible" role="alert"><%=mensaje %>
+		
+		
     </div>
     <!-- /#wrapper -->
 
