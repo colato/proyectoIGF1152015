@@ -97,7 +97,7 @@
                         <label for="cAtributo">Atributo ID:</label>
                         <select name="cAtributo">
                         	<%for(AsAtributo asAtributo: listAsAtributo){ %>
-                        	<option value="cAtributoID""><%=asAtributo.getLlaveCompuesta().getcAtributo() %></option>
+                        	<option value="cAtributo""><%=asAtributo.getLlaveCompuesta().getcAtributo() %></option>
                         	<%} %>
                         </select>
                         

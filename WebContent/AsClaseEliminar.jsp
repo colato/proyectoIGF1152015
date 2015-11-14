@@ -5,10 +5,10 @@
 <%@ page import="java.util.*" %>
 <%@ page import="java.text.SimpleDateFormat"%>
 <%
-	String dClase=request.getParameter("dClase");
+	int cClase= Integer.parseInt(request.getParameter("cClase"));
 	CtrlAsClase ctrlAsClase = new CtrlAsClase();
-	AsClase asClase= ctrlAsClase.daAsClaseByNombre(dClase);
-	int cClase = asClase.getCClase();
+	AsClase asClase= ctrlAsClase.daAsClaseById(cClase);
+	
 	boolean resultado = ctrlAsClase.eliminarAsClase(cClase);
 	
 	String mensaje;
@@ -17,7 +17,7 @@
     	
     	
     	
-    	mensaje="Registro clase con nombre:"+dClase+" fue eliminado con éxito";
+    	mensaje="Registro clase con ID:"+cClase+" fue eliminado con éxito";
     	
     }
     else

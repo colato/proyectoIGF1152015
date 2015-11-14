@@ -14,13 +14,12 @@ import sv.edu.ues.igf115.dominio.TbTipoMetodo;
 public class CtrlAsParametro {
 	AsParametroDAO asParametroDAO=new AsParametroDAO();
 	
-	public boolean crearAsParametro(AsParametroPKDetalle llaveCompuesta, AsMetodo cMetodo,
-			AsClase cClase, String dParametro, String dTipoParametro,
+	public boolean crearAsParametro(AsParametroPKDetalle llaveCompuesta, String dParametro, String dTipoParametro,
 			String cUsuario, Date fIngreso){
 		
 		if(asParametroDAO.obtenerAsParametro(llaveCompuesta)==null){
 			//No existe registro con esa llave.
-			AsParametro nuevoRegistro=new AsParametro(llaveCompuesta,cMetodo,cClase,dParametro,dTipoParametro,
+			AsParametro nuevoRegistro=new AsParametro(llaveCompuesta,dParametro,dTipoParametro,
 					cUsuario,fIngreso);
 			asParametroDAO.crearAsParametro(nuevoRegistro);
 			return true;

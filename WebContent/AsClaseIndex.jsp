@@ -1,3 +1,4 @@
+<%@page import="javax.persistence.TemporalType"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="sv.edu.ues.igf115.negocio.CtrlAsClase" %>
@@ -51,10 +52,10 @@
 <!-- /#page-content-wrapper -->
 		<ol class="breadcrumb">
 		  <li><a href="index.html">Inicio</a></li>
-		  <li class="active">As Observacion </li>
+		  <li class="active">As Clase </li>
 		</ol>
-		<div class="page-header"><h3>As Observacion</h3>
-		<a class="btn btn-primary" href="AsClaseIndex.jsp" role="submit">Consultar AsObservacion</a>
+		<div class="page-header"><h3>As Clase</h3>
+		<a class="btn btn-primary" href="AsClaseConsultar.html" role="submit">Consultar AsClase</a>
 		</div>
 		<div>
 				<table class="table table-striped">
@@ -67,7 +68,6 @@
 				        <th>fIngreso</th>
 				        <th>cAplicativo</th>
 				        <th>cClasePadre</th>
-				  
 				        <th>Detalles</th>
 				        <th>Editar</th>
 				        <th>Eliminar</th>
@@ -75,19 +75,22 @@
 				    </thead>
 				    <tbody>
 				<% 
-					for (AsClase asclase  : listaAsClase) {
+					for (AsClase asclase  : listaAsClase	) {
 						out.print("<tr>");
 						out.print("<td>"+asclase.getCClase()+"</td>");
 						out.print("<td>"+asclase.getDClase()+"</td>");
 						out.print("<td>"+asclase.getTbTipoClase().getcTipoClase()+"</td>");
 						out.print("<td>"+asclase.getCUsuario()+"</td>");
-						out.print("<td>"+asclase.getFIngreso()+"</td>");
+						out.print("<td>"+String.valueOf(asclase.getFIngreso())+"</td>");
 						out.print("<td>"+asclase.getTbAplicativo().getcAplicativo() +"</td>");
-						out.print("<td>"+asclase.getAsClasep().getCClase() +"</td>");
-						
-						out.print("<td><a href=/proyectoIGF1152015/AsClaseConsultar.jsp?dClase="+asclase.getCClase()+">Ver</a></td>");
+						if(asclase.getAsClasep()!=null){
+							out.print("<td>"+asclase.getAsClasep().getAsClasep() +"</td>");
+						}
+						else{
+						out.print("<td></td>");}
+						out.print("<td><a href=/proyectoIGF1152015/AsClaseConsultar.jsp?cClase="+asclase.getCClase()+">Ver</a></td>");
 						out.print("<td><a href=/proyectoIGF1152015/AsClaseActualizar2.jsp?dClase="+asclase.getCClase()+">Editar</a></td>");
-						out.print("<td><a href=/proyectoIGF1152015/AsClaseEliminar.jsp?dClase="+asclase.getCClase()+">Eliminar</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsClaseEliminar.jsp?cClase="+asclase.getCClase()+">Eliminar</a></td>");
 						out.print("</tr>");
 					}
 				%>

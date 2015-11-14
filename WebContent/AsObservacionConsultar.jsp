@@ -13,11 +13,13 @@
 	
     if(asObservacion != null){
     	
+    	String dObservacion = asObservacion.getdObservacion();
+    	String fIngreso =String.valueOf(asObservacion.getfIngreso());
     	
     	
     	
-    	
-    	mensaje="Registro Observacion ID:"+cObservacion+ "fue consultado con éxito";
+    	mensaje="Registro Observacion ID: "+cObservacion+ " con nombre:" +dObservacion+" con fecha de ingreso:"
+    			+fIngreso+"fue consultado con éxito";
     	
     }
     else

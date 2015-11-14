@@ -1,33 +1,43 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="sv.edu.ues.igf115.dominio.*" %>  
-<%@ page import="sv.edu.ues.igf115.negocio.*" %>
-<%@ page import="java.util.*" %>
+<%@ page import="sv.edu.ues.igf115.negocio.CtrlAsParametro" %>
+<%@ page import="sv.edu.ues.igf115.dominio.AsParametroPKDetalle" %>
 <%@ page import="java.text.SimpleDateFormat"%>
+<%@ page import="java.util.Date"%>
 <%
-	int cObservacion=Integer.parseInt(request.getParameter("cObservacion"));
-	CtrlAsObservacion ctrlAsObservacion = new CtrlAsObservacion();
-	AsObservacion asObservacion = new AsObservacion();
-	asObservacion=ctrlAsObservacion.daAsObservacionById(cObservacion);
-	String dObservacion = asObservacion.getdObservacion();
-	String fIngreso =String.valueOf(asObservacion.getfIngreso());
-	boolean resultado = ctrlAsObservacion.borrarObservacion(cObservacion);
+	String cClaseS=request.getParameter("cClase");
+	Integer cClase=Integer.parseInt(cClaseS);
+	String cMetodoS=request.getParameter("cMetodo");
+	Integer cMetodo=Integer.parseInt(cMetodoS);
+	String cParametroS=request.getParameter("cParametro");
+	Integer cParametro=Integer.parseInt(cParametroS);
 	
-	String mensaje;
+	AsParametroPKDetalle llaveCompuesta=new AsParametroPKDetalle();
+	llaveCompuesta.setcClase(cClase);
+	llaveCompuesta.setcMetodo(cMetodo);
+	llaveCompuesta.setcParametro(cParametro);
 	
+	String dParametro=request.getParameter("dParametro");
+	String dTipoParametro=request.getParameter("dTipoParametro");
+	String cUsuario=request.getParameter("cUsuario");
+	
+	String fIngresoS=request.getParameter("fIngreso");
+	SimpleDateFormat formato = new SimpleDateFormat("yyyy-mm-dd");
+    Date fIngreso = formato.parse(fIngresoS);
+    
+    CtrlAsParametro ctrlAsParametro=new CtrlAsParametro();
+    boolean resultado=ctrlAsParametro.crearAsParametro(llaveCompuesta, dParametro, dTipoParametro, cUsuario, fIngreso);
+    String mensaje;
+    String clase;
     if(resultado){
-    	
-    	
-    	
-    	
-    	mensaje="Registro clase ID:"+cObservacion+" con nombre:" +dObservacion+ 
-    			"y con fecha de ingreso"+fIngreso+"fue eliminado con éxito";
-    	
+    	mensaje="Registro creado con éxito";
+    	clase="alert alert-success";
     }
-    else
-    	mensaje="Falló la eliminacion del registro, el registro no existe.";
+    else{
+    	mensaje="Falló la creación del registro, por duplicación de llaves.";
+    	clase="alert alert-danger";
+    }
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -37,7 +47,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>TbTipoMétodo Crear Resultado| Proyecto IGF115 2015</title>
+    <title>Método Crear Resultado| Proyecto IGF115 2015</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -74,11 +84,12 @@
         <!-- /#page-content-wrapper -->
 		<ol class="breadcrumb">
 		  <li><a href="index.html">Inicio</a></li>
-		  <li><a href="AsObservacionEliminar.html">Consultar Observacion</a></li>
+		  <li><a href="AsParametroIndex.jsp">Parámetros</a></li>
+		  <li><a href="AsParametroCrear.jsp">Crear Parámetro</a></li>
 		  <li class="active">Resultado</li>
 		</ol>
-		<h3>Resultado:</h3>
-		<%=mensaje %>
+		<h3 class="page-header">Resultado:</h3>
+		<div class="<%=clase %> alert-dismissible" role="alert"><%=mensaje %>
 		
 		
     </div>
@@ -97,4 +108,4 @@
         $("#wrapper").toggleClass("toggled");
     });
     </script>
-</html>html>l>
+</html>
