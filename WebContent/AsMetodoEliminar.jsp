@@ -1,27 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="sv.edu.ues.igf115.dominio.*" %>  
-<%@ page import="sv.edu.ues.igf115.negocio.*" %>
-<%@ page import="java.util.*" %>
+<%@ page import="sv.edu.ues.igf115.negocio.CtrlAsMetodo" %>
+<%@ page import="sv.edu.ues.igf115.dominio.AsMetodo" %>
 <%@ page import="java.text.SimpleDateFormat"%>
+<%@ page import="java.text.DateFormat"%>
+<%@ page import="sv.edu.ues.igf115.dominio.AsMetodoPKDetalle" %>
 <%
-	int cObservacion=Integer.parseInt(request.getParameter("cObservacion"));
-	CtrlAsObservacion ctrlAsObservacion = new CtrlAsObservacion();
-	AsObservacion asObservacion = ctrlAsObservacion.daAsObservacionById(cObservacion);
+	Integer cMetodo=Integer.parseInt(request.getParameter("cMetodo"));
+	Integer cClase=Integer.parseInt(request.getParameter("cClase"));
+	AsMetodoPKDetalle llaveCompuesta=new AsMetodoPKDetalle();
+	llaveCompuesta.setcClase(cClase);
+	llaveCompuesta.setcMetodo(cMetodo);
 	
-	String mensaje;
+	CtrlAsMetodo ctrlAsMetodo=new CtrlAsMetodo();
+	boolean resultado=ctrlAsMetodo.borrarAsMetodo(llaveCompuesta);
 	
-    if(asObservacion!=null){
-    	String dObservacion = asObservacion.getdObservacion();
-    	
-    	ctrlAsObservacion.borrarObservacion(dObservacion);
-    	
-    	
-    	mensaje="Registro clase ID:"+cObservacion+ "con nombre:"+dObservacion+" fue eliminado con éxito";
-    	
-    }
-    else
-    	mensaje="Falló la elimacion del registro, el registro no existe.";
+	 String mensaje;
+	    String clase;
+	    if(resultado){
+	    	mensaje="Registro eliminado con éxito";
+	    	clase="alert alert-success";
+	    }
+	    else{
+	    	mensaje="Falló la creación del registro, por duplicación de llaves.";
+	    	clase="alert alert-danger";
+	    }
+	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -352,11 +356,15 @@
         <!-- /#page-content-wrapper -->
 		<ol class="breadcrumb">
 		  <li><a href="index.html">Inicio</a></li>
-		  <li><a href="AsObservacionEliminar.html">Eliminar Observacion</a></li>
+		  <li><a href="AsMetodoIndex.jsp">Métodos</a></li>
+		  <li><a href="AsMetodoCrear.jsp">Crear Metodo</a></li>
 		  <li class="active">Resultado</li>
 		</ol>
-		<h3>Resultado:</h3>
-		<%=mensaje %>
+		<h3 class="page-header">Resultado:</h3>
+		<div class="<%=clase %> alert-dismissible" role="alert"><%=mensaje %>
+		
+		
+    </div>
 		
 		
     </div>
