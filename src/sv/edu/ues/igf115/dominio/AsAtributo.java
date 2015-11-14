@@ -9,14 +9,16 @@ import java.util.*;
 @NamedQueries({
 	@NamedQuery(name="AsAtributo.findAll", query=" FROM AsAtributo as a"),
 	@NamedQuery(name="daAsAtributoById", query =" FROM AsAtributo " +
-			"as a WHERE a.llaveCompuesta.cClase = :cClase and a.llaveCompuesta.cAtributo = :cAtributo"),
+			"as a WHERE a.cAtributo = :cAtributo"),
 	@NamedQuery(name="AsAtributo.findByFIngreso", query =" FROM AsAtributo as " +
 			"a WHERE a.fIngreso = :fIngreso")})
 
 public class AsAtributo implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	protected AsAtributoPKDetalle llaveCompuesta;
+	//protected AsAtributoPKDetalle llaveCompuesta;
+	private Integer cClase;
+	private Integer cAtributo;
 	private Integer cMetodo;
 	private String dAtributo;
 	private String dTipoDatoAtributo;
@@ -31,10 +33,12 @@ public class AsAtributo implements Serializable {
 		
 	}
 	
-	public AsAtributo(AsAtributoPKDetalle llaveCompuesta, int cMetodo, String dAtributo, String dTipoDatoAtributo, 
+	public AsAtributo(Integer cClase, Integer cAtributo, int cMetodo, String dAtributo, String dTipoDatoAtributo, 
 			String cUsuario, Date fIngreso, String cTipoAtributo, AsClase asClase, TbTipoAtributo tbTipoAtributo,
 			AsMetodo asMetodo){
-		this.llaveCompuesta = llaveCompuesta; 
+		//this.llaveCompuesta = llaveCompuesta; 
+		this.cClase = cClase;
+		this.cAtributo = cAtributo;
 		this.cMetodo = cMetodo;
 		this.dAtributo = dAtributo;
 		this.dTipoDatoAtributo = dTipoDatoAtributo;
@@ -46,17 +50,26 @@ public class AsAtributo implements Serializable {
 		this.asMetodo = asMetodo;
 	}
 	
-	@EmbeddedId
-	public AsAtributoPKDetalle getLlaveCompuesta(){
-		return llaveCompuesta;
-	}
-	
-	public void setLlaveCompuesta(AsAtributoPKDetalle llaveCompuesta){
-		this.llaveCompuesta = llaveCompuesta;
+	@Column(name="c_clase")
+	public Integer getcClase() {
+		return cClase;
 	}
 
+	public void setcClase(Integer cClase) {
+		this.cClase = cClase;
+	}
 	
-	@Basic(blank=false)
+	@Id
+	@Column(name="c_atributo")
+	public Integer getcAtributo() {
+		return cAtributo;
+	}
+
+	public void setcAtributo(Integer cAtributo) {
+		this.cAtributo = cAtributo;
+	}
+
+	@Basic(optional=false)
 	@Column(name="c_metodo")
 	public Integer getcMetodo(){
 		return cMetodo;

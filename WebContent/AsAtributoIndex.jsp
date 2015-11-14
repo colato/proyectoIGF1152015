@@ -341,17 +341,17 @@
 				<% 
 					for (AsAtributo temp : listaAsAtributo) {
 						out.print("<tr>");
-						out.print("<td>"+temp.getLlaveCompuesta().getcClase()+"</td>");
-						out.print("<td>"+temp.getLlaveCompuesta().getcAtributo()+"</td>");
+						out.print("<td>"+temp.getcClase()+"</td>");
+						out.print("<td>"+temp.getcAtributo()+"</td>");
 						out.print("<td>"+temp.getcMetodo()+"</td>");
 						out.print("<td>"+temp.getdAtributo()+"</td>");
 						out.print("<td>"+temp.getdTipoDatoAtributo()+"</td>");
 						out.print("<td>"+temp.getcUsuario()+"</td>");
 						out.print("<td>"+temp.getfIngreso()+"</td>");
 						out.print("<td>"+temp.getcTipoAtributo()+"</td>");
-						out.print("<td><a href=/proyectoIGF1152015/AsAtributoConsultar.jsp?cClase="+temp.getLlaveCompuesta().getcClase()+"&cAtributo="+temp.getLlaveCompuesta().getcAtributo()+">Ver</a></td>");
-						out.print("<td><a href=/proyectoIGF1152015/AsAtributoActualizar.jsp?cClase="+temp.getLlaveCompuesta().getcClase()+"&cAtributo="+temp.getLlaveCompuesta().getcAtributo()+">Editar</a></td>");
-						out.print("<td><a href=/proyectoIGF1152015/AsAtributoEliminar.jsp?cClase="+temp.getLlaveCompuesta().getcClase()+"&cAtributo="+temp.getLlaveCompuesta().getcAtributo()+">Eliminar</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsAtributoConsultar.jsp?cClase="+temp.getcClase()+"&cAtributo="+temp.getcAtributo()+">Ver</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsAtributoActualizar.jsp?cClase="+temp.getcClase()+"&cAtributo="+temp.getcAtributo()+">Editar</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsAtributoEliminar.jsp?cClase="+temp.getcClase()+"&cAtributo="+temp.getcAtributo()+">Eliminar</a></td>");
 						out.print("</tr>");
 					}
 				%>
