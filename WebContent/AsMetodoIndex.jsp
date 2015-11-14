@@ -324,14 +324,14 @@
 		  <li class="active">Métodos</li>
 		</ol>
 		<div class="page-header"><h3>Métodos</h3>
-		<a class="btn btn-primary" href="AsMetodoCrear.jsp" role="submit">Crear nuevo tipo</a>
+		<a class="btn btn-primary" href="AsMetodoCrear.jsp" role="submit">Crear nuevo</a>
 		</div>
 		<div>
 				<table class="table table-striped">
 					<thead>
 				      <tr>
+				       	<th>cMetodo</th>
 				        <th>cClase</th>
-				        <th>cMetodo</th>
 				        <th>dMetodo</th>
 				        <th>Ver</th>
 				        <th>Editar</th>
@@ -342,8 +342,8 @@
 				<% 
 					for (AsMetodo temp : listaAsMetodo) {
 						out.print("<tr>");
-						out.print("<td>"+temp.getLlaveCompuesta().getcClase()+"</td>");
 						out.print("<td>"+temp.getLlaveCompuesta().getcMetodo()+"</td>");
+						out.print("<td>"+temp.getLlaveCompuesta().getcClase()+"</td>");
 						out.print("<td>"+temp.getdMetodo()+"</td>");
 						out.print("<td><a href=/proyectoIGF1152015/TbTipoMetodoConsultar.jsp?cTipoMetodo="+temp.getcTipoMetodo()+">Ver</a></td>");
 						out.print("<td><a href=/proyectoIGF1152015/TbTipoMetodoActualizar.jsp?cTipoMetodo="+temp.getcTipoMetodo()+">Editar</a></td>");
