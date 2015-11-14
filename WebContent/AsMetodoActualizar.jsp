@@ -28,6 +28,12 @@
 	AsMetodo asMetodo=ctrlAsMetodo.verAsMetodo(llaveCompuesta);	
 	DateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
 	String fecha=formato.format(asMetodo.getfIngreso());
+	
+	String casilla;
+	if(asMetodo.getbActivo()==0)
+		casilla="";
+	else
+		casilla="checked";
 %>
 <html>
 
@@ -354,14 +360,14 @@
 		<div class="row">
 		
 		<div class="container col-xs-1 col-sm-4 col-md-4">
-			<form role="form" name="crearAsClase" method="get" action="AsMetodoCrearResultado.jsp">
+			<form role="form" name="crearAsClase" method="get" action="AsMetodoActualizarResultado.jsp">
 				
 				<div class="form-group">
 					<label for="cMetodo">Correlativo de Método</label>
-				 	<input type="number" id="cMetodo" class="form-control" name="cMetodo" value="<%=asMetodo.getLlaveCompuesta().getcMetodo() %>" disabled>
+				 	<input type="number" id="cMetodo" class="form-control" name="Metodo" value="<%=asMetodo.getLlaveCompuesta().getcMetodo() %>" disabled>
 				</div>
 				<div class="form-group">
-				 	<input type="number" id="cMetodo" class="hidden" name="cMetodo" value="<%=asMetodo.getLlaveCompuesta().getcMetodo() %>" disabled>
+				 	<input type="number" id="cMetodo" class="hidden" name="cMetodo" value="<%=asMetodo.getLlaveCompuesta().getcMetodo() %>">
 				</div>
 				<div class="form-group">
 					<label for="dMetodo">Descripción de Método</label>
@@ -411,9 +417,13 @@
 				</div>
 				<div class="form-group">
 				 	<label for="bActivo">Activo</label>
-						<input type="checkbox" name="bActivo" id="bActivo">
+				 		<% if(asMetodo.getbActivo()==0)
+								out.print("<input type='checkbox' name='bActivo' id='bActivo'>");
+				 			else
+				 				out.print("<input type='checkbox' name='bActivo' id='bActivo' checked>");
+				 		%>
 				</div>
-				<input type="submit" class="btn btn-primary" value="Crear">
+				<input type="submit" class="btn btn-primary" value="Actualizar">
 				
 			</form>
 		</div>

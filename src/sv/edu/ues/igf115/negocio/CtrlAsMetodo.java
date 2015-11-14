@@ -56,4 +56,12 @@ public class CtrlAsMetodo {
 	public List<AsMetodo> daListaAsMetodos(){
 		return asMetodoDAO.daListaMetodos();
 	}
+	
+	public boolean actualizarAsMetodo(AsMetodoPKDetalle llaveCompuesta, String dMetodo, String dTipoRetorno,
+	String cUsuario, Date fIngreso, int bActivo, int nParametros,String cTipoMetodo){
+		AsMetodo nuevoRegistro=new AsMetodo(llaveCompuesta,dMetodo,
+		dTipoRetorno,cUsuario,fIngreso,bActivo,nParametros,cTipoMetodo);
+		asMetodoDAO.crearMetodo(nuevoRegistro);
+		return true;
+	}
 }

@@ -21,7 +21,7 @@ public class AsMetodoDAO {
 		//3.Obtener la transacción
 		Transaction tx=session.beginTransaction();
 		//4.Guarda el objeto
-		session.save(asMetodo);
+		session.saveOrUpdate(asMetodo);
 		//5.Guarda los cambios
 		tx.commit();
 		session.flush();
