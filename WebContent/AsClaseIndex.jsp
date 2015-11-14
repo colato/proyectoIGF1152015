@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>As Clase Registros | Colato | Proyecto IGF115 2015</title>
+<title>As Clase Registros | Steven | Proyecto IGF115 2015</title>
 
 <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -54,7 +54,7 @@
 		  <li class="active">As Observacion </li>
 		</ol>
 		<div class="page-header"><h3>As Observacion</h3>
-		<a class="btn btn-primary" href="AsObservacionInsert.jsp" role="submit">Crear nuevo AsObservacion</a>
+		<a class="btn btn-primary" href="AsClaseIndex.jsp" role="submit">Consultar AsObservacion</a>
 		</div>
 		<div>
 				<table class="table table-striped">
@@ -79,14 +79,14 @@
 						out.print("<tr>");
 						out.print("<td>"+asclase.getCClase()+"</td>");
 						out.print("<td>"+asclase.getDClase()+"</td>");
-						out.print("<td>"+asclase.getTbTipoClase()+"</td>");
+						out.print("<td>"+asclase.getTbTipoClase().getcTipoClase()+"</td>");
 						out.print("<td>"+asclase.getCUsuario()+"</td>");
 						out.print("<td>"+asclase.getFIngreso()+"</td>");
-						out.print("<td>"+asclase.getTbAplicativo() +"</td>");
+						out.print("<td>"+asclase.getTbAplicativo().getcAplicativo() +"</td>");
 						out.print("<td>"+asclase.getAsClasep().getCClase() +"</td>");
 						
 						out.print("<td><a href=/proyectoIGF1152015/AsClaseConsultar.jsp?dClase="+asclase.getCClase()+">Ver</a></td>");
-						out.print("<td><a href=/proyectoIGF1152015/AsClaseActualizar.jsp?dClase="+asclase.getCClase()+">Editar</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsClaseActualizar2.jsp?dClase="+asclase.getCClase()+">Editar</a></td>");
 						out.print("<td><a href=/proyectoIGF1152015/AsClaseEliminar.jsp?dClase="+asclase.getCClase()+">Eliminar</a></td>");
 						out.print("</tr>");
 					}

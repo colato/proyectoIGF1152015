@@ -49,7 +49,7 @@ public class AsClase implements Serializable{
     private List<AsClase> listaAsClase;
     
     @JoinColumn(name="c_tipo_clase")
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne
     private TbTipoClase tbTipoClase;
     @JoinColumn(name="c_aplicativo")
     @ManyToOne
