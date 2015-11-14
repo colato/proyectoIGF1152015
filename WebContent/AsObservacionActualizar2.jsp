@@ -1,20 +1,30 @@
-<%@page import="javax.persistence.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="sv.edu.ues.igf115.negocio.CtrlTbAplicativo" %>
-<%@ page import="sv.edu.ues.igf115.dominio.TbAplicativo" %>
+    <%@ page import="sv.edu.ues.igf115.dao.*" %>
+    <%@ page import="sv.edu.ues.igf115.dominio.*" %>
+<%@ page import="sv.edu.ues.igf115.negocio.*" %>
 <%@ page import="java.util.*" %>
-<%
-	CtrlTbAplicativo ctrlTbAplicativo = new CtrlTbAplicativo();
-	List<TbAplicativo> listaTbAplicativo = ctrlTbAplicativo.daTbAplicativos();
-%>
+<% CtrlAsClase ctrlAsClase = new CtrlAsClase();
+	List<AsClase> listAsClase = ctrlAsClase.daClases(); %>
+<% CtrlAsAtributo ctrlAsAtributo = new CtrlAsAtributo();
+	List<AsAtributo> listAsAtributo = ctrlAsAtributo.daAsAtributos();  %>
+<% CtrlAsMetodo ctrlAsMetodo = new CtrlAsMetodo();
+	List<AsMetodo> listAsMetodo = ctrlAsMetodo.daListaAsMetodos(); %>\
+<% CtrlAsParametro ctrlAsParametro = new CtrlAsParametro();
+	List<AsParametro> listAsParametro = ctrlAsParametro.daListaAsParametro(); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>TbAplicativo Registros | Colato | Proyecto IGF115 2015</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<!-- Bootstrap Core CSS -->
+    <title>AsObservacion Actualiza|Steven| Proyecto IGF115 2015</title>
+
+    <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
@@ -26,9 +36,12 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
 </head>
+
 <body>
-<div id="wrapper">
+
+    <div id="wrapper">
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
@@ -66,7 +79,7 @@
 					  Clase <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="AsClaseCrear.html">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+						<li><a href="CrearAsClase.jsp">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
 								Crear
 							</a>
 						</li>
@@ -181,7 +194,7 @@
 					  Observación <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="AsObservacionCrear.html">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+						<li><a href="AsObservacionInsert.jsp">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
 								Crear
 							</a>
 						</li>
@@ -292,9 +305,27 @@
 					</ul>
 				</li>
 				<li role="presentation" class="dropdown">
-					<a href="TbTipoMetodoIndex.jsp">
-					  Tipo Método
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+					  Tipo Método <span class="caret"></span>
 					</a>
+					<ul class="dropdown-menu">
+						<li><a href="TbTipoMetodoCrear.html">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+								Crear
+							</a>
+						</li>
+						<li><a href="TbTipoMetodoActualizar.html">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
+								Actualizar
+							</a>
+						</li>
+						<li><a href="TbTipoMetodoConsultar.html">  <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span>
+								Consultar
+							</a>
+						</li>
+						<li><a href="TbTipoMetodoEliminar.html">  <span class="glyphicon glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+								Eliminar
+							</a>
+						</li>
+					</ul>
 				</li>
             </ul>
         </div>
@@ -312,41 +343,84 @@
             </div>
         </div>
         <!-- /#page-content-wrapper -->
-		<ol class="breadcrumb">
+				<ol class="breadcrumb">
 		  <li><a href="index.html">Inicio</a></li>
-		  <li class="active">Tb Aplicativo</li>
+		  <li class=active><a href="AsObservacionInsert.jsp">Crear Observacion</a></li>
 		</ol>
-		<div class="page-header"><h3>Tb Aplicativo</h3>
-		<a class="btn btn-primary" href="TbAplicativoCrear.html" role="submit">Crear nuevo TbAplicativo</a>
-		</div>
-		<div>
-				<table class="table table-striped">
-					<thead>
-				      <tr>
-				        <th>cAplicativo</th>
-				        <th>dAplicativo</th>
-				        <th>fIngreso</th>
-				        <th>Detalles</th>
-				        <th>Editar</th>
-				        <th>Eliminar</th>
-				      </tr>
-				    </thead>
-				    <tbody>
-				<% 
-					for (TbAplicativo temp : listaTbAplicativo) {
-						out.print("<tr>");
-						out.print("<td>"+temp.getcAplicativo()+"</td>");
-						out.print("<td>"+temp.getdAplicativo()+"</td>");
-						out.print("<td>"+temp.getfIngreso()+"</td>");
-						out.print("<td><a href=/proyectoIGF1152015/TbAplicativoConsultar.jsp?cAplicativo="+temp.getcAplicativo()+">Ver</a></td>");
-						out.print("<td><a href=/proyectoIGF1152015/TbAplicativoActualizar.jsp?cAplicativo="+temp.getcAplicativo()+">Editar</a></td>");
-						out.print("<td><a href=/proyectoIGF1152015/TbAplicativoEliminar.jsp?cAplicativo="+temp.getcAplicativo()+">Eliminar</a></td>");
-						out.print("</tr>");
-					}
-				%>
-				</tbody>
-				</table>
-			</div>
+		
+		 <h3 class="page-header">Registrar Nueva Observacion</h3>
+        <div class="row">
+            
+            <div class="container col-xs-1 col-sm-4 col-md-4"></div>
+
+            <div class="container col-xs-10 col-sm-4 col-md-4 form1">
+                <form role="form" method="post" action="AsObservacionCrear.jsp">
+                    <div class="form-group">
+                        <label for="cObservacion">Observacion ID:</label>
+                        <input type="text" class="form-control" id="cObservacion" name="cObservacion">
+                    </div>
+                    <div class="form-group">
+                        <label for="dObservacion">Nombre Observacion:</label>
+                        <input type="text" class="form-control" id="dObservacion" name="dObservacion">
+                    </div>
+                    <div class="form-group">
+                        <label for="cUsuario">Usuario nombre:</label>
+                        <input type="text" class="form-control" id="cUsuario" name="cUsuario">
+                    </div>
+                    <div class="form-group">
+                        <label for="fIngreso">Fecha de Ingreso:</label>
+                        <input type="date" class="form-control" id="fIngreso" name="fIngreso">
+                    </div>
+                    <div class="form-group">
+                        <label for="bActivo">Activo:</label>
+                        <input type="number" class="form-control" id="bActivo" name="bActivo">
+                    </div>
+                    <div class="form-group">
+                        <label for="cAtributo">Atributo ID:</label>
+                        <select name="cAtributo">
+                        	<%for(AsAtributo asAtributo: listAsAtributo){ %>
+                        	<option value="cAtributoID""><%=asAtributo.getLlaveCompuesta().getcAtributo() %></option>
+                        	<%} %>
+                        </select>
+                        
+                    </div>   
+                    
+                    <div class="form-group">
+                        <label for="cClase">Tipo Clase ID:</label>
+                        <select name="cClase">
+                        	<%for (AsClase asClase: listAsClase) { %>
+                        	<option value="cClase"><%=asClase.getCClase() %></option>
+                        	<%} %>
+                        </select>
+                        
+                    </div>  
+                    <div class="form-group">
+                        <label for="cMetodo">Metodo ID:</label>
+                        <select name="cMetodo">
+                        	 <%for (AsMetodo asMetodo : listAsMetodo) { %> 
+                        	<option value="cMetodo"><%=asMetodo.getLlaveCompuesta().getcMetodo() %></option>
+                        	<%} %>
+                        </select>
+                        
+                    </div>  
+                    <div class="form-group">
+                        <label for="cParametro">Parametro ID:</label>
+                        <select name="cParametro">
+                        	 <%for (AsParametro asParametro : listAsParametro) { %> 
+                        	<option value="cParametro"><%=asParametro.getLlaveCompuesta().getcParametro() %></option>
+                        	<%} %>
+                        </select>
+                        
+                    </div>                          
+                    <button type="submit" class="btn btn-primary"> Actualizar</button>
+                    <div class="point"><br/>.</div>
+                </form>
+
+            </div>
+            <div class="container col-xs-1 col-sm-4 col-md-4"></div>
+        </div>
+		
+		
     </div>
     <!-- /#wrapper -->
 
@@ -363,5 +437,7 @@
         $("#wrapper").toggleClass("toggled");
     });
     </script>
+
 </body>
+
 </html>

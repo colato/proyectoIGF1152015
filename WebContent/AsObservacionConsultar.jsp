@@ -67,7 +67,7 @@
 								Crear
 							</a>
 						</li>
-						<li><a href="AsAtributoActualizar.html">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
+						<li><a href="AsAtributoActualizar2.jsp">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
 								Actualizar
 							</a>
 						</li>
@@ -86,11 +86,11 @@
 					  Clase <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="AsClaseCrear.html">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+						<li><a href="CrearAsClase.jsp">  <span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
 								Crear
 							</a>
 						</li>
-						<li><a href="AsClaseActualizar.html">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
+						<li><a href="AsClaseActualizar2.jsp">  <span class="glyphicon glyphicon glyphicon-refresh" aria-hidden="true"></span>
 								Actualizar
 							</a>
 						</li>
