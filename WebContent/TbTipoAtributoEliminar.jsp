@@ -66,7 +66,7 @@
         <!-- /#page-content-wrapper -->
 				<ol class="breadcrumb">
 		  <li><a href="index.html">Inicio</a></li>
-		  <li><a href="TbTipoAtributosIndex.jsp">Tipos de Atributos</a></li>
+		  <li><a href="TbTipoAtributoIndex.jsp">Tipos de Atributos</a></li>
 		  <li class=active>Eliminar Tipo Atributo</a></li>
 		</ol>
 		

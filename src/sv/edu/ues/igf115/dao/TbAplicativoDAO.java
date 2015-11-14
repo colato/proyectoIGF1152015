@@ -57,6 +57,8 @@ public class TbAplicativoDAO {
 		
 		TbAplicativo resultado = (TbAplicativo) query.uniqueResult();
 		
+		sesion.close();
+		
 		if(resultado != null){
 			return resultado;
 		}

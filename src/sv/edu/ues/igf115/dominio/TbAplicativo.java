@@ -24,11 +24,10 @@ public class TbAplicativo implements Serializable{
 		//Usado por hibernate
 	}
 	
-	public TbAplicativo(String cAplicativo, String dAplicativo, Date fIngreso, List<AsClase> asClase){
+	public TbAplicativo(String cAplicativo, String dAplicativo, Date fIngreso){
 		this.cAplicativo = cAplicativo;
 		this.dAplicativo = dAplicativo;
 		this.fIngreso = fIngreso;
-		this.asClaseList = asClase;
 	}
 	
 	@Id //Indica la llave primaria de la tabla
