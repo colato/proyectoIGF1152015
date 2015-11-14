@@ -32,7 +32,7 @@ public class TbTipoClase implements Serializable{
 
 	//@OneToMany: (1:N) Asocia varios campos con uno 
 	    //Multiplicidad 1:N Una Tipo Clase tiene muchas clases
-	 @OneToMany(cascade = CascadeType.ALL,fetch=FetchType.LAZY, mappedBy = "tbTipoClase" )
+	 @OneToMany(cascade = CascadeType.ALL, mappedBy = "tbTipoClase" )
      private List<AsClase> asClaseList = new ArrayList<AsClase> ();
 
      //private List<AsClase> asClaseList;
