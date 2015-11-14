@@ -354,9 +354,17 @@
 					<label for="dTipoRetorno">Descripción de tipo de retorno</label>
 				 	<textarea class="form-control" maxlength="50" name="dTipoRetorno" id="dTipoRetorno"></textarea>
 				 </div>
+				<div class="form-group">
+				 	<label for="cUsuario">Usuario</label>
+						<input type="text" class="form-control" maxlength="30" name="cUsuario" id="cUsuario">
+				</div>
 				 <div class="form-group">
 				 	<label for="fIngreso">Fecha de Ingreso</label>
 						<input type="date" class="form-control" name="fIngreso" id="fIngreso">
+				</div>
+				<div class="form-group">
+				 	<label for="cUsuario">Usuario</label>
+						<input type="integer" class="form-control" maxlength="30" name="cUsuario" id="cUsuario">
 				</div>
 				<input type="submit" class="btn btn-primary" value="Crear">
 				
