@@ -345,9 +345,9 @@
 						out.print("<td>"+temp.getLlaveCompuesta().getcMetodo()+"</td>");
 						out.print("<td>"+temp.getLlaveCompuesta().getcClase()+"</td>");
 						out.print("<td>"+temp.getdMetodo()+"</td>");
-						out.print("<td><a href=/proyectoIGF1152015/TbTipoMetodoConsultar.jsp?cTipoMetodo="+temp.getcTipoMetodo()+">Ver</a></td>");
-						out.print("<td><a href=/proyectoIGF1152015/TbTipoMetodoActualizar.jsp?cTipoMetodo="+temp.getcTipoMetodo()+">Editar</a></td>");
-						out.print("<td><a href=/proyectoIGF1152015/TbTipoMetodoEliminar.jsp?cTipoMetodo="+temp.getcTipoMetodo()+">Eliminar</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsMetodoConsultar.jsp?cMetodo="+temp.getLlaveCompuesta().getcMetodo()+"&cClase="+temp.getLlaveCompuesta().getcClase()+">Ver</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsMetodoActualizar.jsp?cMetodo="+temp.getLlaveCompuesta().getcMetodo()+"&cClase="+temp.getLlaveCompuesta().getcClase()+">Editar</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsMetodoEliminar.jsp?cMetodo="+temp.getLlaveCompuesta().getcMetodo()+"&cClase="+temp.getLlaveCompuesta().getcClase()+">Eliminar</a></td>");
 						out.print("</tr>");
 					}
 				%>
