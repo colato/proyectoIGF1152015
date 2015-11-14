@@ -116,8 +116,8 @@
 						out.print("<td>"+asAtributo.getcUsuario()+"</td>");
 						out.print("<td>"+asAtributo.getcTipoAtributo()+"</td>");
 						out.print("<td>"+formato.format(asAtributo.getfIngreso())+"</td>");
-						out.print("<td><a href=/proyectoIGF1152015/TbAplicativoActualizar.jsp?cAplicativo="+asAtributo.getLlaveCompuesta().getcAtributo()+">Editar</a></td>");
-						out.print("<td><a href=/proyectoIGF1152015/TbAplicativoEliminar.jsp?cAplicativo="+asAtributo.getLlaveCompuesta().getcAtributo()+">Eliminar</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsAtributoActualizar.jsp?cClase="+asAtributo.getLlaveCompuesta().getcClase()+"&cAtributo="+asAtributo.getLlaveCompuesta().getcAtributo()+">Editar</a></td>");
+						out.print("<td><a href=/proyectoIGF1152015/AsAtributoEliminar.jsp?cClase="+asAtributo.getLlaveCompuesta().getcClase()+"&cAtributo="+asAtributo.getLlaveCompuesta().getcAtributo()+">Eliminar</a></td>");
 						out.print("</tr>");
 				%>
 				</tbody>
