@@ -1,10 +1,189 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>AsAtributo Crear | Proyecto IGF115 2015</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
+
 <body>
 
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="index.jsp">
+                        Inicio
+                    </a>
+                </li>
+                <li role="presentation">
+					<a href="AsAtributoIndex.jsp">
+					  Atributo <span class="caret"></span>
+					</a>
+				</li>
+				<li role="presentation">
+					<a href="AsClaseIndex.jsp">
+					  Clase <span class="caret"></span>
+					</a>
+				</li>
+				<li role="presentation">
+					<a href="AsClaseInterfaceIndex.jsp">
+					  Clase Interface <span class="caret"></span>
+					</a>
+				</li>
+				<li role="presentation">
+					<a href="AsInterfaceIndex.jsp">
+					  Interface <span class="caret"></span>
+					</a>
+				</li>
+				<li role="presentation">
+					<a href="AsInterfaceImplementaIndex.jsp">
+					  Interface Implementa <span class="caret"></span>
+					</a>
+				</li>
+				<li role="presentation">
+					<a href="AsMetodoIndex.jsp">
+					  Método <span class="caret"></span>
+					</a>
+				</li>
+				<li role="presentation">
+					<a href="AsObservacionIndex.jsp">
+					  Observación <span class="caret"></span>
+					</a>
+				</li>
+				<li role="presentation">
+					<a href="AsParametroIndex.jsp">
+					  Parámetro <span class="caret"></span>
+					</a>
+				</li>
+				<li role="presentation">
+					<a href="AsAtributoIndex.jsp">
+					  Atributo <span class="caret"></span>
+					</a>
+				</li>
+				<li role="presentation">
+					<a href="TbTipoAtributoIndex.jsp">
+					  Tipo Atributo <span class="caret"></span>
+					</a>
+				</li>
+				<li role="presentation">
+					<a href="TbTipoClaseIndex.jsp">
+					  Tipo Clase <span class="caret"></span>
+					</a>
+				</li>
+				<li role="presentation">
+					<a href="TbTipoMetodoIndex.jsp">
+					  Tipo Método <span class="caret"></span>
+					</a>
+				</li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+		<div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <a href="#menu-toggle" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></a>
+						<!--AcÃ¡ el contenido-->
+					</div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+		<ol class="breadcrumb">
+		  <li><a href="index.jsp">Inicio</a></li>
+		  <li><a href="AsAtributoIndex.jsp">Atributos</a></li>
+		  <li class=active>Crear Atributo</a></li>
+		</ol>
+		
+		<div class="page-header"><h3>Formulario de creación de Atributos</h3></div>
+		<div class="row">
+		
+		<div class="container col-xs-1 col-sm-4 col-md-4"></div>
+		<div class="container col-xs-10 col-sm-4 col-md-4 form1">
+		<!-- AsAtributoPKDetalle llaveCompuesta (cAtributo, cClase), int cMetodo, String dAtributo, String dTipoDatoAtributo, 
+			String cUsuario, Date fIngreso, String cTipoAtributo -->
+			<form role="form" name="crearAsAtributo" method="post" action="AsAtributoCrear.jsp">
+				<div class="form-group">
+					<label for="cAtributo">Correlativo Atributo</label>
+				 	<input type="text" class="form-control" name="cAtributo" id="cAtributo" maxlength="11">
+				</div>
+				<div class="form-group">
+					<label for="cClase">Correlativo Clase</label>
+				 	<input type="text" class="form-control" name="cClase" id="cClase" maxlength="11">
+				</div>
+				<div class="form-group">
+					<label for="cMetodo">Correlativo Metodo</label>
+				 	<input type="text" class="form-control" name="cMetodo" id="cMetodo" maxlength="11">
+				</div>
+				<div class="form-group">
+					<label for="cUsuario">Correlativo Usuario</label>
+				 	<input type="text" class="form-control" name="cUsuario" id="cUsuario" maxlength="30">
+				</div>
+				<div class="form-group">
+					<label for="cTipoAtributo">Correlativo Tipo Atributo</label>
+				 	<input type="text" class="form-control" name="cTipoAtributo" id="cTipoAtributo" maxlength="1">
+				</div>
+				<div class="form-group">
+					<label for="dTipoDatoAtributo">Descripción Tipo Dato Atributo</label>
+				 	<input type="text" class="form-control" name="dTipoDatoAtributo" id="dTipoDatoAtributo" maxlength="50">
+				</div>
+				<div class="form-group">
+					<label for="dAtributo">Descripción</label>
+				 	<textarea class="form-control" maxlength="50" name="dAtributo" id="dAtributo"></textarea>
+				 </div>
+				 <div class="form-group">
+				 	<label for="fIngreso">Fecha de Ingreso</label>
+						<input type="date" class="form-control" name="fIngreso" id="fIngreso">
+				</div>
+				<input type="submit" class="btn btn-primary" value="Crear">
+				
+			</form>
+		</div>
+		</div>
+		
+		
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
 </body>
+
 </html>

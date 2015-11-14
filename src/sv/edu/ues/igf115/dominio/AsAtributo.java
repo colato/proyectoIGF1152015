@@ -32,8 +32,7 @@ public class AsAtributo implements Serializable {
 	}
 	
 	public AsAtributo(AsAtributoPKDetalle llaveCompuesta, int cMetodo, String dAtributo, String dTipoDatoAtributo, 
-			String cUsuario, Date fIngreso, String cTipoAtributo, AsClase asClase, TbTipoAtributo tbTipoAtributo,
-			AsMetodo asMetodo){
+			String cUsuario, Date fIngreso, String cTipoAtributo){
 		this.llaveCompuesta = llaveCompuesta; 
 		this.cMetodo = cMetodo;
 		this.dAtributo = dAtributo;
@@ -41,9 +40,6 @@ public class AsAtributo implements Serializable {
 		this.cUsuario = cUsuario;
 		this.fIngreso = fIngreso;
 		this.cTipoAtributo = cTipoAtributo;
-		this.asClase = asClase;
-		this.tbTipoAtributo = tbTipoAtributo;
-		this.asMetodo = asMetodo;
 	}
 	
 	@EmbeddedId
