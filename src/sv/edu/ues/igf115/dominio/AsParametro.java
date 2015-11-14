@@ -39,12 +39,9 @@ public class AsParametro implements Serializable{
 		//Usado por hibernate
 	}
 
-	public AsParametro(AsParametroPKDetalle llaveCompuesta, AsMetodo cMetodo,
-			AsClase cClase, String dParametro, String dTipoParametro,
+	public AsParametro(AsParametroPKDetalle llaveCompuesta, String dParametro, String dTipoParametro,
 			String cUsuario, Date fIngreso) {
 		this.llaveCompuesta = llaveCompuesta;
-		this.cMetodo = cMetodo;
-		this.cClase = cClase;
 		this.dParametro = dParametro;
 		this.dTipoParametro = dTipoParametro;
 		this.cUsuario = cUsuario;
