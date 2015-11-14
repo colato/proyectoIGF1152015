@@ -18,7 +18,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>AsMetodo Crear | Proyecto IGF115 2015</title>
+    <title>Crear Método | Proyecto IGF115 2015</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -334,21 +334,25 @@
 		<div class="container col-xs-10 col-sm-4 col-md-4 form1">
 			<form role="form" name="crearAsClase" method="post" action="AsClaseCrearResultado.jsp">
 				<div class="form-group">
-					<label for="cClase">Correlativo tipo de metodo</label>
+					<label for="cClase">Correlativo de Clase</label>
 				 	<select class="form-control" name="cClase">
 					  <%for (AsClase temp : listaClases){
 						  out.print("<option value="+temp.getCClase()+">"+temp.getCClase()+"</option>");
 					  }%>
 					</select>
-    
 				</div>
-				
-				
-				
-				
 				<div class="form-group">
-					<label for="dTipoMetodo">Descripción</label>
-				 	<textarea class="form-control" maxlength="20" name="dTipoMetodo" id="dTipoMetodo"></textarea>
+					<label for="cMetodo">Correlativo de Método</label>
+				 	<input type="text" id="cMetodo" class="form-control" name="cMetodo">
+				</div>
+				<div class="form-group">
+					<label for="dMetodo">Descripción de Método</label>
+				 	<textarea type="text" id="dMetodo" maxlength="50" class="form-control" name="dMetodo"></textarea>
+				</div>
+
+				<div class="form-group">
+					<label for="dTipoRetorno">Descripción de tipo de retorno</label>
+				 	<textarea class="form-control" maxlength="50" name="dTipoRetorno" id="dTipoRetorno"></textarea>
 				 </div>
 				 <div class="form-group">
 				 	<label for="fIngreso">Fecha de Ingreso</label>
