@@ -21,10 +21,24 @@ public class TbTipoAtributoDAO {
 		throw new HibernateException("Ocurrio un error en la capa DAO", he);
 	}
 	
-	public void guardaActualiza(TbTipoAtributo tbTipoAtributo){
+	public void guarda(TbTipoAtributo tbTipoAtributo){
 		try{
 			iniciaOperacion();
 			sesion.saveOrUpdate(tbTipoAtributo);
+			tx.commit();
+			sesion.flush();
+		}catch (HibernateException he){
+			manejaExcepcion(he);
+			throw he;
+		}finally{
+			sesion.close();
+		}
+	}
+	
+	public void actualiza(TbTipoAtributo tbTipoAtributo){
+		try{
+			iniciaOperacion();
+			sesion.update(tbTipoAtributo);
 			tx.commit();
 			sesion.flush();
 		}catch (HibernateException he){

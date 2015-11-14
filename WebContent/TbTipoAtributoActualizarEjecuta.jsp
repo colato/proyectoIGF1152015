@@ -4,17 +4,27 @@
 <%@ page import="sv.edu.ues.igf115.dominio.TbTipoAtributo" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.text.SimpleDateFormat"%>
-<%@ page import="java.text.DateFormat"%>
 <%
 	String cTipoAtributo=request.getParameter("cTipoAtributo");
+	String dTipoAtributo=request.getParameter("dTipoAtributo");
+	String fIngresoString=request.getParameter("fIngreso");
+	SimpleDateFormat formato = new SimpleDateFormat("yyyy-mm-dd");
+    Date fIngreso = formato.parse(fIngresoString);
 	CtrlTbTipoAtributo ctrlTipoAtributo=new CtrlTbTipoAtributo();
-	TbTipoAtributo tbTipoAtributo=ctrlTipoAtributo.daTbTipoAtributoById(cTipoAtributo);
-	DateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-	String fecha=formato.format(tbTipoAtributo.getfIngreso());
+	boolean resultado=ctrlTipoAtributo.modificarTbTipoAtributo(cTipoAtributo, dTipoAtributo, fIngreso);
+	String mensaje;
+	String clase;
+	if(resultado){
+	    	mensaje="Registro actualizado con éxito";
+	    	clase="alert alert-success";
+	    }
+	    else{
+	    	mensaje="Falló la actualización del registro.";
+	    	clase="alert alert-danger";
+	    }
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <meta charset="utf-8">
@@ -23,7 +33,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>TbTipoAtributo Actualizar | Proyecto IGF115 2015</title>
+    <title>TbTipoMétodo Crear Resultado| Proyecto IGF115 2015</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -37,12 +47,8 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 </head>
-
-<body>
-
-    <div id="wrapper">
+<div id="wrapper">
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
@@ -64,33 +70,12 @@
         <!-- /#page-content-wrapper -->
 		<ol class="breadcrumb">
 		  <li><a href="index.html">Inicio</a></li>
-		  <li><a href="TbTipoAtributoIndex.jsp">Tipos de Atributos</a></li>
-		  <li class=active>Actualizar Tipo Atributo</a></li>
+		  <li><a href="TbTipoAtributoIndex.jsp">Tipos de Atributo</a></li>
+		  <li><a href="TbTipoAtributoActualizar.jsp">Actualizar Tipo Atributo</a></li>
+		  <li class="active">Resultado</li>
 		</ol>
-		
-		<div class="page-header"><h3>Formulario de edición de Tipo de Atributo</h3></div>
-		<div class="row">
-		
-		<div class="container col-xs-1 col-sm-4 col-md-4"></div>
-		<div class="container col-xs-10 col-sm-4 col-md-4 form1">
-			<form role="form" name="crearTbTipoAtributo" method="post" action="TbTipoAtributoActualizarEjecuta.jsp">
-				<div class="form-group">
-					<label for="cTipoAtributo">Correlativo tipo de atributo</label>
-				 	<input type="text" class="form-control " name="cTipoAtributo" id="cTipoAtributo" value="<%=tbTipoAtributo.getcTipoAtributo()%>" disabled>
-				</div>
-				<div class="form-group">
-					<label for="dTipoAtributo">Descripción</label>
-				 	<textarea class="form-control" name="dTipoAtributo" id="dTipoAtributo"><%=tbTipoAtributo.getdTipoAtributo()%></textarea>
-				 </div>
-				 <div class="form-group">
-				 	<label for="fIngreso">Fecha de Ingreso</label>
-						<input type="date" class="form-control" name="fIngreso" id="fIngreso" value="<%=fecha %>">
-				</div>
-				<input type="submit" class="btn btn-primary" value="Actualizar">
-				
-			</form>
-		</div>
-		</div>
+		<h3 class="page-header">Resultado:</h3>
+		<div class="<%=clase %> alert-dismissible" role="alert"><%=mensaje %>
 		
 		
     </div>
@@ -109,7 +94,4 @@
         $("#wrapper").toggleClass("toggled");
     });
     </script>
-
-</body>
-
 </html>

@@ -13,7 +13,7 @@ public class CtrlTbTipoAtributo {
 		if(daoTbTipoAtributo.daTbTipoAtributoById(cTipoAtributo)==null){
 			TbTipoAtributo tbTipoAtributo = new TbTipoAtributo(cTipoAtributo, dTipoAtributo,
 					fIngreso);
-			daoTbTipoAtributo.guardaActualiza(tbTipoAtributo);
+			daoTbTipoAtributo.guarda(tbTipoAtributo);
 			return true;
 		}
 		else
@@ -30,21 +30,15 @@ public class CtrlTbTipoAtributo {
 			return false;
 	}
 	
-	public boolean modificarTbTipoAtributo(String cTipoAtributo, String dTipoAtributo, Date fIngreso,
-			List<AsAtributo> asAtributo){
+	public boolean modificarTbTipoAtributo(String cTipoAtributo, String dTipoAtributo, Date fIngreso){
 		if(daoTbTipoAtributo.daTbTipoAtributoById(cTipoAtributo)!= null){
-			if(asAtributo != null){
 				TbTipoAtributo tbTipoAtributo = daoTbTipoAtributo.daTbTipoAtributoById(cTipoAtributo);
 				
-				tbTipoAtributo.setAsAtributoList(asAtributo);
 				tbTipoAtributo.setdTipoAtributo(dTipoAtributo);
 				tbTipoAtributo.setfIngreso(fIngreso);
 				
-				daoTbTipoAtributo.guardaActualiza(tbTipoAtributo);
+				daoTbTipoAtributo.actualiza(tbTipoAtributo);
 				return true;
-			}
-			else
-				return false;
 		}
 		else
 			return false;
