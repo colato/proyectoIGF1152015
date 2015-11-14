@@ -1,12 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">-->
 <%@ page import="sv.edu.ues.igf115.negocio.CtrlAsClase" %>
 <%@ page import="sv.edu.ues.igf115.dominio.AsClase" %>
+<%@ page import="sv.edu.ues.igf115.negocio.CtrlTbTipoMetodo" %>
+<%@ page import="sv.edu.ues.igf115.dominio.TbTipoMetodo" %>
 <%@ page import="java.util.List" %>
 <% 
 	CtrlAsClase ctrlAsClase=new CtrlAsClase();
 	List<AsClase> listaClases=ctrlAsClase.daClases();
+	
+	CtrlTbTipoMetodo ctrlTbTipoMetodo=new CtrlTbTipoMetodo();
+	List<TbTipoMetodo> listaTbTipoMetodo = ctrlTbTipoMetodo.daListaTbTipoMetodo();
 %>
 <html>
 
@@ -25,6 +30,8 @@
 
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -330,20 +337,12 @@
 		<div class="page-header"><h3>Formulario de creación de Método</h3></div>
 		<div class="row">
 		
-		<div class="container col-xs-1 col-sm-4 col-md-4"></div>
-		<div class="container col-xs-10 col-sm-4 col-md-4 form1">
-			<form role="form" name="crearAsClase" method="post" action="AsClaseCrearResultado.jsp">
-				<div class="form-group">
-					<label for="cClase">Correlativo de Clase</label>
-				 	<select class="form-control" name="cClase">
-					  <%for (AsClase temp : listaClases){
-						  out.print("<option value="+temp.getCClase()+">"+temp.getCClase()+"</option>");
-					  }%>
-					</select>
-				</div>
+		<div class="container col-xs-1 col-sm-4 col-md-4">
+			<form role="form" name="crearAsClase" method="get" action="AsMetodoCrearResultado.jsp">
+				
 				<div class="form-group">
 					<label for="cMetodo">Correlativo de Método</label>
-				 	<input type="text" id="cMetodo" class="form-control" name="cMetodo">
+				 	<input type="number" id="cMetodo" class="form-control" name="cMetodo">
 				</div>
 				<div class="form-group">
 					<label for="dMetodo">Descripción de Método</label>
@@ -358,13 +357,36 @@
 				 	<label for="cUsuario">Usuario</label>
 						<input type="text" class="form-control" maxlength="30" name="cUsuario" id="cUsuario">
 				</div>
+		</div>
+		<div class="container col-xs-10 col-sm-4 col-md-4 form1">
+			
 				 <div class="form-group">
 				 	<label for="fIngreso">Fecha de Ingreso</label>
 						<input type="date" class="form-control" name="fIngreso" id="fIngreso">
 				</div>
 				<div class="form-group">
-				 	<label for="cUsuario">Usuario</label>
-						<input type="integer" class="form-control" maxlength="30" name="cUsuario" id="cUsuario">
+				 	<label for="nParametros">Número de parámetros</label>
+						<input type="number" class="form-control"  name="nParametros" id="nParametros">
+				</div>
+				<div class="form-group">
+					<label for="cTipoMetodo">Tipo de Método</label>
+				 	<select class="form-control" name="cTipoMetodo">
+					  <%for (TbTipoMetodo temp : listaTbTipoMetodo){
+						  out.print("<option value="+temp.getcTipoMetodo()+">"+temp.getDTipoMetodo()+"</option>");
+					  }%>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="cClase">Correlativo de Clase</label>
+				 	<select class="form-control" name="cClase">
+					  <%for (AsClase temp : listaClases){
+						  out.print("<option value="+temp.getCClase()+">"+temp.getDClase()+"</option>");
+					  }%>
+					</select>
+				</div>
+				<div class="form-group">
+				 	<label for="bActivo">Activo</label>
+						<input type="checkbox" name="bActivo" id="bActivo">
 				</div>
 				<input type="submit" class="btn btn-primary" value="Crear">
 				

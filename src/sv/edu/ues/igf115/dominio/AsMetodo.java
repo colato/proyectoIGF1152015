@@ -30,23 +30,22 @@ public class AsMetodo implements Serializable{
 	private Date fIngreso;
 	private int bActivo;
 	private int nParametros;
+	private String cTipoMetodoV;
 	
 	public AsMetodo(){
 		//USado por Hibernate
 	}
 	
-	public AsMetodo(AsMetodoPKDetalle llaveCompuesta, AsClase cClaseRelacion,
-			TbTipoMetodo cTipoMetodo, String dMetodo, String dTipoRetorno,
-			String cUsuario, Date fIngreso, int bActivo, int nParametros) {
+	public AsMetodo(AsMetodoPKDetalle llaveCompuesta, String dMetodo, String dTipoRetorno,
+			String cUsuario, Date fIngreso, int bActivo, int nParametros,String cTipoMetodo) {
 		this.llaveCompuesta = llaveCompuesta;
-		this.cClaseRelacion = cClaseRelacion;
-		this.cTipoMetodo = cTipoMetodo;
 		this.dMetodo = dMetodo;
 		this.dTipoRetorno = dTipoRetorno;
 		this.cUsuario = cUsuario;
 		this.fIngreso = fIngreso;
 		this.bActivo = bActivo;
 		this.nParametros = nParametros;
+		this.cTipoMetodoV=cTipoMetodo;
 	}
 
 
@@ -73,7 +72,7 @@ public class AsMetodo implements Serializable{
 	//--------------------------------------------------
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "c_tipo_metodo")
+	@JoinColumn(name = "c_tipo_metodo",referencedColumnName="c_tipo_metodo",insertable=false,updatable=false)
 	public TbTipoMetodo getcTipoMetodo() {
 		return cTipoMetodo;
 	}
@@ -145,5 +144,19 @@ public class AsMetodo implements Serializable{
 	}
 	public void setnParametros(int nParametros) {
 		this.nParametros = nParametros;
-	}	
+	}
+
+	//--------------------------------------------------
+	
+		@Basic
+		@Column(name="c_tipo_metodo")
+	public String getcTipoMetodoV() {
+		return cTipoMetodoV;
+	}
+
+	public void setcTipoMetodoV(String cTipoMetodoV) {
+		this.cTipoMetodoV = cTipoMetodoV;
+	}
+	
+	
 }

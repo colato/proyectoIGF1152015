@@ -14,14 +14,13 @@ public class CtrlAsMetodo {
 	AsMetodoDAO asMetodoDAO=new AsMetodoDAO();
 	
 	
-	public boolean crearAsMetodo(AsMetodoPKDetalle llaveCompuesta, AsClase cClaseRelacion,
-			TbTipoMetodo cTipoMetodo, String dMetodo, String dTipoRetorno,
-			String cUsuario, Date fIngreso, int bActivo, int nParametros){
+	public boolean crearAsMetodo(AsMetodoPKDetalle llaveCompuesta, String dMetodo, String dTipoRetorno,
+			String cUsuario, Date fIngreso, int bActivo, int nParametros,String cTipoMetodo){
 		
 		if(asMetodoDAO.obtenerAsMetodo(llaveCompuesta)==null){
 			//No existe registro con esa llave.
-			AsMetodo nuevoRegistro=new AsMetodo(llaveCompuesta,cClaseRelacion,cTipoMetodo,dMetodo,
-					dTipoRetorno,cUsuario,fIngreso,bActivo,nParametros);
+			AsMetodo nuevoRegistro=new AsMetodo(llaveCompuesta,dMetodo,
+					dTipoRetorno,cUsuario,fIngreso,bActivo,nParametros,cTipoMetodo);
 			asMetodoDAO.crearMetodo(nuevoRegistro);
 			return true;
 		}
