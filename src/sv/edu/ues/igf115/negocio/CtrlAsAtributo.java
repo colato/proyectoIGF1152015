@@ -9,11 +9,10 @@ public class CtrlAsAtributo {
 	private AsAtributoDAO daoAsAtributo = new AsAtributoDAO();
 	
 	public boolean crearAsAtributo(AsAtributoPKDetalle llaveCompuesta, int cMetodo, String dAtributo, String dTipoDatoAtributo, 
-			String cUsuario, Date fIngreso, String cTipoAtributo, AsClase asClase, TbTipoAtributo tbTipoAtributo,
-			AsMetodo asMetodo){
+			String cUsuario, Date fIngreso, String cTipoAtributo){
 		if (daoAsAtributo.daAsAtributoById(llaveCompuesta)== null){
 			AsAtributo asAtributo = new AsAtributo(llaveCompuesta, cMetodo, dAtributo, dTipoDatoAtributo,
-					cUsuario, fIngreso, cTipoAtributo, asClase, tbTipoAtributo, asMetodo);
+					cUsuario, fIngreso, cTipoAtributo);
 			daoAsAtributo.guardaActualiza(asAtributo);
 			return true;
 		}
@@ -32,19 +31,16 @@ public class CtrlAsAtributo {
 	}
 	
 	public boolean modificarAsAtributo(AsAtributoPKDetalle llaveCompuesta, int cMetodo, String dAtributo, String dTipoDatoAtributo, 
-			String cUsuario, Date fIngreso, String cTipoAtributo, AsClase asClase, TbTipoAtributo tbTipoAtributo,
-			AsMetodo asMetodo){
+			String cUsuario, Date fIngreso, String cTipoAtributo){
 		if(daoAsAtributo.daAsAtributoById(llaveCompuesta)!= null){
 			AsAtributo asAtributo = daoAsAtributo.daAsAtributoById(llaveCompuesta);
 			asAtributo.setLlaveCompuesta(llaveCompuesta);
-			asAtributo.setAsMetodo(asMetodo);
 			asAtributo.setcMetodo(cMetodo);
 			asAtributo.setcTipoAtributo(cTipoAtributo);
 			asAtributo.setcUsuario(cUsuario);
 			asAtributo.setdAtributo(dAtributo);
 			asAtributo.setdTipoDatoAtributo(dTipoDatoAtributo);
 			asAtributo.setfIngreso(fIngreso);
-			asAtributo.setTbTipoAtributo(tbTipoAtributo);
 			daoAsAtributo.guardaActualiza(asAtributo);
 			return true;
 		}else
